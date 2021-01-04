@@ -63,13 +63,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "laundryIroningUI:build",
-            "port": 7777
+            "browserTarget": "laundryIroningUI:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "laundryIroningUI:build:production",
-              "port": 7777
+              "browserTarget": "laundryIroningUI:build:production"
             }
           }
         },
