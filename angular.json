@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "laundryIroningUI"
+  "defaultProject": "laundryIroningUI",
+  "cli": {
+    "analytics": false
+  }
 }
