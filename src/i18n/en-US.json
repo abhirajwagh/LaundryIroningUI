@@ -1,0 +1,35 @@
+{
+  "Login": {
+    "EnterUsername": "Enter username",
+    "ENTER_VALID_USERNAME_&_PASSWORD": "Please enter valid Username and Password.",
+    "ENTER_USERNAME_&_PASSWORD": "Please enter Username and Password.",
+    "ENTER_VALID_USERNAME": "Enter Valid Username",
+    "AccessDeniedMsg": "You do not have access to the application. Please connect to site admin.",
+    "Next": "Next",
+    "JohnsonControlsInc": "© Johnson Controls, Inc. 2016-2020",
+    "LogOut": "Logout",
+    "BuildNotes":"Build Notes",
+    "SessionExpiredMeg": "Session Expired. Please login again to continue",
+    "LoginToJEMACT" :"Log in to JEMACT",
+    "LogIN" :"LOG IN",
+    "ContinueWithJEMACT" : "Continue with JEMACT",
+    "ContinueLogin" : "Continue with Auto Configurator"
+  },
+  "Register":{
+    "Register":"Register",
+    "EnterPassword": "Enter password",
+    "EnterName":"Enter name",
+    "EnterValidEmail":"Enter valid email",
+    "EnterValidMobileNo":"Enter valid mobile no.",
+    "EnterValidAddress":"Enter valid address",
+    "RegisterNow":"Register now",
+    "AlreadyHaveAnAccount":"Already have an account? ",
+    "SignIn":"Sign in",
+    "RegistrationSuccessMsg":"You have registered successfully.Please login to continue."
+  },
+
+  "CommonText":{
+    
+  }
+  
+}
