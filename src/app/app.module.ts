@@ -4,11 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { SpinnerComponentModule } from './Shared/spinner/spinner.module';
+import { UserRegistrationModule } from './UserRegistration/UserRegistration.module';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,10 @@ import { SpinnerComponentModule } from './Shared/spinner/spinner.module';
       // animate: 'rotate',
       timeOut: 5000
     }),
-    SpinnerComponentModule
+    SpinnerComponentModule,
+    UserRegistrationModule
   ],
-  providers: [],
+  providers: [TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
