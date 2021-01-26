@@ -10,7 +10,7 @@ export class UserRegistrationService {
 
 constructor(private httpService: HttpService) { }
 
-  // add equipment template
+  // add user details
   RegisterUser(UserRegistration): Observable<any> {
     const url = RegisterUrlConstant.RegisterUserUrl;
     return this.httpService.postDataText(url, UserRegistration);

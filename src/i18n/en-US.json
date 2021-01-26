@@ -6,14 +6,14 @@
     "ENTER_VALID_USERNAME": "Enter Valid Username",
     "AccessDeniedMsg": "You do not have access to the application. Please connect to site admin.",
     "Next": "Next",
-    "JohnsonControlsInc": "© Johnson Controls, Inc. 2016-2020",
     "LogOut": "Logout",
     "BuildNotes":"Build Notes",
     "SessionExpiredMeg": "Session Expired. Please login again to continue",
-    "LoginToJEMACT" :"Log in to JEMACT",
-    "LogIN" :"LOG IN",
-    "ContinueWithJEMACT" : "Continue with JEMACT",
-    "ContinueLogin" : "Continue with Auto Configurator"
+    "Login":"Login",
+    "UserName":"UserName",
+    "Password":"Password",
+    "Submit":"Submit",
+    "RegisterHere":"Register here"
   },
   "Register":{
     "Register":"Register",
