@@ -1,4 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~font-awesome/css/font-awesome.css";
+@font-face {
+  font-family: 'poppinsbold';
+  src: url('assets/fonts/poppins-bold-webfont.woff2') format('woff2'), url('assets/fonts/poppins-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'poppinslight';
+  src: url('assets/fonts/poppins-light-webfont.woff2') format('woff2'), url('assets/fonts/poppins-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'poppinsmedium';
+  src: url('assets/fonts/poppins-medium-webfont.woff2') format('woff2'), url('assets/fonts/poppins-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'poppinsregular';
+  src: url('assets/fonts/poppins-regular-webfont.woff2') format('woff2'), url('assets/fonts/poppins-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'poppinssemibold';
+  src: url('assets/fonts/poppins-semibold-webfont.woff2') format('woff2'), url('assets/fonts/poppins-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+h1, h2, h3, h4, h5 {
+  margin: 10px 0;
+}
+
+p{
+  margin:0 0 10px 0;
+}
+
+.cursor{
+  cursor: pointer;
+}
+
+.no-gutter {
+  padding-right:0;
+  padding-left:0;
+}
+
+.h-text-center{
+  text-align: center !important;
+}
+
+.no-border{
+  border:0;
+}
+
+
+select {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+a{
+  cursor: pointer;
+}
+
+/*-- margin helper classes --*/
+
+.mb-0{
+  margin-bottom: 0;
+}
+
+.margin-top-10{
+  margin-top: 10px;
+}
+
+.margin-left-10{
+  margin-left: 10px;
+}
+
+.margin-bottom-10{
+  margin-bottom: 10px;
+}
+
+.padding-top-10{
+  padding-top: 10px;
+}
+
+.padding-right-10{
+  padding-right: 10px;
+}
+
+.margin-left-0{
+  margin-left:0 !important;
+}
+
+.margin-top-25{
+  margin-top: 25px;
+}
+
+
+.padding-0{
+  padding:0;
+}
+
+/*-- Display Classes --*/
+.display-flex-center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.display-block{
+  display: block;
+}
+
+.display-inline-block{
+  display: inline-block;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -91,4 +222,64 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translate(-50%, -50%);
   }
 
+  .nav {
+    display: inline-block;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    width: 100%;
+    background: lightslategray;
+    border: 5px solid floralwhite;
+    border-radius: 10px;
+    color: snow;
+  }
+  
+  .sidebar {
+    display: none;
+}
+
+.main {
+  padding: 20px;
+}
+.main .page-header {
+  margin-top: 0;
+}
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+.nav>li>a {
+  position: relative;
+  display: block;
+  padding: 8px 10px;
+  color: antiquewhite;
+}
+
+.nav>li {
+  border-bottom: 1px solid antiquewhite;
+}
+@media screen and (min-width: 768px){
+  .main {
+    margin-left: 16%;
+}
+
+.sidebar {
+  position: fixed;
+  top: 66px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #c8cdd2;
+  border-right: 5px solid antiquewhite;
+  border-left: 10px solid antiquewhite;
+  border-bottom: 5px solid antiquewhite;
+  border-radius: 15px;
+  }
+}
   /*-------------------------------------------------------------------------------------------------*/
