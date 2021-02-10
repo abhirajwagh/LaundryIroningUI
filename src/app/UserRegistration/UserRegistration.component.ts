@@ -8,9 +8,9 @@ import { UserRegistrationModel } from './UserRegistration.Model';
 import { UserRegistrationService } from './UserRegistration.service';
 
 @Component({
-  selector: 'app-UserRegistration',
+  selector: 'app-user-registration',
   templateUrl: './UserRegistration.component.html',
-  styleUrls: ['./UserRegistration.component.scss']
+  styleUrls: ['./UserRegistration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
   UserRegistrationModel: UserRegistrationModel;

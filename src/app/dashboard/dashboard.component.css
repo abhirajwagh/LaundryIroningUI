@@ -1,0 +1,11 @@
+.well {
+    min-height: 20px;
+    padding: 10px;
+    background-color: #63738a;
+    border: 5px solid antiquewhite;
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+    color: antiquewhite;
+    margin: 12px;
+}

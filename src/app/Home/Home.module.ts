@@ -8,14 +8,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../Services/HttpService.service';
 import { HeaderModule } from '../Shared/header/header.module';
+import { DashboardModule } from '../dashboard/dashboard.module';
+import { IroningComponent } from '../ironing/ironing.component';
 
-const routes: Routes = [
-  {
-      path: 'home', component: HomeComponent
-  }];
 @NgModule({
   imports: [
-    RouterModule.forChild(routes),
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -23,9 +20,10 @@ const routes: Routes = [
     SpinnerComponentModule,
     RouterModule,
     HttpClientModule,
-    HeaderModule
+    HeaderModule,
+    DashboardModule,
   ],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, IroningComponent],
   exports: [RouterModule, HomeComponent],
   providers: [HttpService]
 })
