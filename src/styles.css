@@ -240,7 +240,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .main {
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0;
+  max-height: 600px;
+  overflow-y: auto;
 }
 .main .page-header {
   margin-top: 0;
@@ -280,6 +284,60 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-left: 10px solid antiquewhite;
   border-bottom: 5px solid antiquewhite;
   border-radius: 15px;
+  }
+
+  .equal-height .border{
+    border: 1px solid #666;
+  }
+  
+  .equ-cell{
+    border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 10px;
+    float: left;
+    width:100%;
+  }
+  
+  
+  .equ-cell header {
+    padding: 12px 0px 12px 15px;
+    background-color: #63738a;
+    color: #fff;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .equ-cell header h2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    color:antiquewhite;
+    font-weight: bold;
+    font-size:15px;
+  }
+  
+  .equ-cell .body {
+    padding: 0 5px 10px 5px;
+    color: #757575;
+    height: calc(100vh - 150px);
+    float: left;
+    width:100%;
+  }
+  
+  .equ-cell .btn{
+    white-space: normal;
+  }
+
+  .form-control-border
+  {
+    border: 2px solid #63738a;
+  }
+  .form-group{
+    margin: 20px;
   }
 }
   /*-------------------------------------------------------------------------------------------------*/

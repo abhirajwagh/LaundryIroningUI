@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
      this.loginService.GetUserDetails(this.LoginModel).subscribe(result => {
        if (result.UserName !== null && result.Password !== null) {
          this.SetUserDataInSession(result);
-         this.router.navigate(['/home']);
+         this.router.navigate(['/home/dashboard']);
        } else {
          this.notificationService.error(this.translateService.instant('Login.ENTER_VALID_USERNAME_&_PASSWORD'));
          this.Logout();
