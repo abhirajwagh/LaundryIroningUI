@@ -29,7 +29,16 @@
   },
 
   "CommonText":{
-    "Submit":"Submit"
+    "Submit":"Submit",
+    "Address":"Address",
+    "TotalCost":"Total cost"
+  },
+  "Ironing":{
+    "Header":"Ironing - Place Order",
+    "NoOfCloths":"No of cloths",
+    "PickupDate":"Pickup date",
+    "TimeSlot":"Time slot",
+    "Select_TimeSlot":"Select time slot"
   }
   
 }

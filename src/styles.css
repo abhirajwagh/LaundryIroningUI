@@ -339,5 +339,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .form-group{
     margin: 20px;
   }
+
+  .required{
+    color: red;
+  }
 }
   /*-------------------------------------------------------------------------------------------------*/

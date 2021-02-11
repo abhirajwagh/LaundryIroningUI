@@ -7,3 +7,9 @@ export class RegisterUrlConstant {
 export class LoginUrlConstant {
   public static GetUserDetailsUrl: string = environment.LaundryIroningAPIUrl + 'User/GetUserDetails';
 }
+
+export class IroningUrlConstant {
+  public static AddIroningOrder: string = environment.LaundryIroningAPIUrl + 'Ironing/AddIroningOrder';
+  public static GetIroningOrderById: string = environment.LaundryIroningAPIUrl + 'Ironing/GetOrderById';
+  
+}

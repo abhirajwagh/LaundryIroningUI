@@ -3,72 +3,75 @@
     <div class="equal-height">
       <div class="equ-cell">
         <header>
-          <h2> Ironing - Place Order</h2>
+          <h2>{{'Ironing.Header' | translate }}</h2>
         </header>
-        <div class="body">
+        <div class="body" [formGroup]='ironingForm' [apploading]="isLoader">
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>No of cloths
+                <label>{{'Ironing.NoOfCloths' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
               <div class="col-sm-8 col-md-8">
-                <input max="999" class="form-control form-control-border" type="number">
+                <input formControlName="NoOfCloths" pattern="^[0-9]*$" (keyup)=SetTotalCost($event); [(ngModel)]="ironingModel.NoOfCloths" max="999" class="form-control form-control-border" type="number">
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>Pickup Date
+                <label>{{'Ironing.PickupDate' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
               <div class="col-sm-8 col-md-8">
-                <input  class="form-control form-control-border" type="date">
+                <input formControlName="PickupDate" [(ngModel)]="ironingModel.PickUpDate" class="form-control form-control-border" [max]="SetMaxDateForDatePicker()" [min]="SetMinDateForDatePicker()" type="date">
+              </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label>{{'Ironing.TimeSlot' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-8 col-md-8">
+                <select formControlName="TimeSlot" [(ngModel)]="ironingModel.PickUpTimeSlot" class="form-control form-control-border">
+                <option value="null">{{'Ironing.Select_TimeSlot' | translate }}</option>
+                <option *ngFor="let t of pickupTimeSlot" [ngValue]='t.timeSlot'>{{t.timeSlot}}</option>
+              </select>
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>Pickup Time
+                <label>{{'CommonText.Address' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
               <div class="col-sm-8 col-md-8">
-                <input class="form-control form-control-border" type="time">
+                <input formControlName="Address" [(ngModel)]="ironingModel.PickUpAddress" class="form-control form-control-border" type="text">
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>Address
+                <label>{{'CommonText.TotalCost' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
               <div class="col-sm-8 col-md-8">
-                <input  class="form-control form-control-border" type="text">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-2 col-md-2">
-                <label>Total cost
-                  <span class="required">*</span>
-                </label>
-              </div>
-              <div class="col-sm-8 col-md-8">
-                <input  class="form-control form-control-border" type="text">
+                <input formControlName="TotalCost" disabled [(ngModel)]="ironingModel.TotalCost" class="form-control form-control-border" type="text">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-12 col-md-12 text-center">
-              <button class="btn btn-primary">
+              <button class="btn btn-primary" [disabled] ="!ironingForm.valid" (click)="AddIroningOrders()">
                 {{'CommonText.Submit' | translate }}</button>
             </div>
           </div>
