@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponentModule } from '../Shared/spinner/spinner.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IroningOrderSummeryComponent } from '../ironing/ironing-order-summery/ironing-order-summery.component';
+import { IroningOrderSummaryComponent } from '../ironing/ironing-order-summary/ironing-order-summary.component';
 
 const routes: Routes = [
   {
@@ -34,8 +34,8 @@ const routes: Routes = [
         component: LaundryIroningComponent,
       },
       {
-        path: 'ironingOrderSummery',
-        component: IroningOrderSummeryComponent,
+        path: 'ironingOrderSummary',
+        component: IroningOrderSummaryComponent,
       }
     ]
   },

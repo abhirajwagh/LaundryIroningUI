@@ -31,14 +31,24 @@
   "CommonText":{
     "Submit":"Submit",
     "Address":"Address",
-    "TotalCost":"Total cost"
+    "TotalCost":"Total cost",
+    "Clear":"Clear",
+    "ThankYouOrder":"Thank You For Your Order",
+    "ratePerClothe":" / clothe",
+    "OrderPlacedSuccess":"Order placed successfully.",
+    "FailedToPlaceOrder":"Failed to place order.Please try after some time.",
+    "FailedToFetchOrderDetails":"Failed to fetch order details."
+    
   },
   "Ironing":{
-    "Header":"Ironing - Place Order",
+    "PlaceOrder":"Ironing - Place Order",
     "NoOfCloths":"No of cloths",
     "PickupDate":"Pickup date",
     "TimeSlot":"Time slot",
-    "Select_TimeSlot":"Select time slot"
+    "Select_TimeSlot":"Select time slot",
+    "OrderSummary":"Ironing - Order Summary",
+    "OrderId":"Order No:",
+    "PickupAddress":"Pickup address"
   }
   
 }

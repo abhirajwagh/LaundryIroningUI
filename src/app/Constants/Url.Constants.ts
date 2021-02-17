@@ -11,5 +11,4 @@ export class LoginUrlConstant {
 export class IroningUrlConstant {
   public static AddIroningOrder: string = environment.LaundryIroningAPIUrl + 'Ironing/AddIroningOrder';
   public static GetIroningOrderById: string = environment.LaundryIroningAPIUrl + 'Ironing/GetOrderById';
-  
 }

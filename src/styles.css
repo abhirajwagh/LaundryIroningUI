@@ -343,5 +343,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .required{
     color: red;
   }
+
+  .bold-font
+  {
+    font-weight: bold;
+  }
+  .summaryBlock {
+    background-color: darkgray;
+    height: 100%;
+    width: 100%;
+    min-height: 460px;
+    border: 4px solid #63738a;
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  .summary-font {
+    color: brown;
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif;
+    font-size:22px;
+  }
+  
 }
   /*-------------------------------------------------------------------------------------------------*/
