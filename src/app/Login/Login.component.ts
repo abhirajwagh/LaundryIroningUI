@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
    }
 
   SetUserDataInSession(userData) {
+    sessionStorage.setItem(UserConstant.Address, userData.Address)
     sessionStorage.setItem(UserConstant.UserId, userData.UserId);
     sessionStorage.setItem(UserConstant.UserName, userData.UserName);
     sessionStorage.setItem(UserConstant.Name, userData.Name);

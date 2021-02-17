@@ -10,7 +10,7 @@ import { HttpService } from '../Services/HttpService.service';
 import { HeaderModule } from '../Shared/header/header.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { IroningComponent } from '../ironing/ironing.component';
-import { IroningOrderSummeryComponent } from '../ironing/ironing-order-summery/ironing-order-summery.component';
+import { IroningOrderSummaryComponent } from '../ironing/ironing-order-summary/ironing-order-summary.component';
 
 @NgModule({
   imports: [
@@ -24,7 +24,7 @@ import { IroningOrderSummeryComponent } from '../ironing/ironing-order-summery/i
     HeaderModule,
     DashboardModule,
   ],
-  declarations: [HomeComponent, IroningComponent, IroningOrderSummeryComponent],
+  declarations: [HomeComponent, IroningComponent, IroningOrderSummaryComponent],
   exports: [RouterModule, HomeComponent],
   providers: [HttpService]
 })

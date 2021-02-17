@@ -2,22 +2,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { IroningOrderSummaryComponent } from './ironing-order-summary.component';
 
-import { IroningOrderSummeryComponent } from './ironing-order-summery.component';
 
 describe('IroningOrderSummeryComponent', () => {
-  let component: IroningOrderSummeryComponent;
-  let fixture: ComponentFixture<IroningOrderSummeryComponent>;
+  let component: IroningOrderSummaryComponent;
+  let fixture: ComponentFixture<IroningOrderSummaryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IroningOrderSummeryComponent ]
+      declarations: [ IroningOrderSummaryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IroningOrderSummeryComponent);
+    fixture = TestBed.createComponent(IroningOrderSummaryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

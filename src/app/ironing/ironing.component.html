@@ -3,13 +3,13 @@
     <div class="equal-height">
       <div class="equ-cell">
         <header>
-          <h2>{{'Ironing.Header' | translate }}</h2>
+          <h2>{{'Ironing.PlaceOrder' | translate }}</h2>
         </header>
         <div class="body" [formGroup]='ironingForm' [apploading]="isLoader">
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>{{'Ironing.NoOfCloths' | translate }}
+                <label class="bold-font">{{'Ironing.NoOfCloths' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
@@ -21,7 +21,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>{{'Ironing.PickupDate' | translate }}
+                <label class="bold-font">{{'Ironing.PickupDate' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
@@ -33,7 +33,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>{{'Ironing.TimeSlot' | translate }}
+                <label class="bold-font">{{'Ironing.TimeSlot' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
@@ -48,31 +48,40 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>{{'CommonText.Address' | translate }}
+                <label class="bold-font">{{'CommonText.Address' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
               <div class="col-sm-8 col-md-8">
-                <input formControlName="Address" [(ngModel)]="ironingModel.PickUpAddress" class="form-control form-control-border" type="text">
+                <input formControlName="Address" disabled [(ngModel)]="ironingModel.PickUpAddress" class="form-control form-control-border" type="text">
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label>{{'CommonText.TotalCost' | translate }}
+                <label class="bold-font">{{'CommonText.TotalCost' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
-              <div class="col-sm-8 col-md-8">
-                <input formControlName="TotalCost" disabled [(ngModel)]="ironingModel.TotalCost" class="form-control form-control-border" type="text">
+              <div class="col-sm-6 col-md-6">
+                <input formControlName="TotalCost" style="font-weight: bold; font-size: x-large;" disabled [(ngModel)]="ironingModel.TotalCost" class="form-control form-control-border" type="text">
+              </div>
+              <div class="col-sm-2 col-md-2">
+                <div class="text-center" style="background-color: #e9ecef; height: 30px;width: 150px; border:2px solid #63738a; border-radius: 3px;">
+                <span style="font-weight: bold; font-size: large; color:black;">{{defaultValue}}</span>
+                <span style="font-weight: bold; font-size: large; color:black;">&#8377;</span>
+                <span style="font-weight: bold; font-size: large; color:black;">{{'CommonText.ratePerClothe' | translate }}</span>
+              </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-12 col-md-12 text-center">
-              <button class="btn btn-primary" [disabled] ="!ironingForm.valid" (click)="AddIroningOrders()">
+              <button class="btn btn-primary" style="margin-right: 10px;" [disabled] ="!ironingForm.valid" (click)="AddIroningOrders()">
                 {{'CommonText.Submit' | translate }}</button>
+                <button class="btn btn-primary" (click)="ResetForm()">
+                  {{'CommonText.Clear' | translate }}</button>
             </div>
           </div>
         </div>
