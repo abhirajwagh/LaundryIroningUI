@@ -56,8 +56,21 @@
   <div class="col-sm-4">
     <div class="row">
       <div class="well">
-        <p style="font-weight: bold;">Ironing + Laundry</p>
-        <img src="../../assets/img/LaundryPlusIroning.jpg" class="img-circle" height="220" width="99%" alt="Avatar">
+        <div class="row">
+          <div class="col-sm-8">
+            <p style="font-weight: bold;">Ironing + Laundry</p>
+          </div> 
+          <div class="col-sm-4" (click)="NevigateToModule('laundryIroning')">
+              <div style="height: 30px; width: 80px; border-radius: 5px; border: 3px solid antiquewhite; text-align: center; ">
+                <i class="fa fa-angle-double-right fa-1x"></i>
+              </div>
+          </div>         
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <img src="../../assets/img/LaundryPlusIroning.jpg" class="img-circle" height="220" width="99%" alt="Avatar">
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">

@@ -40,15 +40,19 @@
     "FailedToFetchOrderDetails":"Failed to fetch order details."
     
   },
-  "Ironing":{
-    "PlaceOrder":"Ironing - Place Order",
-    "NoOfCloths":"No of cloths",
-    "PickupDate":"Pickup date",
-    "TimeSlot":"Time slot",
-    "Select_TimeSlot":"Select time slot",
-    "OrderSummary":"Ironing - Order Summary",
-    "OrderId":"Order No:",
-    "PickupAddress":"Pickup address"
+  "Ironing": {
+    "IroningPlaceOrder": "Ironing - Place Order",
+    "NoOfCloths": "No of cloths",
+    "PickupDate": "Pickup date",
+    "TimeSlot": "Time slot",
+    "Select_TimeSlot": "Select time slot",
+    "IroningOrderSummary": "Ironing - Order Summary",
+    "OrderId": "Order No:",
+    "PickupAddress": "Pickup address",
+    "LaundryPlaceOrder": "Laundry - Place Order",
+    "IroningLaundryOrder": "IroningLaundry - Place Order",
+    "LaundryOrderSummary": "Laundry - Order Summary",
+    "IroningLaundryOrderSummary": "IroningLaundry - Order Summary"
   }
   
 }
