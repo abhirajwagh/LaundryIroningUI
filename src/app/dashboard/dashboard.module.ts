@@ -11,6 +11,8 @@ import { SpinnerComponentModule } from '../Shared/spinner/spinner.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IroningOrderSummaryComponent } from '../ironing/ironing-order-summary/ironing-order-summary.component';
+import { LaundryOrderSummaryComponent } from '../laundry/laundry-order-summary/laundry-order-summary.component';
+import { IroningLaundryOrderSummaryComponent } from '../laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
       {
         path: 'ironingOrderSummary',
         component: IroningOrderSummaryComponent,
+      },
+      {
+        path: 'laundryOrderSummary',
+        component: LaundryOrderSummaryComponent,
+      },
+      {
+        path: 'ironinglaundryOrderSummary',
+        component: IroningLaundryOrderSummaryComponent,
       }
     ]
   },

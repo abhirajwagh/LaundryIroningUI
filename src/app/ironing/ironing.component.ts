@@ -22,7 +22,6 @@ export class IroningComponent implements OnInit {
   ironingForm: FormGroup;
   ironingModel: IroningModel;
   defaultValue: any;
-  @ViewChild('divID') span: ElementRef;
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService, private ironingService: IroningService,
               private router: Router, private commonService: CommonService) {

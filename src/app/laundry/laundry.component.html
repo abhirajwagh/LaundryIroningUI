@@ -1,3 +1,91 @@
-<p>
-  laundry works!
-</p>
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <div class="equal-height">
+      <div class="equ-cell">
+        <header>
+          <h2>{{'Ironing.LaundryPlaceOrder' | translate }}</h2>
+        </header>
+        <div class="body" [formGroup]='laundryForm' [apploading]="isLoader">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label class="bold-font">{{'Ironing.NoOfCloths' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-8 col-md-8">
+                <input formControlName="NoOfCloths" pattern="^[0-9]*$" (keyup)=SetTotalCost($event); [(ngModel)]="laundryModel.NoOfCloths" max="999" class="form-control form-control-border" type="number">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label class="bold-font">{{'Ironing.PickupDate' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-8 col-md-8">
+                <input formControlName="PickupDate" [(ngModel)]="laundryModel.PickUpDate" class="form-control form-control-border" [max]="SetMaxDateForDatePicker()" [min]="SetMinDateForDatePicker()" type="date">
+              </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label class="bold-font">{{'Ironing.TimeSlot' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-8 col-md-8">
+                <select formControlName="TimeSlot" [(ngModel)]="laundryModel.PickUpTimeSlot" class="form-control form-control-border">
+                <option value="null">{{'Ironing.Select_TimeSlot' | translate }}</option>
+                <option *ngFor="let t of pickupTimeSlot" [ngValue]='t.timeSlot'>{{t.timeSlot}}</option>
+              </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label class="bold-font">{{'CommonText.Address' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-8 col-md-8">
+                <input formControlName="Address" disabled [(ngModel)]="laundryModel.PickUpAddress" class="form-control form-control-border" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label class="bold-font">{{'CommonText.TotalCost' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <input formControlName="TotalCost" style="font-weight: bold; font-size: x-large;" disabled [(ngModel)]="laundryModel.TotalCost" class="form-control form-control-border" type="text">
+              </div>
+              <div class="col-sm-2 col-md-2">
+                <div class="text-center" style="background-color: #e9ecef; height: 30px;width: 150px; border:2px solid #63738a; border-radius: 3px;">
+                <span style="font-weight: bold; font-size: large; color:black;">{{defaultValue}}</span>
+                <span style="font-weight: bold; font-size: large; color:black;">&#8377;</span>
+                <span style="font-weight: bold; font-size: large; color:black;">{{'CommonText.ratePerClothe' | translate }}</span>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-12 text-center">
+              <button class="btn btn-primary" style="margin-right: 10px;" [disabled] ="!laundryForm.valid" (click)="AddLaundryOrders()">
+                {{'CommonText.Submit' | translate }}</button>
+                <button class="btn btn-primary" (click)="ResetForm()">
+                  {{'CommonText.Clear' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
