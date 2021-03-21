@@ -13,10 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IroningOrderSummaryComponent } from '../ironing/ironing-order-summary/ironing-order-summary.component';
 import { LaundryOrderSummaryComponent } from '../laundry/laundry-order-summary/laundry-order-summary.component';
 import { IroningLaundryOrderSummaryComponent } from '../laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
+import { AdminComponent } from '../admin/admin.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'cleanit/home',
     component: HomeComponent,
     children: [
       {

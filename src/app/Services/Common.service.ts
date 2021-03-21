@@ -1,3 +1,4 @@
+import { UserConstant, UserTypeConstants } from './../Constants/Application.Constant';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
@@ -6,8 +7,15 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class CommonService {
-  
+  UserTypes: any;
+  UserType: string;
   constructor() {
+    this.UserTypes = [{ UserTypeId: 'A85DD3C8-4423-429F-BF9E-7F28DC68D4F4', UserType: UserTypeConstants.Customer },
+    { UserTypeId: '295362B3-FCEF-451B-93CA-85E8B14BD5C6', UserType: UserTypeConstants.Agent },
+    { UserTypeId: '18844E3E-1DC0-4C81-ADB4-E862195F732D', UserType: UserTypeConstants.Admin },
+    { UserTypeId: 'E8E8EF68-2244-445E-8999-A213C73D2B3B', UserType: UserTypeConstants.SuperAdmin }
+    ];
+    this.SetUserType();
   }
 
   SetMinDateForDatePicker() {
@@ -54,4 +62,14 @@ export class CommonService {
     ];
     return values;
   }
+  SetUserType() {
+    if (sessionStorage.getItem(UserConstant.UserTypeId) !== null) {
+      this.UserType = this.UserTypes.filter(u => u.UserTypeId.toString().toLowerCase() === sessionStorage.getItem(UserConstant.UserTypeId).toLowerCase())[0].UserType;
+    }
+  }
+
+  GetUserType(): string {
+    return this.UserType;
+  }
+
 }

@@ -15,6 +15,12 @@ constructor(private httpService: HttpService) { }
     const url = RegisterUrlConstant.RegisterUserUrl;
     return this.httpService.postDataText(url, UserRegistration);
   }
+
+   // check username exists
+   CheckUserNameExists(username): Observable<any> {
+    const url = RegisterUrlConstant.CheckUsernameExists + '?userName=' + username;
+    return this.httpService.getData(url);
+  }
 }
 
 

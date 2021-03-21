@@ -4,7 +4,8 @@
     <form [formGroup]='UserRegistrationForm'> 
       <h2>{{'Register.Register' | translate }}</h2>
       <div class="form-group">
-        <input type="text" class="form-control" maxlength="20" (keypress)="keyPressAlphaNumeric($event)" [(ngModel)]="UserRegistrationModel.UserName" formControlName="Username" placeholder="{{'Login.EnterUsername' | translate }}">
+        <input type="text" class="form-control" maxlength="20" (change)="CheckUserNameExists()" (keypress)="keyPressAlphaNumeric($event)" [(ngModel)]="UserRegistrationModel.UserName" formControlName="Username" placeholder="{{'Login.EnterUsername' | translate }}">
+        <p style="font-weight: bold;">Ironing</p>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" maxlength="20" [(ngModel)]="UserRegistrationModel.Password" formControlName="password" placeholder="{{'Register.EnterPassword' | translate }}">

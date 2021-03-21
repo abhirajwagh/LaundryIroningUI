@@ -2,6 +2,7 @@ import { environment } from 'src/environments/environment';
 
 export class RegisterUrlConstant {
   public static RegisterUserUrl: string = environment.LaundryIroningAPIUrl + 'User/AddUsers';
+  public static CheckUsernameExists: string = environment.LaundryIroningAPIUrl + 'User/CheckUserName';
 }
 
 export class LoginUrlConstant {

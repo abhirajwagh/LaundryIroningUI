@@ -77,4 +77,20 @@ export class UserRegistrationComponent implements OnInit {
       });
     }
   }
+
+  // check user name exists
+  CheckUserNameExists() {
+    if (this.UserRegistrationModel.UserName !== null && this.UserRegistrationModel.UserName !== '') {
+     this.isLoader = true;
+     this.userRegisterService.CheckUserNameExists(this.UserRegistrationModel.UserName).subscribe(result => {
+       if (result !== null && result === true) {
+           this.notificationService.warn('Record already exists');
+       }
+       this.isLoader = false;
+     }, error => {
+       this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
+       this.isLoader = false;
+     });
+   }
+ }
 }

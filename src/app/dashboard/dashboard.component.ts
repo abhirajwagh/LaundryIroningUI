@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   }
 
   NevigateToModule(url) {
-    this.router.navigate(['/home/' + url]);
+    this.router.navigate(['cleanit/home/' + url]);
   }
 
 }
