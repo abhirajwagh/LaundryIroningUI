@@ -8,5 +8,15 @@ export const UserConstant = {
   Address: 'Address',
   IroningOrderId: 'IroningOrderId',
   LaundryOrderId: 'LaundryOrderId',
-  LaundryIroningOrderId: 'LaundryIroningOrderId'
-}
+  LaundryIroningOrderId: 'LaundryIroningOrderId',
+  UserTypeId: 'UserTypeId',
+};
+
+export const UserTypeConstants = {
+  Customer: 'Customer',
+  Agent: 'Agent',
+  SuperAdmin: 'SuperAdmin',
+  Admin: 'Admin'
+};
+
+

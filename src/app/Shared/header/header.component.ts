@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/Services/Common.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  userType: string;
+  constructor(private router: Router, private commonService: CommonService) { }
 
   ngOnInit() {
+    this.userType = this.commonService.GetUserType();
   }
   nevigateToDashboad() {
-    this.router.navigate(['/home/dashboard']);
+    this.router.navigate(['cleanit/home/dashboard']);
   }
 
   nevigateToLogin() {

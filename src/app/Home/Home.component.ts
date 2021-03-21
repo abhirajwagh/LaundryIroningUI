@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserTypeConstants } from '../Constants/Application.Constant';
+import { CommonService } from '../Services/Common.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  menuList: any;
+  userType: string;
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
+    this.userType = this.commonService.GetUserType();
+    if (this.userType === UserTypeConstants.Customer) {
+      this.GetCustomerMenuList();
+    } else if (this.userType === UserTypeConstants.Admin){
+      this.GetAdminMenuList();
+    }
   }
 
+  GetCustomerMenuList() {
+    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: 'account' },
+    { Id: 1, Name: 'Recent Orders', routeUrl: 'recentOrders' },
+    { Id: 1, Name: 'Order History', routeUrl: 'orderHistory' },
+    { Id: 1, Name: 'Contact Us', routeUrl: 'contactUs' },
+    { Id: 1, Name: 'FAQs', routeUrl: 'faq' }];
+  }
+
+  GetAdminMenuList() {
+    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: 'account' },
+    { Id: 1, Name: 'Users', routeUrl: 'users' },
+    { Id: 1, Name: 'Orders', routeUrl: 'orderHistory' }
+    ];
+  }
 }

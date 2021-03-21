@@ -54,7 +54,7 @@ body {
 	padding: 30px;
 }
 .signup-form .form-group {
-	margin-bottom: 20px;
+	margin-bottom: 15px !important;
 }
 .signup-form input[type="checkbox"] {
 	margin-top: 3px;

@@ -5,7 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
-import { UserConstant } from '../Constants/Application.Constant';
+import { UserConstant, UserTypeConstants } from '../Constants/Application.Constant';
+import { CommonService } from '../Services/Common.service';
 import { LoginModel } from './Login.Model';
 import { LoginService } from './Login.service';
 
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   isLoader: boolean;
   LoginForm: FormGroup;
   constructor(private translateService: TranslateService, private loginService: LoginService, private fb: FormBuilder,
-              private notificationService: NotificationsService, private router: Router) {
+              private notificationService: NotificationsService, private router: Router,
+              private commonService: CommonService) {
       this.setUserLanguage(environment.DefaultLanguage);
    }
 
@@ -40,7 +42,6 @@ export class LoginComponent implements OnInit {
     this.LoginForm = this.fb.group({
       Username: ['', [Validators.required, Validators.maxLength(20)]],
       password: ['', [Validators.required]]
-     
     });
     return 'form created';
   }
@@ -52,7 +53,14 @@ export class LoginComponent implements OnInit {
      this.loginService.GetUserDetails(this.LoginModel).subscribe(result => {
        if (result.UserName !== null && result.Password !== null) {
          this.SetUserDataInSession(result);
-         this.router.navigate(['/home/dashboard']);
+         const userType = this.commonService.GetUserType();
+         if (userType === UserTypeConstants.Customer) {
+           this.router.navigate(['/cleanit/home/dashboard']);
+         } else if (userType === UserTypeConstants.Admin) {
+           this.router.navigate(['/cleanit/home/admin']);
+         } else {
+          this.router.navigate(['/login']);
+         }
        } else {
          this.notificationService.error(this.translateService.instant('Login.ENTER_VALID_USERNAME_&_PASSWORD'));
          this.Logout();
@@ -66,11 +74,13 @@ export class LoginComponent implements OnInit {
    }
 
   SetUserDataInSession(userData) {
-    sessionStorage.setItem(UserConstant.Address, userData.Address)
+    sessionStorage.setItem(UserConstant.Address, userData.Address);
     sessionStorage.setItem(UserConstant.UserId, userData.UserId);
     sessionStorage.setItem(UserConstant.UserName, userData.UserName);
     sessionStorage.setItem(UserConstant.Name, userData.Name);
     sessionStorage.setItem(UserConstant.IsAdmin, userData.IsAdmin);
+    sessionStorage.setItem(UserConstant.UserTypeId, userData.UserTypeId);
+    this.commonService.SetUserType();
   }
 
   Logout() {

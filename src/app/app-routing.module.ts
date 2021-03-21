@@ -16,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'UserRegistration',
+    path: 'cleanit/UserRegistration',
     component: UserRegistrationComponent
   }
 ];
