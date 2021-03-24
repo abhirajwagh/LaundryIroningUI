@@ -17,23 +17,22 @@ export class HomeComponent implements OnInit {
     this.userType = this.commonService.GetUserType();
     if (this.userType === UserTypeConstants.Customer) {
       this.GetCustomerMenuList();
-    } else if (this.userType === UserTypeConstants.Admin){
+    } else if (this.userType === UserTypeConstants.Admin) {
       this.GetAdminMenuList();
     }
   }
 
   GetCustomerMenuList() {
     this.menuList = [{ Id: 1, Name: 'Account', routeUrl: 'account' },
-    { Id: 1, Name: 'Recent Orders', routeUrl: 'recentOrders' },
-    { Id: 1, Name: 'Order History', routeUrl: 'orderHistory' },
-    { Id: 1, Name: 'Contact Us', routeUrl: 'contactUs' },
-    { Id: 1, Name: 'FAQs', routeUrl: 'faq' }];
+    { Id: 2, Name: 'Recent Orders', routeUrl: 'recentOrders' },
+    { Id: 3, Name: 'Order History', routeUrl: 'orderHistory' },
+    { Id: 4, Name: 'Contact Us', routeUrl: 'contactUs' },
+    { Id: 5, Name: 'FAQs', routeUrl: 'faq' }];
   }
 
   GetAdminMenuList() {
-    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: 'account' },
-    { Id: 1, Name: 'Users', routeUrl: 'users' },
-    { Id: 1, Name: 'Orders', routeUrl: 'orderHistory' }
+    this.menuList = [{ Id: 1, Name: 'Orders', routeUrl: '/cleanit/home/admin/adminorders' },
+    { Id: 2, Name: 'Users', routeUrl: '/cleanit/home/admin/adminagentUser' }
     ];
   }
 }
