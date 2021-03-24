@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
          if (userType === UserTypeConstants.Customer) {
            this.router.navigate(['/cleanit/home/dashboard']);
          } else if (userType === UserTypeConstants.Admin) {
-           this.router.navigate(['/cleanit/home/admin']);
+           this.router.navigate(['/cleanit/home/admin/adminorders']);
          } else {
           this.router.navigate(['/login']);
          }

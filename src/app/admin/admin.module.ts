@@ -7,6 +7,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SpinnerComponentModule } from '../Shared/spinner/spinner.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from '../Home/Home.component';
+import { AdminAgentUsersComponent } from './admin-agent-users/admin-agent-users.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,16 @@ const routes: Routes = [
       {
         path: 'admin',
         component: AdminComponent,
+        children: [
+          {
+            path: 'adminagentUser',
+            component: AdminAgentUsersComponent,
+          },
+          {
+            path: 'adminorders',
+            component: AdminOrdersComponent,
+          }
+        ]
       },
     ]
   },
