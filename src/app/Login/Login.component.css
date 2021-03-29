@@ -17,3 +17,10 @@ body {
   #login .container #login-row #login-column #login-box #login-form #register-link {
     margin-top: -60px;
   }
+
+  .back-image {
+    background: url("../../assets/img/LoginBackground/Capture2mod.png") no-repeat;
+    height: 100%;
+    position: relative;
+    background-size: 100%;
+}

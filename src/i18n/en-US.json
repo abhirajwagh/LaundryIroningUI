@@ -25,7 +25,21 @@
     "RegisterNow":"Register now",
     "AlreadyHaveAnAccount":"Already have an account? ",
     "SignIn":"Sign in",
-    "RegistrationSuccessMsg":"You have registered successfully.Please login to continue."
+    "RegistrationSuccessMsg":"You have registered successfully.Please login to continue.",
+    "Name":"Name",
+    "Address":"Address",
+    "BirthDate":"BirthDate",
+    "MobileNo":"Mobile no",
+    "EmailId":"Email Id",
+    "AadharNo":"Aadhar card no",
+    "DrivingLicenceNo":"Driving licence no",
+    "EnterValidDOB":"Enter valid birthdate",
+    "EnterValidAadharNo":"Enter valid aadhar no",
+    "EnterValidDrivingLicenceNo":"Enter valid driving licence no",
+    "UserType":"User type",
+    "Admin":"Admin",
+    "Agent":"Agent",
+    "Operator":"Operator"
   },
 
   "CommonText":{
@@ -37,7 +51,46 @@
     "ratePerClothe":" / clothe",
     "OrderPlacedSuccess":"Order placed successfully.",
     "FailedToPlaceOrder":"Failed to place order.Please try after some time.",
-    "FailedToFetchOrderDetails":"Failed to fetch order details."
+    "FailedToFetchOrderDetails":"Failed to fetch order details.",
+    "Cancel": "Cancel",
+    "Save": "Save",
+    "Name": "Name",
+    "Yes": "Yes",
+    "No": "No",
+    "Ok": "Ok",
+    "Search": "Search",
+    "DownloadCSV": "Download CSV file",
+    "Error_Fetching_Data": "Error in fetching data",
+    "Description": "Description",
+    "SuccessMsg": "Record added successfully",
+    "UpdateMsg": "Record updated successfully",
+    "DeleteMsg": "Record deleted successfully",
+    "DuplicateRecord": "Record already exists",
+    "Select": "Select",
+    "Setup": "Setup",
+    "PageSize": "Page Size",
+    "TotalItems": "Total Items",
+    "Building": "Building",
+    "Select_Building": "Select building",
+    "NoDataToDisplay": "No data to display",
+    "Browse": "Browse",
+    "Apply": "Apply",
+    "SelectAll": "Select all",
+    "UnSelectAll": "Unselect all",
+    "Value": "Value",
+    "Download": "Download",
+    "True": "True",
+    "False": "False",
+    "Account": "Account",
+    "Select_Account": "Select account",
+    "Add":"Add",
+    "Update":"Update",
+    "Delete":"Delete",
+    "FailedToAdd":"Failed to add record",
+    "FailedToUpdate":"Failed to update record",
+    "FailedToDelete":"Failed to delete record",
+    "FailedToFetchData":"Failed to fetch data"
+
     
   },
   "Ironing": {
@@ -53,6 +106,10 @@
     "IroningLaundryOrder": "IroningLaundry - Place Order",
     "LaundryOrderSummary": "Laundry - Order Summary",
     "IroningLaundryOrderSummary": "IroningLaundry - Order Summary"
+  },
+
+  "Admin": {
+    "CreateUserHeader":"Create Admin / Agent / Operator User"
   }
   
 }

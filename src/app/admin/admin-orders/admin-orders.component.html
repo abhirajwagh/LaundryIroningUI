@@ -1,3 +1,7 @@
 <p>
   admin-orders works!
 </p>
+
+<app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
+  (clickedIcon)="selectedGridData($event)" [pagination]="true" [showselection]='false' [enableSearch]="true">
+</app-grid-table>

@@ -15,8 +15,10 @@ export const UserConstant = {
 export const UserTypeConstants = {
   Customer: 'Customer',
   Agent: 'Agent',
+  Operator: 'Operator',
+  Admin: 'Admin',
   SuperAdmin: 'SuperAdmin',
-  Admin: 'Admin'
+
 };
 
 

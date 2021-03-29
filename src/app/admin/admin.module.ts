@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from '../Home/Home.component';
 import { AdminAgentUsersComponent } from './admin-agent-users/admin-agent-users.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { GridTableModule } from '../common/grid-table/grid-table.module';
 
 
 const routes: Routes = [
@@ -42,8 +43,9 @@ const routes: Routes = [
     TranslateModule,
     SpinnerComponentModule,
     HttpClientModule,
+    GridTableModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [AdminComponent]
+  declarations: [AdminComponent, AdminOrdersComponent, AdminAgentUsersComponent]
 })
 export class AdminModule { }

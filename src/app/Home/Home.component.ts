@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 
   GetAdminMenuList() {
     this.menuList = [{ Id: 1, Name: 'Orders', routeUrl: '/cleanit/home/admin/adminorders' },
-    { Id: 2, Name: 'Users', routeUrl: '/cleanit/home/admin/adminagentUser' }
+    { Id: 2, Name: 'Create Users', routeUrl: '/cleanit/home/admin/adminagentUser' }
     ];
   }
 }

@@ -91,7 +91,7 @@ CreateIroningForm() {
           sessionStorage.setItem(UserConstant.IroningOrderId, result);
           this.ResetForm();
           setTimeout(() => {
-            this.router.navigate(['/home/ironingOrderSummary']);
+            this.router.navigate(['cleanit/home/ironingOrderSummary']);
             this.isLoader = false;
           }, 2000);
         }
