@@ -1,0 +1,106 @@
+<div>
+  <div class="col-md-12 margin-bottom-10">
+
+    <div *ngIf="enableSearch" class="col-md-4 pull-right filter">
+      <div class="input-group">
+        <input type="text" (keyup)="onKey()" [(ngModel)]="searchText" class="form-control"
+          placeholder="{{'CommonText.Search' | translate}}">
+        <div (click)="onKey()" class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="grid-table">
+    <div *ngIf="isCSVFileIcon" class="download-excel">
+      <button class="btn btn-default margin-right-5" [disabled]='tableData?.length <= 0'  (click)="downloadCSV();"
+        title="Download CSV file">
+        <i class="fa fa-download fa-lg"></i>
+      </button>
+    </div>
+    <table class="table table-responsive table-striped table-hover table-border" style="table-layout:fixed">
+      <thead>
+        <tr>
+          <th class='text-center' *ngIf="showselection" style="width: 4%;">
+            <input #theCheckbox type="checkbox" [(ngModel)]="checkAll" [disabled]="tableData.length<=0"
+              (change)="selectAllCheckbox();">
+          </th>
+
+          <th *ngFor="let col of columns" (click)="sort(col.fieldName, col.dataType)" class='{{col.headercss}} sticky'>
+            {{col.name}}
+            <i [ngClass]="setCurrentClasses(col.fieldName)" aria-hidden="true"></i>
+          </th>
+
+        </tr>
+      </thead>
+      <tbody [ngStyle]="{'max-height':tbodyHeight ,'height':tbodyHeight}">
+        <tr *ngIf="tableData==undefined || tableData.length==0">
+          <td [ngStyle]="{'max-height':noDataHeight ,'height':noDataHeight}" class="display-nodata"> {{'CommonText.NoDataToDisplay' | translate}}</td>
+        </tr>
+
+        <tr class="pointer"  *ngFor="let data of tableData; let i=index;last as isLast"
+        [ngStyle]="{'color':data.selectedValue ? '#fff':'',
+        'background-color':data.selectedValue ? '#225d8f' : data.IsImported ? '#fbffc9' : 'white' }">
+          <td class='text-center' *ngIf="showselection" style="width: 4%;">
+            <input type="checkbox" class="checkbox" [(ngModel)]="data.isChecked" (change)="onChecked($event, data)">
+          </td>
+          <td class="{{col.headercss}}, " title="{{data[col.fieldName]}}" *ngFor=" let col of columns"
+            style="word-wrap:break-word"
+            [ngStyle]="{'color':i === rowIndexFromPopup && currentPage === selectedPage ? '#fff':'',
+            'background-color':i === rowIndexFromPopup &&  currentPage === selectedPage ? '#225d8f' : '' }"
+            (click)="setClickedRow(i, data[uniqueKey],data,col.fieldName)">
+            <a [class.disabled]="col.isEnabled==false" *ngIf='col.icon' style="margin-left:5px;"
+              (click)="PointListIconClicked(data,col.fieldName);">
+              <i class="{{col.icon}}"></i></a>
+            <span
+              *ngIf="col.dataType !== 'date' && col.dataType !== 'arrow' && col.dataType !== 'number' && col.navigation === ''">{{ data[col.fieldName]}}</span>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+
+    <div class="panel panel-default pagination" *ngIf="pagination">
+      <div class="panel-footer">
+        <span *ngIf="showpagesize">
+          {{'CommonText.PageSize' | translate}}:
+          <select class="pageSize" [(ngModel)]="pagesize" (change)="pageSizeChanged();"
+            [disabled]="tableData.length<=0">
+            <option value="50" text="50">50</option>
+            <option value="100" text="100">100</option>
+            <option value="150" text="150">150</option>
+            <option value="200" text="200">200</option>
+          </select>
+        </span>
+        <button type="button" title="First Page" (click)="pageSizeChanged();"
+          [disabled]="tableData.length<=0 || currentPage ==1" class="btn btn-sm pagebtn">
+          <i class="glyphicon glyphicon-step-backward"></i>
+        </button>
+        <button type="button" title="Previous Page" (click)="previousPage();"
+          [disabled]="tableData.length<=0 || currentPage ==1" class="btn btn-sm pagebtn">
+          <i class="glyphicon glyphicon-triangle-left"></i>
+        </button>
+        <input min="{{min}}" max="{{max}}" type="number" class="page" [(ngModel)]="currentPage" (keyup)="go()"
+          [disabled]="tableData.length<=0" (mouseup)="go()"> /
+        <span>
+          {{ TotalItem === undefined || TotalItem === 0 ? 1 : math.ceil(TotalItem / pagesize) }}</span>
+        <button type="button" title="Next Page" (click)="nextPage();"
+          [disabled]="tableData.length<=0 || tableData.length<pagesize" class="btn btn-sm pagebtn">
+          <i class="glyphicon glyphicon-triangle-right"></i>
+        </button>
+        <button type="button" title="Last Page" (click)="lastPage();"
+          [disabled]="tableData.length<=0 || tableData.length<pagesize" class="btn btn-sm pagebtn">
+          <i class="glyphicon glyphicon-step-forward"></i>
+        </button>
+        <div style="float:right;">
+          <span>{{'CommonText.TotalItems' | translate}}: {{TotalItem}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

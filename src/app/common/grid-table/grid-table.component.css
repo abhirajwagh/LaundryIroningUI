@@ -1,0 +1,197 @@
+.panel {
+    border-radius: 0;
+}
+
+.panel-body{
+    position: relative;
+  }
+.pagination{
+    /* position: absolute; */
+    width: 100%;
+    bottom: 0;
+    left:0px;
+    right:0px;
+}
+
+.pageSize{
+    width: 60px !important;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 27px;
+}
+
+.ngPagerCurrent {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 27px !important;
+    margin-top: 0px !important;
+}
+
+.page{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width:50px;
+    height: 27px;
+    margin-top: 1px;
+    padding: 0 4px;
+}
+
+
+.published{
+    background: #fbffc9;
+    width:15px;
+    height: 15px;
+    border:1px solid #000;
+    display: inline-block;
+    margin-right:5px;
+}
+
+.pagebtn{
+    height: 27px;
+    min-width: 26px;
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom: 5px;
+}
+
+.table{
+    margin-bottom: -20px !important;
+}
+
+/* .table tr td {
+    cursor: default !important;
+  } */
+
+  .table th {
+    cursor: default !important;
+  }
+
+.table tr.highlighted td {
+    background-color:#b8daff !important;
+  }
+
+  .table tr.footer td {
+    background-color:#d1d1d1 !important;
+    font-weight: bold !important;
+    height: 30px !important;
+  }
+
+  .customPanel{
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    background: #eaeaea !important;
+  }
+
+  .customPanel .panel-footer{
+      background-color: transparent !important;
+  }
+
+  /* .grid-table{
+    position:absolute;
+    top:40px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow-y:auto;
+} */
+
+.grid-table{
+    position: relative;
+}
+
+.table-border{
+    border: 1px solid #ddd;
+}
+
+.table-border td{
+    border-right: 1px solid #ddd;
+}
+
+.table-border td:last-child{
+    border-right:0;
+}
+
+.table-border tr:last-child{
+    border-bottom:1px solid #ddd;
+}
+
+.checkbox {
+    position: relative !important;
+    display: inline !important;
+}
+.filter{
+    padding: 0;
+    margin: 10px -15px 0 0;
+  }
+.text-centre{
+    text-align: center;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    padding-top: 8px;
+    background-color: #ffffff;
+    z-index: 45;
+    border: none;
+    outline-offset: -1px;
+}
+
+.table th{
+    /* white-space: nowrap; */
+    background:#eaeaea;
+    vertical-align: middle;
+}
+.displaynone{
+    display:none !important;
+}
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+ }
+ @media only screen and (min-width: 1152px) and (max-width: 1400px){
+    table {
+        font-size: 11px;
+    }
+}
+
+.table-border tbody {
+    display:block;
+    max-height:300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+.display-nodata{
+    height: 290px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.table-border thead, .table-border tbody tr {
+    display:table;
+    table-layout:fixed;
+    width:100%;
+  }
+
+  .table-border>tbody>tr>td, .table-border>tbody>tr>th, .table-border>tfoot>tr>td, .table-border>tfoot>tr>th, .table-border>thead>tr>td, .table-border>thead>tr>th{
+      padding:3px;
+  }
+
+
+  .download-excel{
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    z-index: 1;
+    }
+
+    .legend-box-design{
+        float: left;
+        width: 10px;
+        margin-right: 10px;
+        height: 33px;
+      }

@@ -264,9 +264,64 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .nav>li {
   border-bottom: 1px solid antiquewhite;
 }
+
+.box{
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+  float: left;
+  padding: 10px 15px;
+}
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.control-label{
+  text-align: left;
+  font-weight: normal;
+  padding-top:7px;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+
+.table{
+  margin: 20px 0;
+}
+
+.table th{
+  background:#eaeaea;
+}
 @media screen and (min-width: 768px){
   .main {
     margin-left: 16%;
+    margin-top: -15px;
 }
 
 .sidebar {
@@ -323,9 +378,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .equ-cell .body {
     padding: 0 5px 10px 5px;
     color: #757575;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 160px);
     float: left;
     width:100%;
+    overflow-y: auto;
+    overflow-x: auto;
   }
   
   .equ-cell .btn{

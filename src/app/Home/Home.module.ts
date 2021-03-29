@@ -16,6 +16,7 @@ import { LaundryOrderSummaryComponent } from '../laundry/laundry-order-summary/l
 import { LaundryIroningComponent } from '../laundry-ironing/laundry-ironing.component';
 import { IroningLaundryOrderSummaryComponent } from '../laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
 import { AdminModule } from '../admin/admin.module';
+import { GridTableModule } from '../common/grid-table/grid-table.module';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { AdminModule } from '../admin/admin.module';
     HttpClientModule,
     HeaderModule,
     DashboardModule,
-    AdminModule
+    AdminModule,
   ],
   declarations: [HomeComponent, IroningComponent, IroningOrderSummaryComponent, LaundryComponent, LaundryOrderSummaryComponent,
     LaundryIroningComponent, IroningLaundryOrderSummaryComponent],

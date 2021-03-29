@@ -24,3 +24,9 @@ export class IroningLaundryUrlConstant {
   public static GetIroningLaundryOrderById: string = environment.LaundryIroningAPIUrl + 'IroningLaundry/GetOrderById';
 }
 
+export class AdminAgentUrlConstant {
+  public static AddAdminAgentUser: string = environment.LaundryIroningAPIUrl + 'User/AddAdminAgentUsers';
+  public static UpdateAdminAgentUser: string = environment.LaundryIroningAPIUrl + 'User/UpdateAdminAgentUsers';
+  public static DeleteAdminAgentUser: string = environment.LaundryIroningAPIUrl + 'User/DeleteAdminAgentUsers';
+  public static GetAdminAgentOperatorUsers: string = environment.LaundryIroningAPIUrl + 'User/GetAdminAgentOperatorUsers';
+}
