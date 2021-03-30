@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
-import { UserConstant } from '../Constants/Application.Constant';
+import { OrderStausConstants, UserConstant } from '../Constants/Application.Constant';
 import { CommonService } from '../Services/Common.service';
 import { IroningModel } from './ironing.Model';
 import { IroningService } from './ironing.service';
@@ -22,6 +22,8 @@ export class IroningComponent implements OnInit {
   ironingForm: FormGroup;
   ironingModel: IroningModel;
   defaultValue: any;
+  @ViewChild('UPIcheckbox', { static: false }) UPIcheckbox;
+  @ViewChild('CODcheckbox', { static: false }) CODcheckbox;
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService, private ironingService: IroningService,
               private router: Router, private commonService: CommonService) {
@@ -33,6 +35,7 @@ export class IroningComponent implements OnInit {
     this.ironingModel = new IroningModel();
     this.ironingModel.PickUpTimeSlot = null;
     this.ironingModel.TotalCost = 0;
+    this.ironingModel.PaymentMode = null;
     this.ironingModel.PickUpAddress = sessionStorage.getItem(UserConstant.Address);
     this.CreateIroningForm();
     this.BindThePickUpTime();
@@ -52,7 +55,9 @@ CreateIroningForm() {
     TimeSlot: ['', [Validators.required]],
     Address: ['', [Validators.required]],
     TotalCost: ['', [Validators.required]],
-    DefaultCost: ['', []]
+    DefaultCost: ['', []],
+    UPI: ['', []],
+    COD: ['', []],
   });
   return 'form created';
 }
@@ -81,10 +86,10 @@ CreateIroningForm() {
   AddIroningOrders() {
     if (this.ironingModel.NoOfCloths !== null && this.ironingModel.PickUpDate !== null
       && this.ironingModel.PickUpTimeSlot !== null && this.ironingModel.PickUpAddress !== null
-      && this.ironingModel.TotalCost !== null) {
+      && this.ironingModel.TotalCost !== null && this.ironingModel.PaymentMode !== null) {
       this.isLoader = true;
-      this.ironingModel.IsDelivered = false;
       this.ironingModel.OrderBy = sessionStorage.getItem(UserConstant.UserId);
+      this.ironingModel.OrderStatus = OrderStausConstants.New;
       this.ironingService.AddIroningOrder(this.ironingModel).subscribe(result => {
         if (result !== null && result !== undefined) {
           this.notificationService.success(this.translateService.instant('CommonText.OrderPlacedSuccess'));
@@ -106,5 +111,21 @@ CreateIroningForm() {
     this.ironingModel.PickUpDate = null;
     this.ironingModel.PickUpTimeSlot = null;
     this.ironingModel.TotalCost = 0;
+    this.ironingModel.PaymentMode = null;
+  }
+
+  SetPaymentMode(event) {
+    if (event.target.defaultValue === 'UPI') {
+      if (event.target.checked) {
+        this.CODcheckbox.nativeElement.checked = false;
+        this.ironingModel.PaymentMode = event.target.defaultValue;
+      }
+
+    } else {
+      if (event.target.checked) {
+        this.UPIcheckbox.nativeElement.checked = false;
+        this.ironingModel.PaymentMode = event.target.defaultValue;
+      }
+    }
   }
 }

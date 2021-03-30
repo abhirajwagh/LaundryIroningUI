@@ -10,6 +10,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { SpinnerComponentModule } from './Shared/spinner/spinner.module';
 import { UserRegistrationModule } from './UserRegistration/UserRegistration.module';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [

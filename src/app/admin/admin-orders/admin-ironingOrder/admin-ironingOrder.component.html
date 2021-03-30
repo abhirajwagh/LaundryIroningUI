@@ -1,0 +1,114 @@
+<div class="tab-content form-scroll-div" >
+  <div class="col-md-12 box" [apploading]="isLoader">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
+          (clickedIcon)="selectedGridData($event,OrderSummeryPopup)" [pagination]="true" [showselection]='true' [enableSearch]="true">
+        </app-grid-table>
+        <button class="btn btn-primary" [disabled]="selectedOrderId.length <= 0" 
+        (click)="OpenOrderAssignmentpoup(OrderAssignmentPopup)">
+          Order Assignment</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #OrderAssignmentPopup>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Order Assignment</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeAssignmentPopup();">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" [apploading]="loaderForPopup">
+      <form [formGroup]='agentListForm'>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-2 col-md-2">
+              <label class="bold-font">Agent
+                <span class="required">*</span>
+              </label>
+            </div>
+            <div class="col-sm-8 col-md-8">
+              <select formControlName="Agents" [(ngModel)]="agentId" class="form-control" (change)="ValidateButton()">
+                <option value=null>Select agent</option>
+                <option *ngFor="let ag of agentList" [ngValue]='ag.UserId'>{{ag.Name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 text-center margin-top-25">
+              <button class="btn btn-primary" [disabled]="selectedOrderId.length <= 0 || !agentListForm.valid || !isAssignButtonValid" 
+              (click)="AssignSelectedOrdersToAgent()">
+                Assign</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="clearfix"></div>
+    <div class="modal-footer no-border">
+      &nbsp;
+    </div>
+  </ng-template>
+  <ng-template #OrderSummeryPopup>
+    <div class="card">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 text-right" style="padding-right: 30px;">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="closeSummeryPopup();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       
+      </div>
+      <div class="title">
+        Order Details
+      </div>
+      <div class="info">
+          <div class="row">
+              <div class="col-md-3 col-sm-3"> <span id="heading">Date</span><br> <span id="details">{{orderSummary.CreatedAt | date:'short'}}</span> </div>
+              <div class="col-md-3 col-sm-3"> <span id="heading">Time Slot</span><br> <span id="details">{{orderSummary.PickUpTimeSlot}}</span> </div>
+              <div class="col-md-3 col-sm-3"> <span id="heading">Assign To</span><br> 
+                <span *ngIf="orderSummary.AgentName != null" id="details">{{orderSummary.AgentName}}</span>
+                <span *ngIf="orderSummary.AgentName == null"  id="details">Not yet assign</span> 
+              </div>
+              <div class="col-md-3 col-sm-3 text-right"> <span id="heading">Order No.</span><br> <span id="details">{{orderSummary.OrderId}}</span> </div>
+          </div>
+      </div>
+      <div class="pricing">
+          <div class="row">
+              <div class="col-md-9 col-sm-9"> <span id="name">Number Of Cloths</span> </div>
+              <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.NoOfCloths}}</span> </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 col-sm-9"> <span id="name">Payment mode</span> </div>
+            <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.PaymentMode}}</span> </div>
+        </div>
+          <div class="row">
+              <div class="col-md-9 col-sm-9"> <span id="name">Total Cost</span> </div>
+              <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.TotalCost | currency:'INR'}}</span> </div>
+          </div>
+      </div>
+      <div class="total">
+          <div class="row">
+              <div class="col-md-9 col-sm-9"></div>
+              <div class="col-md-3 col-sm-3">{{orderSummary.TotalCost | currency:'INR'}}</div>
+          </div>
+      </div>
+      <div class="tracking">
+          <div class="title">Tracking Order</div>
+      </div>
+      <div class="progress-track">
+          <ul id="progressbar">
+              <li [ngClass]="{'active': orderSummary.CreatedAt !== null}" class="step0" id="step1">New</li>
+              <li [ngClass]="{'active': orderSummary.PickedAt !== null}" class="step0 text-center" id="step2">Picked</li>
+              <li [ngClass]="{'active': orderSummary.ProcessedAt !== null}" class="step0 text-right" id="step3">Processed</li>
+              <li [ngClass]="{'active': orderSummary.DeliveredAt !== null}" class="step0 text-right" id="step4">Delivered</li>
+          </ul>
+      </div>
+      <div class="footer">
+          <div class="row">
+              
+          </div>
+      </div>
+  </div>
+  </ng-template>
+</div>

@@ -9,12 +9,18 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2 col-md-2">
-                <label class="bold-font">{{'Ironing.NoOfCloths' | translate }}
+                <label class="bold-font">{{'Ironing.NoOfKgs' | translate }}
                   <span class="required">*</span>
                 </label>
               </div>
-              <div class="col-sm-8 col-md-8">
-                <input formControlName="NoOfCloths" pattern="^[0-9]*$" (keyup)=SetTotalCost($event); [(ngModel)]="laundryModel.NoOfCloths" max="999" class="form-control form-control-border" type="number">
+              <div class="col-sm-6 col-md-6">
+                <input formControlName="NoOfKgs" pattern="^[0-9]*$" (keyup)=SetTotalCost($event); [(ngModel)]="laundryModel.NoOfKgs" max="999" class="form-control form-control-border" type="number">
+              </div>
+              <div class="col-sm-2 col-md-2">
+                <div class="text-center" style="background-color: #e9ecef; height: 30px;width: 150px; border:2px solid #63738a; border-radius: 3px;">
+                <span style="font-weight: bold; font-size: large; color:black;">7 cloths </span>
+                <span style="font-weight: bold; font-size: large; color:black;">{{'CommonText.ratePerkg' | translate }}</span>
+              </div>
               </div>
             </div>
           </div>
@@ -71,8 +77,28 @@
                 <div class="text-center" style="background-color: #e9ecef; height: 30px;width: 150px; border:2px solid #63738a; border-radius: 3px;">
                 <span style="font-weight: bold; font-size: large; color:black;">{{defaultValue}}</span>
                 <span style="font-weight: bold; font-size: large; color:black;">&#8377;</span>
-                <span style="font-weight: bold; font-size: large; color:black;">{{'CommonText.ratePerClothe' | translate }}</span>
+                <span style="font-weight: bold; font-size: large; color:black;">{{'CommonText.ratePerkg' | translate }}</span>
               </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label class="bold-font">{{'Ironing.PaymentMode' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <input #UPIcheckbox formControlName="UPI" value="UPI" (click)="SetPaymentMode($event)"   type="checkbox">
+                <label class="bold-font">{{'Ironing.UPI' | translate }}
+                </label>
+                
+              </div>
+              <div class="col-sm-2 col-md-2">
+                <input #CODcheckbox formControlName="COD" value="COD"  (click)="SetPaymentMode($event)"  type="checkbox">
+                <label class="bold-font">{{'Ironing.CashOnDelivery' | translate }}
+                </label>
               </div>
             </div>
           </div>
