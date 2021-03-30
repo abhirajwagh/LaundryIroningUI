@@ -76,6 +76,26 @@
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2 col-md-2">
+                <label class="bold-font">{{'Ironing.PaymentMode' | translate }}
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <input #UPIcheckbox formControlName="UPI" value="UPI" (click)="SetPaymentMode($event)"   type="checkbox">
+                <label class="bold-font">{{'Ironing.UPI' | translate }}
+                </label>
+                
+              </div>
+              <div class="col-sm-2 col-md-2">
+                <input #CODcheckbox formControlName="COD" value="COD"  (click)="SetPaymentMode($event)"  type="checkbox">
+                <label class="bold-font">{{'Ironing.CashOnDelivery' | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-sm-12 col-md-12 text-center">
               <button class="btn btn-primary" style="margin-right: 10px;" [disabled] ="!ironingForm.valid" (click)="AddIroningOrders()">

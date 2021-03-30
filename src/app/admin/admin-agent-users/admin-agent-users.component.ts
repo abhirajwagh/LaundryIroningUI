@@ -81,13 +81,12 @@ export class AdminAgentUsersComponent implements OnInit {
       {
         this.tableData = result;
         this.totalItems = result.length;
-        console.log(result);
       } else {
         this.totalItems = 0;
       }
       this.isLoader = false;
       }, error => {
-        this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
+        this.notificationService.error(this.translateService.instant('CommonText.FailedToFetchData'));
         this.isLoader = false;
       });
   }
@@ -250,6 +249,5 @@ export class AdminAgentUsersComponent implements OnInit {
       this.isUpdateDelete = true;
       this.SetUserType(rowData.UserType);
     }
-    console.log(rowData);
   }
 }

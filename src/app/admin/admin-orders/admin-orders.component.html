@@ -1,7 +1,6 @@
-<p>
-  admin-orders works!
-</p>
-
-<app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
-  (clickedIcon)="selectedGridData($event)" [pagination]="true" [showselection]='false' [enableSearch]="true">
-</app-grid-table>
+<ul class="nav nav-tabs">
+  <li *ngFor="let tab of tabs" [ngClass]='{active : tab.isSelected}' (click)="selectedTab(tab)">
+    <a [ngClass]="{'sub-menu-configurationreq': tab.isHighLight == true, 'height-45-px': !tab.isHighLight}">{{tab.tabName  | translate}} </a>
+  </li>
+</ul>
+<router-outlet></router-outlet>

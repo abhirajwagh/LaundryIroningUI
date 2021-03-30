@@ -21,4 +21,10 @@ export const UserTypeConstants = {
 
 };
 
+export const OrderStausConstants = {
+  New: 'New',
+  Picked: 'Picked',
+  Processed: 'Processed',
+  Delivered: 'Delivered',
+};
 

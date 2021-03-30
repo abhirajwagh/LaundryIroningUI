@@ -89,8 +89,8 @@
     "FailedToAdd":"Failed to add record",
     "FailedToUpdate":"Failed to update record",
     "FailedToDelete":"Failed to delete record",
-    "FailedToFetchData":"Failed to fetch data"
-
+    "FailedToFetchData":"Failed to fetch data",
+    "ratePerkg":" / Kg"
     
   },
   "Ironing": {
@@ -105,7 +105,15 @@
     "LaundryPlaceOrder": "Laundry - Place Order",
     "IroningLaundryOrder": "IroningLaundry - Place Order",
     "LaundryOrderSummary": "Laundry - Order Summary",
-    "IroningLaundryOrderSummary": "IroningLaundry - Order Summary"
+    "IroningLaundryOrderSummary": "IroningLaundry - Order Summary",
+    "PaymentMode":"Payment mode",
+    "CashOnDelivery":"Cash on delivery",
+    "UPI":"Google pay / Phone pay / Paytm / Amazon pay",
+    "OrderStatus":"Order status",
+    "OrderAssignmentSuccess":"Orders are assigned successfully",
+    "OrderAssignmentFailed":"Failed to assign orders",
+    "NoOfKgs":"No of kgs"
+
   },
 
   "Admin": {

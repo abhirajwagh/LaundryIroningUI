@@ -318,6 +318,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .table th{
   background:#eaeaea;
 }
+
+.form-scroll-div {
+  height: calc(100vh - 140px);
+  margin-bottom: 0;
+  overflow-y: auto;
+  overflow-x:hidden;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 5px;
+}
+
 @media screen and (min-width: 768px){
   .main {
     margin-left: 16%;

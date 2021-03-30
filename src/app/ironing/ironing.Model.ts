@@ -5,6 +5,6 @@ export class IroningModel {
   PickUpAddress: string;
   TotalCost: any;
   OrderBy: any;
-  IsDelivered: boolean;
-  ClothsTypeId: any;
+  PaymentMode: any;
+  OrderStatus: string;
 }

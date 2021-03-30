@@ -1,10 +1,10 @@
 export class LaundryModel {
-  NoOfCloths: number;
+  NoOfKgs: number;
   PickUpDate: string;
   PickUpTimeSlot: string;
   PickUpAddress: string;
   TotalCost: any;
   OrderBy: any;
-  IsDelivered: boolean;
-  ClothsTypeId: any;
+  PaymentMode: any;
+  OrderStatus: string;
 }

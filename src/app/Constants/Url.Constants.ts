@@ -29,4 +29,10 @@ export class AdminAgentUrlConstant {
   public static UpdateAdminAgentUser: string = environment.LaundryIroningAPIUrl + 'User/UpdateAdminAgentUsers';
   public static DeleteAdminAgentUser: string = environment.LaundryIroningAPIUrl + 'User/DeleteAdminAgentUsers';
   public static GetAdminAgentOperatorUsers: string = environment.LaundryIroningAPIUrl + 'User/GetAdminAgentOperatorUsers';
+  public static GetIroningOrdersForAdmin: string = environment.LaundryIroningAPIUrl + 'Ironing/GetIroningOrdersForAdmin';
+  public static GetAgentUsers: string = environment.LaundryIroningAPIUrl + 'User/GetAgentUsers';
+  public static AssignSelectedOrdersToAgent: string = environment.LaundryIroningAPIUrl + 'Ironing/UpdateOrderAssignment';
+  public static GetLaundryOrdersForAdmin: string = environment.LaundryIroningAPIUrl + 'Laundry/GetLaundryOrdersForAdmin';
+  public static GetIroningLaundryOrdersForAdmin: string = environment.LaundryIroningAPIUrl + 'IroningLaundry/GetIroningLaundryOrdersForAdmin';
+  
 }
