@@ -50,8 +50,11 @@
           </td>
           <td class="{{col.headercss}}, " title="{{data[col.fieldName]}}" *ngFor=" let col of columns"
             style="word-wrap:break-word"
-            [ngStyle]="{'color':i === rowIndexFromPopup && currentPage === selectedPage ? '#fff':'',
-            'background-color':i === rowIndexFromPopup &&  currentPage === selectedPage ? '#225d8f' : '' }"
+            [ngStyle]="{'background-color':data.OrderStatus == 'New' && GridName =='OrdersGrid' ? 'red':
+                                data.OrderStatus == 'Picked' && GridName =='OrdersGrid' ? 'blue' :
+                                data.OrderStatus == 'Processed' && GridName =='OrdersGrid' ? 'yellow' :
+                                data.OrderStatus == 'Delivered' && GridName =='OrdersGrid' ? 'green' : '',
+                                color: GridName =='OrdersGrid'? 'white': 'black'}"
             (click)="setClickedRow(i, data[uniqueKey],data,col.fieldName)">
             <a [class.disabled]="col.isEnabled==false" *ngIf='col.icon' style="margin-left:5px;"
               (click)="PointListIconClicked(data,col.fieldName);">

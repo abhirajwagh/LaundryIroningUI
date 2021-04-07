@@ -96,6 +96,7 @@ export class GridTableComponent implements OnInit, OnChanges {
     @Input() isSearchText = true;
     @Input() tbodyHeight: string;
     @Input() noDataHeight: string;
+    @Input() GridName: any = null;
     @ViewChild('theCheckbox', { static: false }) checkbox;
     selectedRow: MyData;
     pageData: PageData;
@@ -117,7 +118,6 @@ export class GridTableComponent implements OnInit, OnChanges {
     csvOptions: any;
     @Output() PointListIcon = new EventEmitter<object>();
     @Output() isEditBtnClicked = new EventEmitter<boolean>();
-    isRasUser: boolean;
     constructor(private translateService: TranslateService, private searchService: SearchDataService
         ,       private commonService: CommonService) {
         translateService.setDefaultLang(environment.DefaultLanguage);

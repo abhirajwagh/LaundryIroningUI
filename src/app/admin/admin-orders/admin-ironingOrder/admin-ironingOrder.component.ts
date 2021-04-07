@@ -23,6 +23,7 @@ export class AdminIroningOrderComponent implements OnInit {
   agentList: any;
   isAssignButtonValid: boolean;
   orderSummary: any;
+  id: any;
   constructor(
               private modalService: BsModalService , private translateService: TranslateService,
               private adminOrdersService: AdminOrdersService,
@@ -33,6 +34,9 @@ export class AdminIroningOrderComponent implements OnInit {
     this.CostructGridColumnHeaders();
     this.GetIroningOrdersForAdmin();
     this.selectedOrderId = [];
+    this.id = setInterval(() => {
+      this.GetIroningOrdersForAdmin();
+    }, 60000);
   }
 
   CostructGridColumnHeaders() {
@@ -82,8 +86,8 @@ export class AdminIroningOrderComponent implements OnInit {
   }
 
   GetIroningOrdersForAdmin() {
-    this.isLoader = true;
-    this.tableData = [];
+    //this.isLoader = true;
+   // this.tableData = [];
     this.tempTableData = [];
     this.adminOrdersService.GetIroningOrdersForAdmin().subscribe(result => {
     if (result !== null && result.length > 0)
@@ -120,7 +124,7 @@ export class AdminIroningOrderComponent implements OnInit {
     } else {
       this.totalItems = 0;
     }
-    this.isLoader = false;
+   // this.isLoader = false;
     }, error => {
       this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
       this.isLoader = false;
@@ -178,5 +182,11 @@ export class AdminIroningOrderComponent implements OnInit {
 
   closeSummeryPopup() {
     this.modalRef.hide();
+  }
+
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
   }
 }
