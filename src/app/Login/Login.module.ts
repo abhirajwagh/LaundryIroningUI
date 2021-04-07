@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../Services/HttpService.service';
 import { LoginService } from './Login.service';
 import { HomeModule } from '../Home/Home.module';
+import { AgentModule } from '../agent/agent.module';
+import { OperatorModule } from '../operator/operator.module';
 
 const routes: Routes = [
   {
@@ -27,7 +29,9 @@ const routes: Routes = [
     SpinnerComponentModule,
     RouterModule,
     HttpClientModule,
-    HomeModule
+    HomeModule,
+    AgentModule,
+    OperatorModule
   ],
   exports: [RouterModule, LoginComponent],
   declarations: [LoginComponent],

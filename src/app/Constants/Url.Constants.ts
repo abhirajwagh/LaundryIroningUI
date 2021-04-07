@@ -34,5 +34,9 @@ export class AdminAgentUrlConstant {
   public static AssignSelectedOrdersToAgent: string = environment.LaundryIroningAPIUrl + 'Ironing/UpdateOrderAssignment';
   public static GetLaundryOrdersForAdmin: string = environment.LaundryIroningAPIUrl + 'Laundry/GetLaundryOrdersForAdmin';
   public static GetIroningLaundryOrdersForAdmin: string = environment.LaundryIroningAPIUrl + 'IroningLaundry/GetIroningLaundryOrdersForAdmin';
+  public static GetAllNewOrdersForAgent: string = environment.LaundryIroningAPIUrl + 'Ironing/GetAllNewOrdersForAgent';
+  public static GetAllProcessedOrdersForAgent: string = environment.LaundryIroningAPIUrl + 'Ironing/GetAllProcessedOrdersForAgent';
+  public static UpdateOrderStatus: string = environment.LaundryIroningAPIUrl + 'Ironing/UpdateOrderStatus';
+  public static GetAllPickedOrdersForoperator: string = environment.LaundryIroningAPIUrl + 'Ironing/GetAllPickedOrdersForOperator';
   
 }

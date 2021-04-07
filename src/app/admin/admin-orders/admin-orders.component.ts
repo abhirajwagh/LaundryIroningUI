@@ -14,7 +14,6 @@ export class AdminOrdersComponent implements OnInit {
   tabs: any;
   currentURL = '';
   constructor(private translateService: TranslateService, private router: Router) {
-    this.setUserLanguage(environment.DefaultLanguage);
    }
 
   ngOnInit() {

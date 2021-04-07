@@ -1,0 +1,15 @@
+<div class="bubble-image">
+  <app-header></app-header>
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-sm-12 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <ul class="nav nav-tabs">
+        <li *ngFor="let tab of tabs" [ngClass]='{active : tab.isSelected}' (click)="selectedTab(tab)">
+          <a [ngClass]="{'sub-menu-configurationreq': tab.isHighLight == true, 'height-45-px': !tab.isHighLight}">{{tab.tabName  | translate}} </a>
+        </li>
+      </ul>
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+    </div>
+</div>

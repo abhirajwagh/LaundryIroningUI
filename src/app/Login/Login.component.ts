@@ -58,7 +58,12 @@ export class LoginComponent implements OnInit {
            this.router.navigate(['/cleanit/home/dashboard']);
          } else if (userType === UserTypeConstants.Admin) {
            this.router.navigate(['/cleanit/home/admin/adminorders/adminironingorder']);
-         } else {
+         } else if (userType === UserTypeConstants.Agent) {
+          this.router.navigate(['/cleanit/agent/pickedOrders']);
+         } else if (userType === UserTypeConstants.Operator) {
+          this.router.navigate(['/cleanit/operator']);
+        }
+         else {
           this.router.navigate(['/login']);
          }
        } else {
