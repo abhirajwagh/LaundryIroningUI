@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, TemplateRef } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { AdminOrdersService } from '../admin-orders.service';
@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './admin-ironingOrder.component.html',
   styleUrls: ['./admin-ironingOrder.component.css']
 })
-export class AdminIroningOrderComponent implements OnInit {
+export class AdminIroningOrderComponent implements OnInit, OnDestroy {
   isLoader: boolean;
   columnHeader: any;
   tableData: any;
@@ -32,11 +32,11 @@ export class AdminIroningOrderComponent implements OnInit {
 
   ngOnInit() {
     this.CostructGridColumnHeaders();
-    this.GetIroningOrdersForAdmin();
+    this.GetIroningOrdersForAdmin(true);
     this.selectedOrderId = [];
     this.id = setInterval(() => {
-      this.GetIroningOrdersForAdmin();
-    }, 60000);
+      this.GetIroningOrdersForAdmin(false);
+    }, 600000);
   }
 
   CostructGridColumnHeaders() {
@@ -85,9 +85,11 @@ export class AdminIroningOrderComponent implements OnInit {
     }
   }
 
-  GetIroningOrdersForAdmin() {
-    //this.isLoader = true;
-   // this.tableData = [];
+  GetIroningOrdersForAdmin(isTableDataBlank) {
+    if (isTableDataBlank) {
+      this.isLoader = true;
+      this.tableData = [];
+    }
     this.tempTableData = [];
     this.adminOrdersService.GetIroningOrdersForAdmin().subscribe(result => {
     if (result !== null && result.length > 0)
@@ -124,7 +126,7 @@ export class AdminIroningOrderComponent implements OnInit {
     } else {
       this.totalItems = 0;
     }
-   // this.isLoader = false;
+    this.isLoader = false;
     }, error => {
       this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
       this.isLoader = false;
@@ -164,7 +166,8 @@ export class AdminIroningOrderComponent implements OnInit {
     this.loaderForPopup = true;
     this.adminOrdersService.AssignSelectedOrdersToAgent(this.agentId, this.selectedOrderId).subscribe(result => {
       this.notificationService.success(this.translateService.instant('Ironing.OrderAssignmentSuccess'));
-      this.GetIroningOrdersForAdmin();
+      this.GetIroningOrdersForAdmin(true);
+      this.closeAssignmentPopup();
       this.loaderForPopup = false;
     }, error => {
       this.notificationService.error(this.translateService.instant('Ironing.OrderAssignmentFailed'));

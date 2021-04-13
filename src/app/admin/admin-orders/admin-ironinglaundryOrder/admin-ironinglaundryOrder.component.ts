@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
@@ -10,7 +10,7 @@ import { AdminOrdersService } from '../admin-orders.service';
   templateUrl: './admin-ironinglaundryOrder.component.html',
   styleUrls: ['./admin-ironinglaundryOrder.component.css']
 })
-export class AdminIroninglaundryOrderComponent implements OnInit {
+export class AdminIroninglaundryOrderComponent implements OnInit, OnDestroy {
   isLoader: boolean;
   columnHeader: any;
   tableData: any;
@@ -24,6 +24,7 @@ export class AdminIroninglaundryOrderComponent implements OnInit {
   agentList: any;
   isAssignButtonValid: boolean;
   orderSummary: any;
+  id: any;
   constructor(private modalService: BsModalService , private translateService: TranslateService,
               private adminOrdersService: AdminOrdersService,
               private notificationService: NotificationsService,
@@ -31,9 +32,11 @@ export class AdminIroninglaundryOrderComponent implements OnInit {
 
   ngOnInit() {
     this.CostructGridColumnHeaders();
-    this.GetIroningLaundryOrdersForAdmin();
+    this.GetIroningLaundryOrdersForAdmin(true);
     this.selectedOrderId = [];
-    
+    this.id = setInterval(() => {
+      this.GetIroningLaundryOrdersForAdmin(false);
+    }, 600000);
   }
 
   CostructGridColumnHeaders() {
@@ -82,9 +85,11 @@ export class AdminIroninglaundryOrderComponent implements OnInit {
     }
   }
 
-  GetIroningLaundryOrdersForAdmin() {
-    this.isLoader = true;
-    this.tableData = [];
+  GetIroningLaundryOrdersForAdmin(isTableDataBlank) {
+    if (isTableDataBlank) {
+      this.isLoader = true;
+      this.tableData = [];
+    }
     this.tempTableData = [];
     this.adminOrdersService.GetIroningLaundryOrdersForAdmin().subscribe(result => {
     if (result !== null && result.length > 0)
@@ -171,7 +176,8 @@ export class AdminIroninglaundryOrderComponent implements OnInit {
     this.loaderForPopup = true;
     this.adminOrdersService.AssignSelectedOrdersToAgent(this.agentId, this.selectedOrderId).subscribe(result => {
       this.notificationService.success(this.translateService.instant('Ironing.OrderAssignmentSuccess'));
-      this.GetIroningLaundryOrdersForAdmin();
+      this.GetIroningLaundryOrdersForAdmin(true);
+      this.closeAssignmentPopup();
       this.loaderForPopup = false;
     }, error => {
       this.notificationService.error(this.translateService.instant('Ironing.OrderAssignmentFailed'));
@@ -180,5 +186,11 @@ export class AdminIroninglaundryOrderComponent implements OnInit {
   }
   closeSummeryPopup() {
     this.modalRef.hide();
+  }
+
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
   }
 }

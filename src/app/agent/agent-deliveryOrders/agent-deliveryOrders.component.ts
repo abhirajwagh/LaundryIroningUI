@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -10,7 +10,7 @@ import { AgentOrdersService } from '../agent-orders.service';
   templateUrl: './agent-deliveryOrders.component.html',
   styleUrls: ['./agent-deliveryOrders.component.css']
 })
-export class AgentDeliveryOrdersComponent implements OnInit {
+export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
   isLoader: boolean;
   columnHeader: any;
   tableData: any;
@@ -21,14 +21,20 @@ export class AgentDeliveryOrdersComponent implements OnInit {
   loaderForPopup: boolean;
   userId: any;
   orderSummary: any;
+  id: any;
+  isValidOrder: boolean;
   constructor(private modalService: BsModalService , private translateService: TranslateService,
               private agentOrdersService: AgentOrdersService,
               private notificationService: NotificationsService) { }
 
   ngOnInit() {
+    this.isValidOrder = false;
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.CostructGridColumnHeaders();
-    this.GetDeliveryOrdersForAgent();
+    this.GetDeliveryOrdersForAgent(true);
+    this.id = setInterval(() => {
+      this.GetDeliveryOrdersForAgent(false);
+    }, 300000);
   }
   CostructGridColumnHeaders() {
     this.columnHeader = [
@@ -37,8 +43,8 @@ export class AgentDeliveryOrdersComponent implements OnInit {
         fieldName: 'OrderNumber', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('Ironing.OrderStatus'), navigation: '',
-        fieldName: 'OrderStatus', headercss: 'text-left', dataType: '', icon: ''
+        name: this.translateService.instant('Ironing.PickupAddress'), navigation: '',
+        fieldName: 'PickUpAddress', headercss: 'text-left', dataType: '', icon: ''
       },
       {
         name: this.translateService.instant('CommonText.TotalCost'), navigation: '',
@@ -47,11 +53,12 @@ export class AgentDeliveryOrdersComponent implements OnInit {
     ];
   }
 
-  GetDeliveryOrdersForAgent() {
-    this.isLoader = true;
-    this.tableData = [];
+  GetDeliveryOrdersForAgent(istableDataBlank) {
+    if (istableDataBlank) {
+      this.isLoader = true;
+      this.tableData = [];
+    }
     this.tempTableData = [];
-
     this.agentOrdersService.GetDeliveryOrdersForAgent(this.userId).subscribe(result => {
     if (result !== null && result.length > 0)
     {
@@ -103,12 +110,26 @@ export class AgentDeliveryOrdersComponent implements OnInit {
     this.agentOrdersService.UpdateOrderStatus(this.orderSummary.OrderNumber,this.orderSummary.OrderType, OrderStausConstants.Delivered).subscribe(result => {
       if (result !== null && result !== undefined) {
         this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
-        this.GetDeliveryOrdersForAgent();
+        this.GetDeliveryOrdersForAgent(true);
+        this.closeSummeryPopup();
         this.isLoader = false;
       }
     }, error => {
       this.notificationService.error(this.translateService.instant('CommonText.FailedToUpdate'));
       this.isLoader = false;
     });
-}
+  }
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
+  }
+
+  ValidDeliveryOrder(event) {
+    if (event.target.checked) {
+      this.isValidOrder = true;
+    } else {
+      this.isValidOrder = false;
+    }
+  }
 }
