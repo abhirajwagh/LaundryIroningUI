@@ -52,7 +52,7 @@
             style="word-wrap:break-word"
             [ngStyle]="{'background-color':data.OrderStatus == 'New' && GridName =='OrdersGrid' ? 'red':
                                 data.OrderStatus == 'Picked' && GridName =='OrdersGrid' ? 'blue' :
-                                data.OrderStatus == 'Processed' && GridName =='OrdersGrid' ? 'yellow' :
+                                data.OrderStatus == 'Processed' && GridName =='OrdersGrid' ? '#E1AD01' :
                                 data.OrderStatus == 'Delivered' && GridName =='OrdersGrid' ? 'green' : '',
                                 color: GridName =='OrdersGrid'? 'white': 'black'}"
             (click)="setClickedRow(i, data[uniqueKey],data,col.fieldName)">

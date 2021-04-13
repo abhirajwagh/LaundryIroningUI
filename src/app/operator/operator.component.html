@@ -56,12 +56,15 @@
                 </div>
             </div>
             <div class="footer">
-                <div class="row">
-                  <div class="col-md-12 col-sm-12 text-center">
-                    <button class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
-                  </div>
+              <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                  <label class="bold-font" style="margin-right: 5%;">Is Order Processed
+                    <input value="true" (click)="ValidProcessedOrder($event)"  type="checkbox">
+                  </label>
+                  <button [disabled]="!isOrderProcessed" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
                 </div>
-            </div>
+              </div>
+          </div>
         </div>
         </ng-template>
       </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
@@ -11,7 +11,7 @@ import { AgentOrdersService } from '../agent-orders.service';
   templateUrl: './agent-pickedOrders.component.html',
   styleUrls: ['./agent-pickedOrders.component.css']
 })
-export class AgentPickedOrdersComponent implements OnInit {
+export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
   isLoader: boolean;
   columnHeader: any;
   tableData: any;
@@ -22,6 +22,8 @@ export class AgentPickedOrdersComponent implements OnInit {
   loaderForPopup: boolean;
   userId: any;
   orderSummary: any;
+  id: any;
+  isValidOrder: boolean;
   constructor(
     private modalService: BsModalService , private translateService: TranslateService,
     private agentOrdersService: AgentOrdersService,
@@ -29,9 +31,13 @@ export class AgentPickedOrdersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isValidOrder = false;
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.CostructGridColumnHeaders();
-    this.GetNewOrdersForAgent();
+    this.GetNewOrdersForAgent(true);
+    this.id = setInterval(() => {
+      this.GetNewOrdersForAgent(false);
+    }, 300000);
   }
 
   
@@ -42,8 +48,8 @@ export class AgentPickedOrdersComponent implements OnInit {
         fieldName: 'OrderNumber', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('Ironing.OrderStatus'), navigation: '',
-        fieldName: 'OrderStatus', headercss: 'text-left', dataType: '', icon: ''
+        name: this.translateService.instant('Ironing.PickupAddress'), navigation: '',
+        fieldName: 'PickUpAddress', headercss: 'text-left', dataType: '', icon: ''
       },
       {
         name: this.translateService.instant('CommonText.TotalCost'), navigation: '',
@@ -52,11 +58,12 @@ export class AgentPickedOrdersComponent implements OnInit {
     ];
   }
 
-  GetNewOrdersForAgent() {
-    this.isLoader = true;
-    this.tableData = [];
+  GetNewOrdersForAgent(istableDataBlank) {
+    if (istableDataBlank) {
+      this.isLoader = true;
+      this.tableData = [];
+    }
     this.tempTableData = [];
-
     this.agentOrdersService.GetNewOrdersForAgent(this.userId).subscribe(result => {
     if (result !== null && result.length > 0)
     {
@@ -110,7 +117,8 @@ export class AgentPickedOrdersComponent implements OnInit {
       this.agentOrdersService.UpdateOrderStatus(this.orderSummary.OrderNumber,this.orderSummary.OrderType, OrderStausConstants.Picked).subscribe(result => {
         if (result !== null && result !== undefined) {
           this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
-          this.GetNewOrdersForAgent();
+          this.GetNewOrdersForAgent(true);
+          this.closeSummeryPopup();
           this.isLoader = false;
         }
       }, error => {
@@ -118,5 +126,17 @@ export class AgentPickedOrdersComponent implements OnInit {
         this.isLoader = false;
       });
   }
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
+  }
 
+  ValidPickedOrder(event) {
+    if (event.target.checked) {
+      this.isValidOrder = true;
+    } else {
+      this.isValidOrder = false;
+    }
+  }
 }

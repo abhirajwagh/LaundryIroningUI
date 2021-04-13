@@ -53,7 +53,10 @@
       <div class="footer">
           <div class="row">
             <div class="col-md-12 col-sm-12 text-center">
-              <button class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
+              <label class="bold-font" style="margin-right: 5%;">Is Order Valid
+                <input value="true" (click)="ValidPickedOrder($event)"  type="checkbox">
+              </label>
+              <button [disabled]="!isValidOrder" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
             </div>
           </div>
       </div>

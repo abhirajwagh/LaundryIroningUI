@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -10,7 +10,7 @@ import { OrderStausConstants, UserConstant } from '../Constants/Application.Cons
   templateUrl: './operator.component.html',
   styleUrls: ['./operator.component.css']
 })
-export class OperatorComponent implements OnInit {
+export class OperatorComponent implements OnInit, OnDestroy {
   isLoader: boolean;
   columnHeader: any;
   tableData: any;
@@ -21,14 +21,20 @@ export class OperatorComponent implements OnInit {
   loaderForPopup: boolean;
   userId: any;
   orderSummary: any;
+  id: any;
+  isOrderProcessed: boolean;
   constructor(private modalService: BsModalService , private translateService: TranslateService,
               private agentOrdersService: AgentOrdersService,
               private notificationService: NotificationsService) { }
 
   ngOnInit() {
+    this.isOrderProcessed = false;
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.CostructGridColumnHeaders();
-    this.GetPickedOrdersForOperator();
+    this.GetPickedOrdersForOperator(true);
+    this.id = setInterval(() => {
+      this.GetPickedOrdersForOperator(false);
+    }, 300000);
   }
   CostructGridColumnHeaders() {
     this.columnHeader = [
@@ -47,9 +53,11 @@ export class OperatorComponent implements OnInit {
     ];
   }
 
-  GetPickedOrdersForOperator() {
-    this.isLoader = true;
-    this.tableData = [];
+  GetPickedOrdersForOperator(isTableDataBlank) {
+    if (isTableDataBlank) {
+      this.isLoader = true;
+      this.tableData = [];
+    }
     this.tempTableData = [];
 
     this.agentOrdersService.GetPickedOrdersForOperator(this.userId).subscribe(result => {
@@ -105,12 +113,25 @@ export class OperatorComponent implements OnInit {
     this.agentOrdersService.UpdateOrderStatus(this.orderSummary.OrderNumber,this.orderSummary.OrderType, OrderStausConstants.Processed).subscribe(result => {
       if (result !== null && result !== undefined) {
         this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
-        this.GetPickedOrdersForOperator();
+        this.GetPickedOrdersForOperator(true);
+        this.closeSummeryPopup();
         this.isLoader = false;
       }
     }, error => {
       this.notificationService.error(this.translateService.instant('CommonText.FailedToUpdate'));
       this.isLoader = false;
     });
-}
+  }
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
+  }
+  ValidProcessedOrder(event) {
+    if (event.target.checked) {
+      this.isOrderProcessed = true;
+    } else {
+      this.isOrderProcessed = false;
+    }
+  }
 }
