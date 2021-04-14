@@ -29,9 +29,9 @@ constructor(private httpService: HttpService) { }
   }
 
   // update order status
-  UpdateOrderStatus(orderNo,orderType, orderStatus): Observable<any> {
-    const url = AdminAgentUrlConstant.UpdateOrderStatus + '?orderNo=' + orderNo + '&orderType=' + orderType + '&orderStatus=' + orderStatus;
-    return this.httpService.postDataText(url, null);
+  UpdateOrderStatus(inputModel): Observable<any> {
+    const url = AdminAgentUrlConstant.UpdateOrderStatus;
+    return this.httpService.postDataText(url, inputModel);
   }
 }
 

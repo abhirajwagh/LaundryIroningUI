@@ -116,7 +116,10 @@ export class AdminIroningOrderComponent implements OnInit, OnDestroy {
           PickUpTimeSlot: i.PickUpTimeSlot,
           PickedAt: i.PickedAt,
           ProcessedAt: i.ProcessedAt,
-          TotalCost: i.TotalCost
+          TotalCost: i.TotalCost,
+          PickedBy: i.PickedBy,
+          ProcessedBy: i.ProcessedBy,
+          DeliveredBy: i.DeliveredBy
 
         };
         this.tempTableData.push(dataForTable);
