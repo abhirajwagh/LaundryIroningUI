@@ -110,7 +110,13 @@ export class OperatorComponent implements OnInit, OnDestroy {
 
   UpdateOrderStatus() {
     this.isLoader = true;
-    this.agentOrdersService.UpdateOrderStatus(this.orderSummary.OrderNumber,this.orderSummary.OrderType, OrderStausConstants.Processed).subscribe(result => {
+    const inputModel = {
+      OrderNumber: this.orderSummary.OrderNumber,
+      OrderType: this.orderSummary.OrderType,
+      OrderStatus: OrderStausConstants.Processed,
+      ConfirmBy: this.userId
+    };
+    this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
       if (result !== null && result !== undefined) {
         this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
         this.GetPickedOrdersForOperator(true);

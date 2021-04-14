@@ -107,7 +107,13 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
   }
   UpdateOrderStatus() {
     this.isLoader = true;
-    this.agentOrdersService.UpdateOrderStatus(this.orderSummary.OrderNumber,this.orderSummary.OrderType, OrderStausConstants.Delivered).subscribe(result => {
+    const inputModel = {
+      OrderNumber: this.orderSummary.OrderNumber,
+      OrderType: this.orderSummary.OrderType,
+      OrderStatus: OrderStausConstants.Delivered,
+      ConfirmBy: this.userId
+    };
+    this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
       if (result !== null && result !== undefined) {
         this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
         this.GetDeliveryOrdersForAgent(true);
