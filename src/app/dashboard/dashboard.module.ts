@@ -3,17 +3,16 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from '../Home/Home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { IroningComponent } from '../ironing/ironing.component';
-import { LaundryComponent } from '../laundry/laundry.component';
-import { LaundryIroningComponent } from '../laundry-ironing/laundry-ironing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponentModule } from '../Shared/spinner/spinner.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IroningOrderSummaryComponent } from '../ironing/ironing-order-summary/ironing-order-summary.component';
-import { LaundryOrderSummaryComponent } from '../laundry/laundry-order-summary/laundry-order-summary.component';
-import { IroningLaundryOrderSummaryComponent } from '../laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
-import { AdminComponent } from '../admin/admin.component';
+import { IroningComponent } from '../customer/ironing/ironing.component';
+import { LaundryComponent } from '../customer/laundry/laundry.component';
+import { LaundryIroningComponent } from '../customer/laundry-ironing/laundry-ironing.component';
+import { IroningOrderSummaryComponent } from '../customer/ironing/ironing-order-summary/ironing-order-summary.component';
+import { LaundryOrderSummaryComponent } from '../customer/laundry/laundry-order-summary/laundry-order-summary.component';
+import { IroningLaundryOrderSummaryComponent } from '../customer/laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
 
 const routes: Routes = [
   {

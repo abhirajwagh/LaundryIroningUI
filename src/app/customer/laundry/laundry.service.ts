@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LaundryUrlConstant } from '../Constants/Url.Constants';
-import { HttpService } from '../Services/HttpService.service';
+import { LaundryUrlConstant } from 'src/app/Constants/Url.Constants';
+import { HttpService } from 'src/app/Services/HttpService.service';
 
 @Injectable({
   providedIn: 'root'
