@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import * as moment from 'moment';
+import { OrderStausConstants, UserConstant } from 'src/app/Constants/Application.Constant';
+import { CommonService } from 'src/app/Services/Common.service';
 import { environment } from 'src/environments/environment';
-import { OrderStausConstants, UserConstant } from '../Constants/Application.Constant';
-import { CommonService } from '../Services/Common.service';
 import { IroningLaundryModel } from './laundry-ironing.Model';
 import { IroningLaundryService } from './laundry-ironing.service';
 

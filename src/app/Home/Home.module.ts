@@ -9,14 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../Services/HttpService.service';
 import { HeaderModule } from '../Shared/header/header.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
-import { IroningComponent } from '../ironing/ironing.component';
-import { IroningOrderSummaryComponent } from '../ironing/ironing-order-summary/ironing-order-summary.component';
-import { LaundryComponent } from '../laundry/laundry.component';
-import { LaundryOrderSummaryComponent } from '../laundry/laundry-order-summary/laundry-order-summary.component';
-import { LaundryIroningComponent } from '../laundry-ironing/laundry-ironing.component';
-import { IroningLaundryOrderSummaryComponent } from '../laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
 import { AdminModule } from '../admin/admin.module';
-import { GridTableModule } from '../common/grid-table/grid-table.module';
+import { IroningComponent } from '../customer/ironing/ironing.component';
+import { IroningOrderSummaryComponent } from '../customer/ironing/ironing-order-summary/ironing-order-summary.component';
+import { LaundryComponent } from '../customer/laundry/laundry.component';
+import { LaundryOrderSummaryComponent } from '../customer/laundry/laundry-order-summary/laundry-order-summary.component';
+import { LaundryIroningComponent } from '../customer/laundry-ironing/laundry-ironing.component';
+import { IroningLaundryOrderSummaryComponent } from '../customer/laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
 
 @NgModule({
   imports: [
