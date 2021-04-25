@@ -13,6 +13,10 @@ import { LaundryIroningComponent } from '../customer/laundry-ironing/laundry-iro
 import { IroningOrderSummaryComponent } from '../customer/ironing/ironing-order-summary/ironing-order-summary.component';
 import { LaundryOrderSummaryComponent } from '../customer/laundry/laundry-order-summary/laundry-order-summary.component';
 import { IroningLaundryOrderSummaryComponent } from '../customer/laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
+import { RecentOrdersComponent } from '../customer/recent-orders/recent-orders.component';
+import { OrderHistoryComponent } from '../customer/order-history/order-history.component';
+import { CustomerProfileComponent } from '../customer/customer-profile/customer-profile.component';
+import { ContactusComponent } from '../customer/contactus/contactus.component';
 
 const routes: Routes = [
   {
@@ -46,6 +50,22 @@ const routes: Routes = [
       {
         path: 'ironinglaundryOrderSummary',
         component: IroningLaundryOrderSummaryComponent,
+      },
+      {
+        path: 'recentOrders',
+        component: RecentOrdersComponent,
+      },
+      {
+        path: 'orderHistory',
+        component: OrderHistoryComponent,
+      },
+      {
+        path: 'customerProfile',
+        component: CustomerProfileComponent,
+      },
+      {
+        path: 'contactUs',
+        component: ContactusComponent,
       }
     ]
   },

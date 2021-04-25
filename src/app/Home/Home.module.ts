@@ -16,6 +16,10 @@ import { LaundryComponent } from '../customer/laundry/laundry.component';
 import { LaundryOrderSummaryComponent } from '../customer/laundry/laundry-order-summary/laundry-order-summary.component';
 import { LaundryIroningComponent } from '../customer/laundry-ironing/laundry-ironing.component';
 import { IroningLaundryOrderSummaryComponent } from '../customer/laundry-ironing/laundry-ironing-order-summary/laundryIroning-order-summary.component';
+import { GridTableModule } from '../common/grid-table/grid-table.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderHistoryComponent } from '../customer/order-history/order-history.component';
+import { RecentOrdersComponent } from '../customer/recent-orders/recent-orders.component';
 
 @NgModule({
   imports: [
@@ -29,9 +33,11 @@ import { IroningLaundryOrderSummaryComponent } from '../customer/laundry-ironing
     HeaderModule,
     DashboardModule,
     AdminModule,
+    GridTableModule,
+    ModalModule.forRoot(),
   ],
   declarations: [HomeComponent, IroningComponent, IroningOrderSummaryComponent, LaundryComponent, LaundryOrderSummaryComponent,
-    LaundryIroningComponent, IroningLaundryOrderSummaryComponent],
+    LaundryIroningComponent, IroningLaundryOrderSummaryComponent, OrderHistoryComponent, RecentOrdersComponent],
   exports: [RouterModule, HomeComponent],
   providers: [HttpService]
 })

@@ -27,7 +27,7 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
   constructor(
     private modalService: BsModalService , private translateService: TranslateService,
     private agentOrdersService: AgentOrdersService,
-    private notificationService: NotificationsService,
+    private notificationService: NotificationsService
   ) { }
 
   ngOnInit() {

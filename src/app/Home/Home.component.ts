@@ -23,10 +23,10 @@ export class HomeComponent implements OnInit {
   }
 
   GetCustomerMenuList() {
-    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: 'account' },
-    { Id: 2, Name: 'Recent Orders', routeUrl: 'recentOrders' },
-    { Id: 3, Name: 'Order History', routeUrl: 'orderHistory' },
-    { Id: 4, Name: 'Contact Us', routeUrl: 'contactUs' },
+    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: '/cleanit/home/customerProfile' },
+    { Id: 2, Name: 'Recent Orders', routeUrl: '/cleanit/home/recentOrders' },
+    { Id: 3, Name: 'Order History', routeUrl: '/cleanit/home/orderHistory' },
+    { Id: 4, Name: 'Contact Us', routeUrl: '/cleanit/home/contactUs' },
     { Id: 5, Name: 'FAQs', routeUrl: 'faq' }];
   }
 
