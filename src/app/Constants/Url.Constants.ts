@@ -40,3 +40,7 @@ export class AdminAgentUrlConstant {
   public static GetAllPickedOrdersForoperator: string = environment.LaundryIroningAPIUrl + 'Ironing/GetAllPickedOrdersForOperator';
   
 }
+
+export class CustomerUrlConstant {
+  public static GetAllOrdersForCustomer: string = environment.LaundryIroningAPIUrl + 'User/GetAllOrdersForCustomer';
+}
