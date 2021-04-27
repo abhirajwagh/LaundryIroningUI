@@ -111,7 +111,6 @@ export class AdminIroningOrderComponent implements OnInit, OnDestroy {
           NoOfCloths: i.NoOfCloths,
           OrderId: i.OrderId,
           OrderStatus: i.OrderStatus,
-          PaymentMode: i.PaymentMode,
           PickUpDate: i.PickUpDate,
           PickUpTimeSlot: i.PickUpTimeSlot,
           PickedAt: i.PickedAt,

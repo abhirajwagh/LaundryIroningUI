@@ -4,7 +4,7 @@
       <div class="col-sm-12 col-md-12">
         <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
           (clickedIcon)="selectedGridData($event,OrderSummeryPopup)" [pagination]="true" [showselection]='false' [enableSearch]="true"
-          [GridName]="'OrdersGrid'">
+          [GridName]="'CustomerGrid'">
         </app-grid-table>       
       </div>
     </div>
@@ -35,10 +35,6 @@
               <div class="col-md-9 col-sm-9"> <span id="name">Number Of Cloths</span> </div>
               <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.NoOfCloths}}</span> </div>
           </div>
-          <div class="row">
-            <div class="col-md-9 col-sm-9"> <span id="name">Payment mode</span> </div>
-            <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.PaymentMode}}</span> </div>
-        </div>
           <div class="row">
               <div class="col-md-9 col-sm-9"> <span id="name">Total Cost</span> </div>
               <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.TotalCost | currency:'INR'}}</span> </div>

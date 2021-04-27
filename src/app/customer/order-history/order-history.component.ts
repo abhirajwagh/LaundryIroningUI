@@ -30,7 +30,7 @@ export class OrderHistoryComponent implements OnInit {
     this.GetOrdersForCustomer(true);
     this.id = setInterval(() => {
       this.GetOrdersForCustomer(false);
-    }, 300000);
+    }, 900000);
   }
 
   CostructGridColumnHeaders() {
@@ -55,7 +55,7 @@ export class OrderHistoryComponent implements OnInit {
       this.isLoader = true;
       this.tableData = [];
     }
-    this.customerService.GetCustomerOrderHistory(this.userId, 30).subscribe(result => {
+    this.customerService.GetCustomerOrderHistory(this.userId, 7).subscribe(result => {
     if (result !== null && result.length > 0)
     {
       this.tableData = result;

@@ -35,7 +35,6 @@ export class LaundryIroningComponent implements OnInit {
     this.ironingLaundryModel = new IroningLaundryModel();
     this.ironingLaundryModel.PickUpTimeSlot = null;
     this.ironingLaundryModel.TotalCost = 0;
-    this.ironingLaundryModel.PaymentMode = null;
     this.ironingLaundryModel.PickUpAddress = sessionStorage.getItem(UserConstant.Address);
     this.CreateLaundryForm();
     this.BindThePickUpTime();
@@ -56,9 +55,7 @@ CreateLaundryForm() {
     TimeSlot: ['', [Validators.required]],
     Address: ['', [Validators.required]],
     TotalCost: ['', [Validators.required]],
-    DefaultCost: ['', []],
-    UPI: ['', []],
-    COD: ['', []],
+    DefaultCost: ['', []]
   });
   return 'form created';
 }
@@ -85,7 +82,7 @@ CreateLaundryForm() {
   AddIroningLaundryOrders() {
     if (this.ironingLaundryModel.NoOfKgs !== null && this.ironingLaundryModel.PickUpDate !== null
       && this.ironingLaundryModel.PickUpTimeSlot !== null && this.ironingLaundryModel.PickUpAddress !== null
-      && this.ironingLaundryModel.TotalCost !== null && this.ironingLaundryModel.PaymentMode !== null) {
+      && this.ironingLaundryModel.TotalCost !== null ) {
       this.isLoader = true;
       this.ironingLaundryModel.OrderBy = sessionStorage.getItem(UserConstant.UserId);
       this.ironingLaundryModel.OrderStatus = OrderStausConstants.New;
@@ -111,20 +108,5 @@ CreateLaundryForm() {
     this.ironingLaundryModel.PickUpDate = null;
     this.ironingLaundryModel.PickUpTimeSlot = null;
     this.ironingLaundryModel.TotalCost = 0;
-    this.ironingLaundryModel.PaymentMode = null;
-  }
-  SetPaymentMode(event) {
-    if (event.target.defaultValue === 'UPI') {
-      if (event.target.checked) {
-        this.CODcheckbox.nativeElement.checked = false;
-        this.ironingLaundryModel.PaymentMode = event.target.defaultValue;
-      }
-
-    } else {
-      if (event.target.checked) {
-        this.UPIcheckbox.nativeElement.checked = false;
-        this.ironingLaundryModel.PaymentMode = event.target.defaultValue;
-      }
-    }
   }
 }

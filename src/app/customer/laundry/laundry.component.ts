@@ -36,7 +36,6 @@ export class LaundryComponent implements OnInit {
     this.laundryModel.PickUpTimeSlot = null;
     this.laundryModel.TotalCost = 0;
     this.laundryModel.PickUpAddress = sessionStorage.getItem(UserConstant.Address);
-    this.laundryModel.PaymentMode = null;
     this.CreateLaundryForm();
     this.BindThePickUpTime();
   }
@@ -56,9 +55,7 @@ CreateLaundryForm() {
     TimeSlot: ['', [Validators.required]],
     Address: ['', [Validators.required]],
     TotalCost: ['', [Validators.required]],
-    DefaultCost: ['', []],
-    UPI: ['', []],
-    COD: ['', []],
+    DefaultCost: ['', []]
   });
   return 'form created';
 }
@@ -85,7 +82,7 @@ CreateLaundryForm() {
 AddLaundryOrders() {
   if (this.laundryModel.NoOfKgs !== null && this.laundryModel.PickUpDate !== null
     && this.laundryModel.PickUpTimeSlot !== null && this.laundryModel.PickUpAddress !== null
-    && this.laundryModel.TotalCost !== null && this.laundryModel.PaymentMode !== null) {
+    && this.laundryModel.TotalCost !== null ) {
     this.isLoader = true;
     this.laundryModel.OrderBy = sessionStorage.getItem(UserConstant.UserId);
     this.laundryModel.OrderStatus = OrderStausConstants.New;
@@ -111,20 +108,5 @@ AddLaundryOrders() {
     this.laundryModel.PickUpDate = null;
     this.laundryModel.PickUpTimeSlot = null;
     this.laundryModel.TotalCost = 0;
-  }
-
-  SetPaymentMode(event) {
-    if (event.target.defaultValue === 'UPI') {
-      if (event.target.checked) {
-        this.CODcheckbox.nativeElement.checked = false;
-        this.laundryModel.PaymentMode = event.target.defaultValue;
-      }
-
-    } else {
-      if (event.target.checked) {
-        this.UPIcheckbox.nativeElement.checked = false;
-        this.laundryModel.PaymentMode = event.target.defaultValue;
-      }
-    }
   }
 }

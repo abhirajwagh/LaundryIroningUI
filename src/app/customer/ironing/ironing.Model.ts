@@ -5,6 +5,5 @@ export class IroningModel {
   PickUpAddress: string;
   TotalCost: any;
   OrderBy: any;
-  PaymentMode: any;
   OrderStatus: string;
 }
