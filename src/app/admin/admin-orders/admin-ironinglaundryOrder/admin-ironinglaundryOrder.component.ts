@@ -111,7 +111,6 @@ export class AdminIroninglaundryOrderComponent implements OnInit, OnDestroy {
           NoOfKgs: i.NoOfKgs,
           OrderId: i.OrderId,
           OrderStatus: i.OrderStatus,
-          PaymentMode: i.PaymentMode,
           PickUpDate: i.PickUpDate,
           PickUpTimeSlot: i.PickUpTimeSlot,
           PickedAt: i.PickedAt,

@@ -74,7 +74,6 @@ export class OperatorComponent implements OnInit, OnDestroy {
           NoOfKgs: i.NoOfKgs,
           OrderNumber: i.OrderNumber,
           OrderStatus: i.OrderStatus,
-          PaymentMode: i.PaymentMode,
           PickUpAddress: i.PickUpAddress,
           PickUpDate: i.PickUpDate,
           PickUpTimeSlot: i.PickUpTimeSlot,

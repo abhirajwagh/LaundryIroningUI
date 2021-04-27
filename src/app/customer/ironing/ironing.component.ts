@@ -35,7 +35,6 @@ export class IroningComponent implements OnInit {
     this.ironingModel = new IroningModel();
     this.ironingModel.PickUpTimeSlot = null;
     this.ironingModel.TotalCost = 0;
-    this.ironingModel.PaymentMode = null;
     this.ironingModel.PickUpAddress = sessionStorage.getItem(UserConstant.Address);
     this.CreateIroningForm();
     this.BindThePickUpTime();
@@ -55,9 +54,7 @@ CreateIroningForm() {
     TimeSlot: ['', [Validators.required]],
     Address: ['', [Validators.required]],
     TotalCost: ['', [Validators.required]],
-    DefaultCost: ['', []],
-    UPI: ['', []],
-    COD: ['', []],
+    DefaultCost: ['', []]
   });
   return 'form created';
 }
@@ -86,7 +83,7 @@ CreateIroningForm() {
   AddIroningOrders() {
     if (this.ironingModel.NoOfCloths !== null && this.ironingModel.PickUpDate !== null
       && this.ironingModel.PickUpTimeSlot !== null && this.ironingModel.PickUpAddress !== null
-      && this.ironingModel.TotalCost !== null && this.ironingModel.PaymentMode !== null) {
+      && this.ironingModel.TotalCost !== null) {
       this.isLoader = true;
       this.ironingModel.OrderBy = sessionStorage.getItem(UserConstant.UserId);
       this.ironingModel.OrderStatus = OrderStausConstants.New;
@@ -111,21 +108,5 @@ CreateIroningForm() {
     this.ironingModel.PickUpDate = null;
     this.ironingModel.PickUpTimeSlot = null;
     this.ironingModel.TotalCost = 0;
-    this.ironingModel.PaymentMode = null;
-  }
-
-  SetPaymentMode(event) {
-    if (event.target.defaultValue === 'UPI') {
-      if (event.target.checked) {
-        this.CODcheckbox.nativeElement.checked = false;
-        this.ironingModel.PaymentMode = event.target.defaultValue;
-      }
-
-    } else {
-      if (event.target.checked) {
-        this.UPIcheckbox.nativeElement.checked = false;
-        this.ironingModel.PaymentMode = event.target.defaultValue;
-      }
-    }
   }
 }
