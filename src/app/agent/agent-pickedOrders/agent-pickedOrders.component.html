@@ -11,7 +11,7 @@
   </div>
  
   <ng-template #OrderSummeryPopup>
-    <div class="card">
+    <div class="card" *ngIf="orderSummary">
       <div class="row">
         <div class="col-md-12 col-sm-12 text-right" style="padding-right: 30px;">
           <button type="button" class="close pull-right" aria-label="Close" (click)="closeSummeryPopup();">
@@ -47,14 +47,23 @@
           </div>
       </div>
       <div class="footer">
-          <div class="row">
-            <div class="col-md-12 col-sm-12 text-center">
-              <label class="bold-font" style="margin-right: 5%;">Is Order Valid
-                <input value="true" (click)="ValidPickedOrder($event)"  type="checkbox">
-              </label>
-              <button [disabled]="!isValidOrder" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
-            </div>
+        <div class="row">
+          <div class="col-md-2 col-sm-2">
+            <label class="bold-font">Comments
+            </label>
           </div>
+          <div class="col-md-10 col-sm-10 ">
+            <textarea class="form-control" rows="2" [(ngModel)]="agentComment"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 text-center form-group padding-top-10">
+            <label class="bold-font" style="margin-right: 5%;">I confirm,Order has been picked
+              <input value="true" (click)="ValidPickedOrder($event)"  type="checkbox">
+            </label>
+            <button [disabled]="!isValidOrder || agentComment==null || agentComment==''" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
+          </div>
+        </div>
       </div>
   </div>
   </ng-template>

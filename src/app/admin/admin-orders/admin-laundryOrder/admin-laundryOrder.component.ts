@@ -118,7 +118,9 @@ export class AdminLaundryOrderComponent implements OnInit, OnDestroy {
           TotalCost: i.TotalCost,
           PickedBy: i.PickedBy,
           ProcessedBy: i.ProcessedBy,
-          DeliveredBy: i.DeliveredBy
+          DeliveredBy: i.DeliveredBy,
+          AgentComment: i.AgentComment,
+          OperatorComment: i.OperatorComment
 
         };
         this.tempTableData.push(dataForTable);

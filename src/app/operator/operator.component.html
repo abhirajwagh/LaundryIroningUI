@@ -44,20 +44,33 @@
                     <div class="col-md-9 col-sm-9"> <span id="name">Total Cost</span> </div>
                     <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.TotalCost | currency:'INR'}}</span> </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-5 col-sm-5"> <span id="name">Agent Comment</span> </div>
+                  <div class="col-md-7 col-sm-7"> <span id="price">{{orderSummary.AgentComment}}</span> </div>
+              </div>
             </div>
             <div class="total">
                 <div class="row">
-                    <div class="col-md-9 col-sm-9"></div>
-                    <div class="col-md-3 col-sm-3">{{orderSummary.TotalCost | currency:'INR'}}</div>
+                    <div class="col-md-5 col-sm-5"></div>
+                    <div class="col-md-7 col-sm-7">{{orderSummary.TotalCost | currency:'INR'}}</div>
                 </div>
             </div>
             <div class="footer">
               <div class="row">
-                <div class="col-md-12 col-sm-12 text-center">
-                  <label class="bold-font" style="margin-right: 5%;">Is Order Processed
+                <div class="col-md-2 col-sm-2">
+                  <label class="bold-font">Comments
+                  </label>
+                </div>
+                <div class="col-md-10 col-sm-10 ">
+                  <textarea class="form-control" rows="2" [(ngModel)]="operatorComment"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 col-sm-12 text-center form-group padding-top-10">
+                  <label class="bold-font" style="margin-right: 5%;">I read the agent details,and order is processed
                     <input value="true" (click)="ValidProcessedOrder($event)"  type="checkbox">
                   </label>
-                  <button [disabled]="!isOrderProcessed" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
+                  <button [disabled]="!isOrderProcessed || operatorComment==null || operatorComment==''" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
                 </div>
               </div>
           </div>

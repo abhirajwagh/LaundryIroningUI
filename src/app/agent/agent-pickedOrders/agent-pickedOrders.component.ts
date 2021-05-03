@@ -24,6 +24,8 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
   orderSummary: any;
   id: any;
   isValidOrder: boolean;
+  agentComment: any;
+  operatorComment: any;
   constructor(
     private modalService: BsModalService , private translateService: TranslateService,
     private agentOrdersService: AgentOrdersService,
@@ -33,6 +35,8 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isValidOrder = false;
     this.userId = sessionStorage.getItem(UserConstant.UserId);
+    this.agentComment = null;
+    this.operatorComment = null;
     this.CostructGridColumnHeaders();
     this.GetNewOrdersForAgent(true);
     this.id = setInterval(() => {
@@ -40,7 +44,7 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
     }, 300000);
   }
 
-  
+
   CostructGridColumnHeaders() {
     this.columnHeader = [
       {
@@ -84,7 +88,9 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
           PickedAt: i.PickedAt,
           ProcessedAt: i.ProcessedAt,
           TotalCost: i.TotalCost,
-          OrderType: i.OrderType
+          OrderType: i.OrderType,
+          AgentComment: i.AgentComment,
+          OperatorComment: i.OperatorComment
 
         };
         this.tempTableData.push(dataForTable);
@@ -100,7 +106,7 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
       this.isLoader = false;
     });
   }
-  
+
   selectedGridData(rowData, OrderSummeryPopup: TemplateRef<any>) {
     if (rowData.column === undefined) {
       this.orderSummary = rowData;
@@ -108,6 +114,9 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
     }
   }
   closeSummeryPopup() {
+    this.orderSummary = null;
+    this.agentComment = null;
+    this.operatorComment = null;
     this.modalRef.hide();
   }
 
@@ -117,7 +126,9 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
       OrderNumber: this.orderSummary.OrderNumber,
       OrderType: this.orderSummary.OrderType,
       OrderStatus: OrderStausConstants.Picked,
-      ConfirmBy: this.userId
+      ConfirmBy: this.userId,
+      Agentcomment: this.agentComment,
+      OperatorComment: this.operatorComment
     };
     this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
         if (result !== null && result !== undefined) {
