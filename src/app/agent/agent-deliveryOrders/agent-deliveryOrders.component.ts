@@ -23,12 +23,16 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
   orderSummary: any;
   id: any;
   isValidOrder: boolean;
+  agentComment: any;
+  operatorComment: any;
   constructor(private modalService: BsModalService , private translateService: TranslateService,
               private agentOrdersService: AgentOrdersService,
               private notificationService: NotificationsService) { }
 
   ngOnInit() {
     this.isValidOrder = false;
+    this.agentComment = null;
+    this.operatorComment = null;
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.CostructGridColumnHeaders();
     this.GetDeliveryOrdersForAgent(true);
@@ -79,7 +83,9 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
           PickedAt: i.PickedAt,
           ProcessedAt: i.ProcessedAt,
           TotalCost: i.TotalCost,
-          OrderType: i.OrderType
+          OrderType: i.OrderType,
+          AgentComment: i.AgentComment,
+          OperatorComment: i.OperatorComment
 
         };
         this.tempTableData.push(dataForTable);
@@ -103,6 +109,8 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
   }
   closeSummeryPopup() {
     this.modalRef.hide();
+    this.agentComment = null;
+    this.operatorComment = null;
   }
   UpdateOrderStatus() {
     this.isLoader = true;
@@ -110,7 +118,9 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
       OrderNumber: this.orderSummary.OrderNumber,
       OrderType: this.orderSummary.OrderType,
       OrderStatus: OrderStausConstants.Delivered,
-      ConfirmBy: this.userId
+      ConfirmBy: this.userId,
+      Agentcomment: this.agentComment,
+      OperatorComment: this.operatorComment
     };
     this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
       if (result !== null && result !== undefined) {

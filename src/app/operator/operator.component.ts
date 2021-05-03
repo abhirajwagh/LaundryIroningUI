@@ -23,12 +23,16 @@ export class OperatorComponent implements OnInit, OnDestroy {
   orderSummary: any;
   id: any;
   isOrderProcessed: boolean;
+  agentComment: any;
+  operatorComment: any;
   constructor(private modalService: BsModalService , private translateService: TranslateService,
               private agentOrdersService: AgentOrdersService,
               private notificationService: NotificationsService) { }
 
   ngOnInit() {
     this.isOrderProcessed = false;
+    this.agentComment = null;
+    this.operatorComment = null;
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.CostructGridColumnHeaders();
     this.GetPickedOrdersForOperator(true);
@@ -80,7 +84,9 @@ export class OperatorComponent implements OnInit, OnDestroy {
           PickedAt: i.PickedAt,
           ProcessedAt: i.ProcessedAt,
           TotalCost: i.TotalCost,
-          OrderType: i.OrderType
+          OrderType: i.OrderType,
+          AgentComment: i.AgentComment,
+          OperatorComment: i.OperatorComment
 
         };
         this.tempTableData.push(dataForTable);
@@ -105,6 +111,8 @@ export class OperatorComponent implements OnInit, OnDestroy {
   }
   closeSummeryPopup() {
     this.modalRef.hide();
+    this.agentComment = null;
+    this.operatorComment = null;
   }
 
   UpdateOrderStatus() {
@@ -113,7 +121,9 @@ export class OperatorComponent implements OnInit, OnDestroy {
       OrderNumber: this.orderSummary.OrderNumber,
       OrderType: this.orderSummary.OrderType,
       OrderStatus: OrderStausConstants.Processed,
-      ConfirmBy: this.userId
+      ConfirmBy: this.userId,
+      Agentcomment: this.agentComment,
+      OperatorComment: this.operatorComment
     };
     this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
       if (result !== null && result !== undefined) {

@@ -83,6 +83,14 @@
               <div class="col-md-9 col-sm-9"> <span id="name">Total Cost</span> </div>
               <div class="col-md-3 col-sm-3"> <span id="price">{{orderSummary.TotalCost | currency:'INR'}}</span> </div>
           </div>
+          <div class="row">
+            <div class="col-md-5 col-sm-5"> <span id="name">Agent Comment</span> </div>
+            <div class="col-md-7 col-sm-7"> <span id="price">{{orderSummary.AgentComment}}</span> </div>
+        </div>
+          <div class="row">
+            <div class="col-md-5 col-sm-5"> <span id="name">Operator Comment</span> </div>
+            <div class="col-md-7 col-sm-7"> <span id="price">{{orderSummary.OperatorComment}}</span> </div>
+        </div>
       </div>
       <div class="total">
           <div class="row">
