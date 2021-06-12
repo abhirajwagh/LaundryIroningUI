@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginModule } from './login/login.module';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UserRegistrationComponent } from './UserRegistration/UserRegistration.component';
 
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'cleanit/UserRegistration',
     component: UserRegistrationComponent
+  },
+  {
+    path: 'cleanit/ResetPassword',
+    component: ResetPasswordComponent
   }
 ];
 

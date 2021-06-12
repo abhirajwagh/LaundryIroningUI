@@ -23,6 +23,30 @@
       <div class="form-group">
         <textarea class="form-control" rows="2" [(ngModel)]="UserRegistrationModel.Address" cols="4"  formControlName="address" placeholder="{{'Register.EnterValidAddress' | translate }}"></textarea>
       </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-5 col-md-5">
+            <label class="bold-font">What city were you born in?
+              <span class="required">*</span>
+            </label>
+          </div>
+          <div class="col-sm-7 col-md-7">
+            <input type="text" class="form-control" [(ngModel)]="UserRegistrationModel.SecurityAnswerOne" formControlName="ans1" placeholder="answer">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-5 col-md-5">
+            <label class="bold-font">What is your favorite food?
+              <span class="required">*</span>
+            </label>
+          </div>
+          <div class="col-sm-7 col-md-7">
+            <input type="text" class="form-control" [(ngModel)]="UserRegistrationModel.SecurityAnswerTwo" formControlName="ans2" placeholder="answer">
+          </div>
+        </div>
+      </div>
       <!-- <div class="form-group">
         <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of
             Use</a> &amp; <a href="#">Privacy Policy</a></label>

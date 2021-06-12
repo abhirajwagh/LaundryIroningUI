@@ -6,4 +6,6 @@ export class UserRegistrationModel{
   Email: string;
   Address: string;
   IsAdmin = false;
+  SecurityAnswerOne: string;
+  SecurityAnswerTwo: string;
 }

@@ -90,7 +90,7 @@
                                             </div>
                                         </div> -->
                                         <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <!-- <a class="small" href="password.html">Forgot Password?</a> -->
+                                            <a class="small" [routerLink]="['/cleanit/ResetPassword']" href="#" target="_blank">Forgot Password?</a>
                                             <input type="submit" name="submit" [disabled] ="!LoginForm.valid" (click)="GetUserDetails()" class="btn btn-primary" value="{{'Login.Submit' | translate }}">
                                         </div>
                                     </form>
