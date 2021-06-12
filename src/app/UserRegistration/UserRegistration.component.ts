@@ -34,7 +34,9 @@ export class UserRegistrationComponent implements OnInit {
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       mobile: ['', [Validators.required]],
-      address: ['', [Validators.required]]
+      address: ['', [Validators.required]],
+      ans1: ['', [Validators.required]],
+      ans2: ['', [Validators.required]],
     });
     return 'form created';
   }
@@ -60,7 +62,9 @@ export class UserRegistrationComponent implements OnInit {
    RegisterUser() {
      if (this.UserRegistrationModel.UserName !== null && this.UserRegistrationModel.Password !== null
        && this.UserRegistrationModel.Name !== null && this.UserRegistrationModel.MobileNo !== null
-     && this.UserRegistrationModel.Email !== null && this.UserRegistrationModel.Address !== null) {
+       && this.UserRegistrationModel.Email !== null && this.UserRegistrationModel.Address !== null
+       && this.UserRegistrationModel.SecurityAnswerOne !== null
+       && this.UserRegistrationModel.SecurityAnswerTwo !== null) {
       this.isLoader = true;
       this.userRegisterService.RegisterUser(this.UserRegistrationModel).subscribe(result => {
         if (result !== null && result !== undefined) {

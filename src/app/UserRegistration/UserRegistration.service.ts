@@ -20,6 +20,12 @@ constructor(private httpService: HttpService) { }
    CheckUserNameExists(username): Observable<any> {
     const url = RegisterUrlConstant.CheckUsernameExists + '?userName=' + username;
     return this.httpService.getData(url);
+   }
+  
+   // check security answer
+   CheckSecurityAnswer(answerModel): Observable<any> {
+     const url = RegisterUrlConstant.CheckSecurityAnswer;
+     return this.httpService.postData(url, answerModel);
   }
 }
 

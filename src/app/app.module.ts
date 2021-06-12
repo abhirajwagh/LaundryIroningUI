@@ -11,6 +11,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { SpinnerComponentModule } from './Shared/spinner/spinner.module';
 import { UserRegistrationModule } from './UserRegistration/UserRegistration.module';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { ResetPasswordModule } from './reset-password/reset-password.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BsModalService } from 'ngx-bootstrap/modal';
       timeOut: 5000
     }),
     SpinnerComponentModule,
-    UserRegistrationModule
+    UserRegistrationModule,
+    ResetPasswordModule
   ],
   providers: [TranslateService],
   bootstrap: [AppComponent]
