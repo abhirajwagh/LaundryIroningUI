@@ -1,0 +1,17 @@
+.check1{width: 20px;
+            height: 20px;margin-top: -11px;margin-left: -9px;}
+             .check{width: 20px;
+            height: 20px;margin-top: 2px;margin-left: -9px;}
+      .pad{padding: 0 10%;}
+      .nav.nav-tabs{border: none;}
+
+      .nav-tabs .nav-link.active{background-color: #3ac2f3;}
+      .footer{background-color: #F2F4F4;position: relative;top: -56px;}
+      .bx-first-page,.bx-last-page,.bx-caret-right,.bx-caret-left{font-size: 30px; color: #ccc;}
+      .accordion .card, .collapsible .card{margin: 0;}
+      p{color:#727E8C;}
+      /*.item{padding-top: 7px;float: right; padding-right: 10px;}*/
+      .items{display: flex;justify-content:space-between;}
+      @media(max-width: 800px){.pad{padding: 0 7%;}.item{float: left;}}
+      @media(max-width: 700px){.card{overflow: auto;}}
+      @media(max-width: 600px){.pad{padding: 0;} .items{display: grid;}.footer{top: -10px;}}

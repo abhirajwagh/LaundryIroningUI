@@ -1,28 +1,31 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #63738a;
-    height: 100vh;
+.card{
+    border:1px solid #ccc;
+    border-radius: 10px; 
   }
-  #login .container #login-row #login-column #login-box {
-    margin-top: 120px;
-    max-width: 600px;
-    height: 320px;
-    border: 1px solid #9C9C9C;
-    background-color: #f2f3f7;
-  }
-  #login .container #login-row #login-column #login-box #login-form {
-    padding: 20px;
-  }
-  #login .container #login-row #login-column #login-box #login-form #register-link {
-    margin-top: -60px;
-  }
+ 
+.container-fluid > .background { position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-size: cover; z-index: 0; width: 100%;}
 
-  .back-image {
-    background: url("../../assets/img/LoginBackground/Capture2mod.png") no-repeat;
-    height: 100%;
-    position: relative;
-    background-size: 100%;
+.container-fluid > *:not(.background) { position: relative; z-index: 1;}
+   .footer{background-color: #F2F4F4;position: relative;}
+   @media (min-width: 992px){.vertical-layout.vertical-menu-modern .footer {
+ margin-left: 0px; 
+}
 }
 
+  .card .card-header{
+    text-align: center;
+    display: block;
+    background-color: #d6d6d652;
+  }
+  .header-navbar.fixed-top{left: 0}
+  html .content{
+    margin-left: 0;
+  }
 
+  .mt-3, .my-3 {
+    margin-top: 3rem!important;
+}
+
+.pt-1, .py-1 {
+    padding-top: 1rem!important;
+}

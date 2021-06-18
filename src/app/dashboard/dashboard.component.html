@@ -1,85 +1,100 @@
-<div class="row">
-  <div class="col-sm-4">
-    <div class="row">
-      <div class="well">
-        <div class="row">
-          <div class="col-sm-8">
-            <p style="font-weight: bold;">Ironing</p>
-          </div> 
-          <div class="col-sm-4" (click)="NevigateToModule('ironing')">
-              <div style="height: 30px; width: 80px; border-radius: 5px; border: 3px solid antiquewhite; text-align: center; ">
-                <i class="fa fa-angle-double-right fa-1x"></i>
-              </div>
-          </div>         
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <img src="../../assets/img/ironing-board.jpg" class="img-circle" height="220" width="99%" alt="Avatar">
-          </div>          
-        </div>
-      </div>
+<div class="app-content content mt-2" style="background: url(../../assets/img/banner1.png) no-repeat;background-size: cover; overflow: auto;">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper mtv-2">
+    <div class="content-header row">
     </div>
-    <div class="row">
-      <div class="well">
-        <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I
-          forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="row">
-      <div class="well">
-        <div class="row">
-          <div class="col-sm-8">
-            <p style="font-weight: bold;">Laundry</p>
-          </div> 
-          <div class="col-sm-4" (click)="NevigateToModule('laundry')">
-              <div style="height: 30px; width: 80px; border-radius: 5px; border: 3px solid antiquewhite; text-align: center; ">
-                <i class="fa fa-angle-double-right fa-1x"></i>
-              </div>
-          </div>         
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <img src="../../assets/img/laundry_basket_0.jpg" class="img-circle" height="220" width="99%" alt="Avatar">
-          </div>          
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="well">
-        <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I
-          forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="row">
-      <div class="well">
-        <div class="row">
-          <div class="col-sm-8">
-            <p style="font-weight: bold;">Ironing + Laundry</p>
-          </div> 
-          <div class="col-sm-4" (click)="NevigateToModule('laundryIroning')">
-              <div style="height: 30px; width: 80px; border-radius: 5px; border: 3px solid antiquewhite; text-align: center; ">
-                <i class="fa fa-angle-double-right fa-1x"></i>
-              </div>
-          </div>         
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <img src="../../assets/img/LaundryPlusIroning.jpg" class="img-circle" height="220" width="99%" alt="Avatar">
+    <div class="content-body">
+      <section class="">
+       <div id="carouselExampleControlsNoTouching" class="carousel slide" data-touch="false" data-interval="true">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="500000">
+              <img src="../../assets/img/slide1.png" class="d-block img" alt="...">
+            </div>
+            <div class="carousel-item" data-interval="500000">
+              <img src="../../assets/img/slide2.png" class="d-block img" alt="...">
+            </div>
+            
           </div>
+          <a class="carousel-control-prev prev" href="#carouselExampleControlsNoTouching" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next next" href="#carouselExampleControlsNoTouching" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="well">
-        <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I
-          forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-      </div>
+       
+
+      </section>
+     
+      <!-- Dashboard Analytics Start -->
+      <section id="form-repeater-wrapper" class="mtv-1">
+        <div class="row match-height">
+          <!-- CrossFade Carousel Start -->
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-header bg-info text-center">
+                    <h3 class="text-white"><b>Iron</b></h3>
+              </div>
+              <div class="card-body" style="padding-top: 2px;">
+                <div class="zoom-effect-container">
+                  <div class="image-card">
+                      <img src="../../assets/img/iron.png" class="img-fluid">
+                  </div>
+                  
+                </div>
+                
+              <div class="text-center mt-0"> 
+                <button type="submit" class="order  shadow" (click)="NevigateToModule('ironing')">Place Order</button></div>
+              </div>
+            </div>               
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card" >
+              <div class="card-header bg-info text-center">
+            
+                <h3 class="text-white"><b>Wash</b></h3>                  
+               
+                 
+              </div>
+              <div class="card-body" style="padding-top: 2px;">
+               <div class="zoom-effect-container">
+                  <div class="image-card">
+                      <img src="../../assets/img/wash.png" class="img-fluid">
+                  </div>
+                </div>
+              <div class="text-center mt-0"> 
+                <button type="submit" class="order shadow " (click)="NevigateToModule('laundry')">Place Order</button></div>
+              </div>
+            </div>
+            
+          </div>  
+
+          <div class="col-lg-4">
+            <div class="card" >
+              <div class="card-header bg-info text-center">
+            
+                <h3 class="text-white"><b>Iron &amp; Wash</b></h3>                  
+               
+              
+              </div>
+              <div class="card-body" style="padding-top: 2px;">
+                <div class="zoom-effect-container">
+                  <div class="image-card">
+                      <img src="../../assets/img/wash-iron.png" class="img-fluid">
+                  </div>
+                </div>
+              <div class="text-center mt-0">
+                 <button type="submit" class="order  shadow " (click)="NevigateToModule('laundryIroning')">Place Order</button></div>
+              </div>
+            </div>               
+          </div>   
+          </div>          
+        </section>
     </div>
   </div>
 </div>
-    
-    
+<app-footer></app-footer>
+<!-- END: Content-->
