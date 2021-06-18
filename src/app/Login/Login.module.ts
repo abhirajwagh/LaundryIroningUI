@@ -11,6 +11,8 @@ import { LoginService } from './Login.service';
 import { HomeModule } from '../Home/Home.module';
 import { AgentModule } from '../agent/agent.module';
 import { OperatorModule } from '../operator/operator.module';
+import { HeaderModule } from '../Shared/header/header.module';
+import { FooterModule } from '../Shared/footer/footer.module';
 
 const routes: Routes = [
   {
@@ -31,7 +33,9 @@ const routes: Routes = [
     HttpClientModule,
     HomeModule,
     AgentModule,
-    OperatorModule
+    OperatorModule,
+    HeaderModule,
+    FooterModule
   ],
   exports: [RouterModule, LoginComponent],
   declarations: [LoginComponent],

@@ -32,8 +32,19 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/scripts.js",
-              "src/assets/js/boot.js"
+              "src/assets/js/vendors.min.js",
+              "src/assets/js/LivIconsEvo.tools.min.js",
+              "src/assets/js/LivIconsEvo.defaults.min.js",
+              "src/assets/js/LivIconsEvo.min.js",
+              "src/assets/js/apexcharts.min.js",
+              "src/assets/js/dragula.min.js",
+              "src/assets/js/vertical-menu-light.min.js",
+              "src/assets/js/app-menu.min.js",
+              "src/assets/js/app.min.js",
+              "src/assets/js/components.min.js",
+              "src/assets/js/footer.min.js",
+              "src/assets/js/customizer.min.js",
+              "src/assets/js/dashboard-analytics.min.js"
             ]
           },
           "configurations": {
@@ -103,8 +114,19 @@
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/scripts.js",
-              "src/assets/js/boot.js"
+              "src/assets/js/vendors.min.js",
+              "src/assets/js/LivIconsEvo.tools.min.js",
+              "src/assets/js/LivIconsEvo.defaults.min.js",
+              "src/assets/js/LivIconsEvo.min.js",
+              "src/assets/js/apexcharts.min.js",
+              "src/assets/js/dragula.min.js",
+              "src/assets/js/vertical-menu-light.min.js",
+              "src/assets/js/app-menu.min.js",
+              "src/assets/js/app.min.js",
+              "src/assets/js/components.min.js",
+              "src/assets/js/footer.min.js",
+              "src/assets/js/customizer.min.js",
+              "src/assets/js/dashboard-analytics.min.js"
             ]
           }
         },

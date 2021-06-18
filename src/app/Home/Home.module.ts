@@ -20,6 +20,8 @@ import { GridTableModule } from '../common/grid-table/grid-table.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { OrderHistoryComponent } from '../customer/order-history/order-history.component';
 import { RecentOrdersComponent } from '../customer/recent-orders/recent-orders.component';
+import { MenuModule } from '../Shared/menu/menu.module';
+import { FooterModule } from '../Shared/footer/footer.module';
 
 @NgModule({
   imports: [
@@ -34,6 +36,7 @@ import { RecentOrdersComponent } from '../customer/recent-orders/recent-orders.c
     DashboardModule,
     AdminModule,
     GridTableModule,
+    MenuModule,
     ModalModule.forRoot(),
   ],
   declarations: [HomeComponent, IroningComponent, IroningOrderSummaryComponent, LaundryComponent, LaundryOrderSummaryComponent,

@@ -1,0 +1,11 @@
+.mt-3, .my-3 {
+    margin-top: 3rem!important;
+}
+
+.ps {
+    overflow: hidden!important;
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto;
+}

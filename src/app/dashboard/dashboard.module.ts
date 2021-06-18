@@ -17,6 +17,7 @@ import { RecentOrdersComponent } from '../customer/recent-orders/recent-orders.c
 import { OrderHistoryComponent } from '../customer/order-history/order-history.component';
 import { CustomerProfileComponent } from '../customer/customer-profile/customer-profile.component';
 import { ContactusComponent } from '../customer/contactus/contactus.component';
+import { FooterModule } from '../Shared/footer/footer.module';
 
 const routes: Routes = [
   {
@@ -79,9 +80,10 @@ const routes: Routes = [
     TranslateModule,
     SpinnerComponentModule,
     HttpClientModule,
+    FooterModule,
     RouterModule.forChild(routes),
   ],
   declarations: [DashboardComponent],
-  exports:[DashboardComponent]
+  exports: [DashboardComponent]
 })
 export class DashboardModule { }
