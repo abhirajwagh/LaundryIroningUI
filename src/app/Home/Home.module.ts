@@ -37,6 +37,7 @@ import { FooterModule } from '../Shared/footer/footer.module';
     AdminModule,
     GridTableModule,
     MenuModule,
+    FooterModule,
     ModalModule.forRoot(),
   ],
   declarations: [HomeComponent, IroningComponent, IroningOrderSummaryComponent, LaundryComponent, LaundryOrderSummaryComponent,

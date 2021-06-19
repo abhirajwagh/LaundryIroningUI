@@ -5,8 +5,7 @@ import { FooterModule } from 'src/app/Shared/footer/footer.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FooterModule,
+    CommonModule
   ],
   declarations: [LaundryComponent],
   exports: [LaundryComponent]

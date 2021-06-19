@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-sm-12 col-md-12">
     <div class="equal-height">
       <div class="equ-cell">
@@ -94,4 +94,118 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<!-- BEGIN: Content-->
+<div class="app-content content " style="background: url(../../assets/img/banner1.png) no-repeat;background-size: cover;height: 90vh;overflow: auto;">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div  [apploading]="isLoader" class="content-body mrt">
+      <form [formGroup]='ironingLaundryForm'>
+       <div class="mb">
+        <h2 class="text-color"><strong>Ironing Laundry Form</strong></h2>
+      </div>
+      <section id="horizontal-input">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+              </div>
+              <div class="card-body">
+                  <div class="row">  
+                    <div class="col-12">
+                      <div class="form-group row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                          <label  class="col-form-label">No. of Kgs<span class="text-danger"> *</span></label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-xs-12">
+                          <input type="number" formControlName="NoOfKgs" pattern="^[0-9]*$"
+                           id="kg" class="form-control" 
+                           (keyup)=SetTotalCost($event); [(ngModel)]="ironingLaundryModel.NoOfKgs" max="999" placeholder="Enter Weight (kgs)" required>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-xs-6">
+                          <h6 class="mt-1"><strong>7 clothes / Kg</strong></h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">  
+                    <div class="col-12">
+                      <div class="form-group row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                          <label  class="col-form-label">Pickup Date<span class="text-danger"> *</span></label>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-xs-12">
+                          <input type="date" id="pdate" class="form-control"
+                          formControlName="PickupDate" [(ngModel)]="ironingLaundryModel.PickUpDate" 
+                          [max]="SetMaxDateForDatePicker()" [min]="SetMinDateForDatePicker()" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">  
+                    <div class="col-12">
+                      <div class="form-group row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                          <label class="col-form-label">Time Slot<span class="text-danger"> *</span></label>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-xs-12">
+                          <select formControlName="TimeSlot" [(ngModel)]="ironingLaundryModel.PickUpTimeSlot" class="form-control" required>
+                            <option value="null">Select time slot</option>
+                            <option *ngFor="let t of pickupTimeSlot" [ngValue]='t.timeSlot'>{{t.timeSlot}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">  
+                    <div class="col-12">
+                      <div class="form-group row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                          <label class="col-form-label">Address<span class="text-danger"> *</span></label>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-xs-12">
+                          <textarea formControlName="Address" [(ngModel)]="ironingLaundryModel.PickUpAddress" class="form-control"  placeholder="Enter Address" required readonly></textarea> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">  
+                    <div class="col-md-12 col-lg-12">
+                      <div class="form-group row">
+                        <div class="col-lg-3 col-md-3 col-xs-12">
+                          <label class="col-form-label" style="font-size: 18px;font-weight: 900;">Total Cost</label>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-xs-12">
+                          <input formControlName="TotalCost" type="text" [(ngModel)]="ironingLaundryModel.TotalCost" id="cost" class="form-control"  placeholder="Total cost" readonly required>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-xs-6">
+                          <h6 class="mt-1"><strong>91 &#8377; / Kg</strong></h6>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xs-6">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row text-center">
+                    <div class="col-12">
+                      <button type="submit" [disabled] ="!ironingLaundryForm.valid" (click)="AddIroningLaundryOrders()" class="btn btn-info shadow mr-1 mb-1">Place Order</button>
+                      <button type="button" (click)="ResetForm()" class="btn btn-light shadow mr-1 mb-1">Clear</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+    </div>
+  </div>
 </div>
+<!-- END: Content-->
+<app-footer></app-footer>
