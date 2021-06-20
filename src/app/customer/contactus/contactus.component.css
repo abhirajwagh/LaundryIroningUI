@@ -1,0 +1,10 @@
+.card{height: 230px;}
+      .card .card-header{display: block;text-align: center;border-bottom: none;}
+      .bx-map,.bx-phone,.bx-envelope{padding: 15px;border-radius: 50%; font-size: 30px;position: relative;top: -45px;}
+      .map{margin-top: -35px;}
+      .text{padding: -3px 0;}
+      .fonticon-container>.fonticon-wrap>i{color: #fff;padding:8px;border-radius: 28px;font-size:1.5rem;}
+      .mat{margin-top: -20px;}
+      .mrt{margin-top: 20px;}
+      .footer{background-color: #F2F4F4;position: relative;top: -56px;}
+      @media(max-width: 500px){.mrt{margin-top: 10px;}.footer{top: 10px;}}

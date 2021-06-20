@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <div class="col-md-12 margin-bottom-10">
 
     <div *ngIf="enableSearch" class="col-md-4 pull-right filter">
@@ -109,4 +109,109 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-7 col-md-7 col-sm-12">
+        <!-- <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" aria-controls="home" role="tab" aria-selected="false">
+              <span class="align-middle">Laundry</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" aria-controls="profile" role="tab" aria-selected="false">
+              <span class="align-middle">Iron</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " id="about-tab" data-toggle="tab" href="#about" aria-controls="about" role="tab" aria-selected="true">
+              <span class="align-middle">Laundry &amp; Iron</span>
+            </a>
+          </li>
+        </ul> -->
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-12">
+        <div class="float-right d-flex" *ngIf="enableSearch">
+          <input type="text" (keyup)="onKey()" [(ngModel)]="searchText" class="form-control mb-2" id="search" placeholder="Search">
+          <button type="submit" class="btn btn-info shadow ml-1 mb-2">Search</button>               
+        </div>
+      </div>
+    </div>
+    
+          <table class="table">
+            <thead class="bg-info text-white text-center">
+              <tr>
+                <th *ngIf="showselection" scope="col">
+                  <input #theCheckbox type="checkbox" class="form-check-input check1"
+                  [(ngModel)]="checkAll" [disabled]="tableData.length<=0" (change)="selectAllCheckbox();"></th>
+                  <th scope="col" *ngFor="let col of columns" (click)="sort(col.fieldName, col.dataType)" class='{{col.headercss}} text-white text-center'>
+                    {{col.name}}
+                    <i [ngClass]="setCurrentClasses(col.fieldName)" aria-hidden="true"></i>
+                  </th>
+              </tr>
+            </thead>
+            <tbody [ngStyle]="{'max-height':tbodyHeight ,'height':tbodyHeight}" style="background-color: #fff" class="text-center">
+              <tr *ngIf="tableData==undefined || tableData.length==0">
+                <td [ngStyle]="{'max-height':noDataHeight ,'height':noDataHeight}"> No data to display.</td>
+              </tr> 
+                <tr *ngFor="let data of tableData; let i=index;last as isLast"
+                [ngStyle]="{'color':data.selectedValue ? '#fff':'',
+                'background-color':data.selectedValue ? '#225d8f' : data.IsImported ? '#fbffc9' : 'white' }">
+                  <td class='text-center' *ngIf="showselection" style="width: 4%;">
+                    <input type="checkbox" class="form-check-input check" [(ngModel)]="data.isChecked" (change)="onChecked($event, data)">
+                  </td>
+                  <td class="{{col.headercss}}, " title="{{data[col.fieldName]}}" *ngFor=" let col of columns"
+                    style="word-wrap:break-word"
+                    [ngStyle]="{'background-color':data.OrderStatus == 'New' && GridName =='OrdersGrid' ? 'red':
+                                        data.OrderStatus == 'Picked' && GridName =='OrdersGrid' ? 'blue' :
+                                        data.OrderStatus == 'Processed' && GridName =='OrdersGrid' ? '#E1AD01' :
+                                        data.OrderStatus == 'Delivered' && GridName =='OrdersGrid' ? 'green' : '',
+                                        color: GridName =='OrdersGrid'? 'white': '#727E8C'}"
+                    (click)="setClickedRow(i, data[uniqueKey],data,col.fieldName)">
+                    <a [class.disabled]="col.isEnabled==false" *ngIf='col.icon' style="margin-left:5px;"
+                      (click)="PointListIconClicked(data,col.fieldName);">
+                      <i class="{{col.icon}}"></i></a>
+                    <span
+                      *ngIf="col.dataType !== 'date' && col.dataType !== 'arrow' && col.dataType !== 'number' && col.navigation === ''">{{ data[col.fieldName]}}</span>
+                      <span *ngIf="col.dataType === 'date' && col.navigation === ''" >
+                        {{ data[col.fieldName] | date : format}}
+                      </span>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+          <div class="items" *ngIf="pagination" >
+              <div class="d-flex">
+                <p class="pr-2" style="padding-top: 5px;">Page Size</p>
+                <select class="form-control mb-1" id="exampleFormControlSelect1" 
+                [(ngModel)]="pagesize" (change)="pageSizeChanged();"
+                [disabled]="tableData.length<=0" style="height: 33px; margin-left: 20px;width: 68px;">
+                <option value="50" text="50">50</option>
+                <option value="100" text="100">100</option>
+                <option value="150" text="150">150</option>
+                <option value="200" text="200">200</option>
+                </select>
+                <span><a><i class="bx bx-first-page"
+                  title="First Page" (click)="pageSizeChanged();"></i></a></span>
+                <span><a><i class="bx bx-caret-left" 
+                  title="Previous Page" (click)="previousPage();"></i></a></span>
+                <input min="{{min}}" max="{{max}}" type="number" [(ngModel)]="currentPage" (keyup)="go()"
+                [disabled]="tableData.length<=0" (mouseup)="go()"
+                style="height: 26px; margin-left: 20px;width: 50px;margin-top: 2px;border:1px solid #ccc;border-radius: 4px;">
+                <span style="margin-top: 5px"><h5> /</h5></span>&nbsp;
+                <span  style="margin-top: 5px;margin-right: 15px;"><h5>{{ TotalItem === undefined || TotalItem === 0 ? 1 : math.ceil(TotalItem / pagesize) }}</h5></span>
+                <span><a><i class="bx bx-caret-right"
+                  title="Next Page" (click)="nextPage();"></i></a></span>
+                <span><a><i class="bx bx-last-page"
+                  title="Last Page" (click)="lastPage();"></i></a></span>
+              </div>
+             <p class="item">Total Items : {{TotalItem}}</p> 
+          </div>
+</div>
+<br>
 </div>

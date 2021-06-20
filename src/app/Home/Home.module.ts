@@ -22,6 +22,7 @@ import { OrderHistoryComponent } from '../customer/order-history/order-history.c
 import { RecentOrdersComponent } from '../customer/recent-orders/recent-orders.component';
 import { MenuModule } from '../Shared/menu/menu.module';
 import { FooterModule } from '../Shared/footer/footer.module';
+import { ContactusComponent } from '../customer/contactus/contactus.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { FooterModule } from '../Shared/footer/footer.module';
     ModalModule.forRoot(),
   ],
   declarations: [HomeComponent, IroningComponent, IroningOrderSummaryComponent, LaundryComponent, LaundryOrderSummaryComponent,
-    LaundryIroningComponent, IroningLaundryOrderSummaryComponent, OrderHistoryComponent, RecentOrdersComponent],
+    LaundryIroningComponent, IroningLaundryOrderSummaryComponent, OrderHistoryComponent, RecentOrdersComponent, ContactusComponent],
   exports: [RouterModule, HomeComponent],
   providers: [HttpService]
 })
