@@ -27,7 +27,7 @@
         
         <div class="mr-auto float-left bookmark-wrapper d-flex text-align-center">
           <ul class="nav navbar-nav bookmark-icons">
-            <li class="nav-item float-left"><a class="nav-link" href="index.html"><img src="../../assets/img/logo.png" width="110"></a></li>
+            <li class="nav-item float-left"><a class="nav-link" (click)="nevigateToDashboad()"><img src="../../assets/img/logo.png" width="110"></a></li>
             
           </ul>
          <!--  <ul class="nav navbar-nav">
@@ -41,10 +41,10 @@
               <i class="ficon bx bx-menu" style="color: #000"></i>
             </a>
           </li>
-          <li class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label text-dark user-op" href="javascript:void(0);" data-toggle="dropdown">Username</a>
+          <li class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label text-dark user-op" data-toggle="dropdown">Welcome <b>{{loginUsername}}</b></a>
           </li>
-          <li class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label user-op text-dark" href="javascript:void(0);" data-toggle="dropdown">logout</a>
-          </li> 
+          <!-- <li class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label user-op text-dark" data-toggle="dropdown">logout</a>
+          </li>  -->
         </ul>
       </div>
     </div>

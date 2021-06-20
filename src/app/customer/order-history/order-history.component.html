@@ -1,4 +1,4 @@
-<div class="tab-content form-scroll-div" >
+<!-- <div class="tab-content form-scroll-div" >
   <div class="col-md-12 box" [apploading]="isLoader">
     <div class="row">
       <div class="col-sm-12 col-md-12">
@@ -8,7 +8,7 @@
         </app-grid-table>       
       </div>
     </div>
-  </div>
+  </div>-->
  
   <ng-template #OrderSummeryPopup>
     <div class="card">
@@ -53,4 +53,26 @@
       </div>
   </div>
   </ng-template>
+<!-- </div>  -->
+
+
+<!-- BEGIN: Content-->
+<div class="app-content content " style="background: url(../../../assets/img/banner1.png) no-repeat;background-size: cover;height: 90vh;overflow: auto;">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body mrt">
+       <div class="mb-2">
+        <h2 class="text-color"><strong>Order History</strong></h2>
+      </div>
+      <section id="londry" class="mt-3">
+        <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
+        (clickedIcon)="selectedGridData($event,OrderSummeryPopup)" [pagination]="true" [showselection]='false' [enableSearch]="true"
+        [GridName]="'CustomerGrid'">
+      </app-grid-table>
+     </section>
+  </div>
 </div>
+</div>
+<app-footer></app-footer>

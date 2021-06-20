@@ -36,7 +36,7 @@ export class OrderHistoryComponent implements OnInit {
   CostructGridColumnHeaders() {
     this.columnHeader = [
       {
-        name: this.translateService.instant('Ironing.OrderId'), navigation: '',
+        name: 'Order Id', navigation: '',
         fieldName: 'OrderNumber', headercss: 'text-left', dataType: '', icon: ''
       },
       {
@@ -44,7 +44,7 @@ export class OrderHistoryComponent implements OnInit {
         fieldName: 'CreatedAt', headercss: 'text-left', dataType: 'date', icon: ''
       },
       {
-        name: this.translateService.instant('CommonText.TotalCost'), navigation: '',
+        name: 'Total Cost', navigation: '',
         fieldName: 'TotalCost', headercss: 'text-left', dataType: '', icon: ''
       },
     ];

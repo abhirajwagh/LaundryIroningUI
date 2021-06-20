@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.menuList = [{ Id: 1, Name: 'Account', routeUrl: '/cleanit/home/customerProfile', iconUrl: '../../../assets/img/order.png' },
     { Id: 2, Name: 'Recent Orders', routeUrl: '/cleanit/home/recentOrders', iconUrl: '../../../assets/img/recent-order.png' },
     { Id: 3, Name: 'Order History', routeUrl: '/cleanit/home/orderHistory', iconUrl: '../../../assets/img/history.png' },
-    { Id: 4, Name: 'Logout', routeUrl: '/cleanit/home/contactUs', iconUrl: '../../../assets/img/logout.png' }];
+    { Id: 4, Name: 'Logout', routeUrl: '/login', iconUrl: '../../../assets/img/logout.png' }];
   }
 
   GetAdminMenuList() {
