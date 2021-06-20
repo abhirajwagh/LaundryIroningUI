@@ -1,58 +1,69 @@
-<div style="max-height: 540px;">
-<div style="margin-top: 1%;" class="row" *ngFor="let row of orderlist; let i = index">
-  <div class="col-md-4" *ngFor="let col of orderlist[i]">
-    <div class="card">
-      <h5 class="card-header"
-      [ngStyle]="{'background-color':col.OrderStatus == 'New' ? 'red':
-      col.OrderStatus == 'Picked' ? 'blue' :
-      col.OrderStatus == 'Processed'? '#E1AD01' :
-      col.OrderStatus == 'Delivered' ? 'green' : '',
-      color: 'white'}">{{ col.OrderNumber }}
-      <marquee behavior="scroll" direction="left">Here is some scrolling text... right to left!</marquee></h5>
-      
-
-      <div class="card-body">
-        <div class="card-text">
-          <div class="row">
-            <div class="col-md-6">
-              <label *ngIf="col.OrderType === 'Ironing'" >No Of Cloths:</label>
-              <label *ngIf="col.OrderType !== 'Ironing'" >No Of Kgs:</label>
-            </div>
-            <div class="col-md-6">
-              <span *ngIf="col.OrderType === 'Ironing'">{{ col.NoOfCloths}}</span>
-              <span *ngIf="col.OrderType !== 'Ironing'">{{ col.NoOfKgs}}</span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label>Pickup Address:</label>
-            </div>
-            <div class="col-md-6">
-              <span>{{ col.PickUpAddress}}</span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label>Pickup Date:</label>
-            </div>
-            <div class="col-md-6">
-              <span>{{ col.PickUpDate | date:'dd-MMMM-yyyy'}}</span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label>Pickup TimeSlot:</label>
-            </div>
-            <div class="col-md-6">
-              <span>{{ col.PickUpTimeSlot}}</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-title">
-          <label>Total Cost:</label> <h5 style="margin-left: 28%; margin-top: -11%;">{{ col.TotalCost | currency:'INR'}}</h5>
+<!-- BEGIN: Content-->
+<div class="app-content content mt-2" style="background: url(../../../assets/img/banner1.png) no-repeat;background-size: cover;overflow: auto;">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body">
+      <div class="mb-2">
+        <h2 class="text-color"><strong>Recent Order</strong></h2>
       </div>
-      </div>
+      <!-- Dashboard Analytics Start -->
+      <section id="form-repeater-wrapper ">
+          <div class="row match-height">
+            <!-- CrossFade Carousel Start -->
+            <div class="col-lg-6" *ngFor="let order of orderlist">
+              <div class="card mb-2" id="carousel-crossfade">
+                <div class="card-header bg-info text-white">
+                  <h4 class=" title-bar"><strong>{{ order.OrderNumber }}</strong></h4>
+                 
+                </div>
+                <div class="card-body">
+                 
+                    <div class="row mt-2">
+                      <div class="col-6">
+                        <h6 *ngIf="order.OrderType === 'Ironing'">No of Cloths</h6>
+                        <h6 *ngIf="order.OrderType !== 'Ironing'">No of Kgs</h6>
+                        <h6>Pickup Address</h6>
+                        <h6>Pickup Date</h6>
+                        <h6>Pickup TimeSlot</h6>
+                        <h6>Total Cost</h6>
+                      </div>
+                      <div class="col-6">
+                        <h6 *ngIf="order.OrderType === 'Ironing'">{{order.NoOfCloths}}</h6>
+                        <h6 *ngIf="order.OrderType !== 'Ironing'">{{order.NoOfKgs}}</h6>
+                        <h6 class="">{{ order.PickUpAddress}}</h6>
+                        <h6>{{ order.PickUpDate | date:'dd-MMMM-yyyy'}}</h6>
+                        <h6 class="mrb">{{ order.PickUpTimeSlot}}</h6>
+                        <h6><strong>&#8377;{{order.TotalCost}}</strong></h6>
+                      </div>
+                    </div>
+                      <ul class="progress-indicator">
+                        <li [ngClass]="{'completed':order.CreatedAt !== null}">
+                            <span class="bubble"></span>
+                            New <br>
+                        </li>
+                        <li [ngClass]="{'completed':order.PickedAt !== null}">
+                            <span class="bubble"></span>
+                            Picked <br>
+                        </li>
+                        <li [ngClass]="{'completed':order.ProcessedAt !== null}">
+                            <span class="bubble"></span>
+                            Processed <br>
+                        </li>
+                        <li [ngClass]="{'completed':order.DeliveredAt !== null}">
+                            <span class="bubble"></span>
+                            Delivered
+                        </li>
+                        
+                      </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
     </div>
   </div>
-  </div>
 </div>
+<app-footer></app-footer>
+<!-- END: Content-->

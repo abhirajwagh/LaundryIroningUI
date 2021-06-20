@@ -23,11 +23,10 @@ export class HomeComponent implements OnInit {
   }
 
   GetCustomerMenuList() {
-    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: '/cleanit/home/customerProfile' },
-    { Id: 2, Name: 'Recent Orders', routeUrl: '/cleanit/home/recentOrders' },
-    { Id: 3, Name: 'Order History', routeUrl: '/cleanit/home/orderHistory' },
-    { Id: 4, Name: 'Contact Us', routeUrl: '/cleanit/home/contactUs' },
-    { Id: 5, Name: 'FAQs', routeUrl: 'faq' }];
+    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: '/cleanit/home/customerProfile', iconUrl: '../../../assets/img/order.png' },
+    { Id: 2, Name: 'Recent Orders', routeUrl: '/cleanit/home/recentOrders', iconUrl: '../../../assets/img/recent-order.png' },
+    { Id: 3, Name: 'Order History', routeUrl: '/cleanit/home/orderHistory', iconUrl: '../../../assets/img/history.png' },
+    { Id: 4, Name: 'Logout', routeUrl: '/cleanit/home/contactUs', iconUrl: '../../../assets/img/logout.png' }];
   }
 
   GetAdminMenuList() {

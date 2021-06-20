@@ -44,12 +44,12 @@ export class RecentOrdersComponent implements OnInit {
       this.isLoader = true;
       this.tableData = [];
     }
-    this.customerService.GetCustomerOrderHistory(this.userId, 0).subscribe(result => {
+    this.customerService.GetCustomerOrderHistory(this.userId, 1).subscribe(result => {
     if (result !== null && result.length > 0)
     {
       this.tableData = result;
       this.totalItems = result.length;
-      this.orderlist = this.splitArr(this.tableData, 3);
+      this.orderlist = result; // this.splitArr(this.tableData, 3);
     } else {
       this.tableData = [];
       this.totalItems = 0;
