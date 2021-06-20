@@ -4,40 +4,13 @@
   <div class="shadow-bottom"></div>
   <div class="main-menu-content mt-3 ps">
     <ul class="navigation navigation-main " id="main-menu-navigation" data-menu="menu-navigation" >
-      <li class=" nav-item active">
-            <a class="d-flex align-items-center" href="index.html">
+      <li *ngFor="let menu of tempMenuList"  class=" nav-item active">
+            <a class="d-flex align-items-center" href="#" [routerLink]="[menu.routeUrl]">
               <div class="box">
-                <img class="bx bx-right-arrow-alt mr-1" src="../../../assets/img/order.png">
+                <img class="bx bx-right-arrow-alt mr-1" [src]="menu.iconUrl">
               </div>
-              <span class="menu-item text-truncate" data-i18n="eCommerce">Account</span></a>
+              <span class="menu-item text-truncate">{{menu.Name}}</span></a>
           </li>
-          <li class="nav-item">
-            <a class="d-flex align-items-center " href="recent-order.html">
-              <div class="box">
-                <img class="bx bx-right-arrow-alt mr-1" src="../../../assets/img/recent-order.png">
-              </div>
-              <span class="menu-item text-truncate" data-i18n="Analytics">Recent Order</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="d-flex align-items-center " href="#">
-              <div class="box">
-                <img class="bx bx-right-arrow-alt mr-1" src="../../../assets/img/history.png">
-              </div>
-              <span class="menu-item" >Order History</span>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="d-flex align-items-center " href="#">
-              <div class="box">
-                <img class="bx bx-right-arrow-alt mr-1" src="../../../assets/img/logout.png">
-              </div>
-              <span class="menu-item" >Logout</span>
-            </a>
-          </li>
-    
     </ul>
   </div>      
-
 </div>

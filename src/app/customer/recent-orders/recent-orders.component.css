@@ -1,0 +1,4 @@
+#carousel-crossfade {width: 100%;margin: 0 auto;overflow: hidden;}
+#carousel-crossfade:hover{-webkit-transition: 0.4s ease;transition: 0.4s ease;}
+#carousel-crossfade:hover{-webkit-transform: scale(1.05);transform: scale(1.05);}
+.progress-indicator{margin-left: -9%;margin-top: 20px;padding: 0;font-size: none;text-transform: none;}
