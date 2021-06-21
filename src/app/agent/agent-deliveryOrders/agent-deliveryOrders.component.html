@@ -1,15 +1,11 @@
-<div class="tab-content form-scroll-div" >
-  <div class="col-md-12 box" [apploading]="isLoader">
-    <div class="row">
-      <div class="col-sm-12 col-md-12">
-        <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
-          (clickedIcon)="selectedGridData($event,OrderSummeryPopup)" [pagination]="true" [showselection]='false' [enableSearch]="true"
-          [GridName]="'OrdersGrid'">
-        </app-grid-table>       
-      </div>
-    </div>
+<div class="row" [apploading]="isLoader">
+  <div class="col-sm-12 col-md-12">
+    <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
+      (clickedIcon)="selectedGridData($event,OrderSummeryPopup)" [pagination]="true" [showselection]='false' [enableSearch]="true"
+      [GridName]="'OrdersGrid'">
+    </app-grid-table>       
   </div>
- 
+</div>
   <ng-template #OrderSummeryPopup>
     <div class="card">
       <div class="row">
@@ -62,4 +58,3 @@
     </div>
   </div>
   </ng-template>
-</div>
