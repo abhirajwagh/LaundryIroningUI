@@ -1,0 +1,8 @@
+.pad{padding: 0 10%;}
+      .accordion .card, .collapsible .card{margin: 0;}
+      .footer{background-color: #F2F4F4;position: relative;top: -56px;}
+      /*.collapse{overflow-y: scroll;height: 130px;}*/
+      @media(max-width: 800px){.pad{padding: 0 7%;}}
+      @media(max-width: 600px){.pad{padding: 0;}}
+      @media(max-width: 500px){.mrt{margin-top: -10px;}.footer{top: 16px;
+    margin-top: 20px;}}

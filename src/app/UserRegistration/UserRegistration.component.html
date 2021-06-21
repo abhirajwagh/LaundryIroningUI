@@ -1,4 +1,4 @@
-
+<!-- 
 <body>
   <div class="signup-form" [apploading]="isLoader"> 
     <form [formGroup]='UserRegistrationForm'> 
@@ -47,10 +47,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="form-group">
-        <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of
-            Use</a> &amp; <a href="#">Privacy Policy</a></label>
-      </div> -->
       <div class="form-group">
         <button [disabled] ="!UserRegistrationForm.valid" class="btn btn-success btn-lg btn-block" (click)="RegisterUser()" >
           {{'Register.RegisterNow' | translate }}</button>
@@ -59,4 +55,116 @@
     <div class="text-center">{{'Register.AlreadyHaveAnAccount' | translate }}<a href="#">{{'Register.SignIn' | translate }}</a></div>
   </div>
 </body>
+ -->
 
+ <app-header></app-header>
+ <!-- BEGIN: Content-->
+ <div class="app-content content" style="background: url(../../assets/img/banner1.png);background-size: cover; overflow: auto;">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+   
+    <div class="content-header row">
+    </div>
+    <div class="content-body" [apploading]="isLoader"><!-- Dashboard Analytics Start -->
+      <section id="form-repeater-wrapper text-center">
+<!-- form default repeater -->
+    <div class="row mt-4">
+      <div class="col-xl-10 col-md-12">
+        <div class="card" >
+          <div class="card-header bg-info" style="padding-bottom: 3px;">
+            <div class="text-center">
+              <h3 class="text-white">REGISTRATION</h3>
+            </div>
+          </div>
+          <div class="card-body mt-2">
+            <form [formGroup]='UserRegistrationForm' class="form repeater-default" >
+              <div data-repeater-list="group-a">
+                <div data-repeater-item="">
+                  <div class="row ">
+                    <label class="col-lg-2 col-sm-5 col-form-label">Username<span class="text-danger">*</span></label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <input type="email" class="form-control" 
+                      maxlength="20" (change)="CheckUserNameExists()" (keypress)="keyPressAlphaNumeric($event)"
+                      [(ngModel)]="UserRegistrationModel.UserName" formControlName="Username" placeholder="Enter Username" required>
+                    </div>
+
+                     <label class="col-lg-2 col-sm-5 col-form-label">Password<span class="text-danger">*</span></label>
+                    <div class=" col-md-7 col-lg-4 form-group">
+                      <input type="password" class="form-control" 
+                      maxlength="20" [(ngModel)]="UserRegistrationModel.Password" formControlName="password"
+                      placeholder="Enter Password" required>
+                    </div>
+
+                    <label class="col-lg-2 col-sm-5 col-form-label">Name<span class="text-danger">*</span></label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <input type="text" class="form-control" 
+                      [(ngModel)]="UserRegistrationModel.Name" formControlName="name"
+                      placeholder="Enter Name" required aria-describedby="basic-default-name-error" aria-invalid="true">
+                    </div>
+
+                    <label class="col-lg-2 col-sm-5 col-form-label">Email ID<span class="text-danger">*</span></label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <input type="email" class="form-control" 
+                      [(ngModel)]="UserRegistrationModel.Email" formControlName="email" 
+                      placeholder="Enter Email ID" required>
+                    </div>
+
+                    <label class="col-lg-2 col-sm-5 col-form-label">Mobile No.<span class="text-danger">*</span></label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <input type="text" class="form-control" 
+                      [(ngModel)]="UserRegistrationModel.MobileNo" formControlName="mobile" 
+                      placeholder="Enter mobile number" required>
+                    </div>
+
+                    <label class="col-lg-2 col-sm-5 col-form-label">Address <span class="text-danger">*</span></label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <textarea formControlName="address" [(ngModel)]="UserRegistrationModel.Address" class="form-control"  
+                      placeholder="Enter Address" required></textarea> 
+                    </div>
+
+                    <label class="col-lg-2 col-sm-5 col-form-label">What city were you born in?<span class="text-danger">*</span></label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <input type="text" class="form-control" 
+                      [(ngModel)]="UserRegistrationModel.SecurityAnswerOne" formControlName="ans1" 
+                      placeholder="answer" required>
+                    </div>
+
+                    <label class="col-lg-2 col-sm-5 col-form-label">What is your favorite food?<span class="text-danger">*</span></label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <input type="text" class="form-control" 
+                      [(ngModel)]="UserRegistrationModel.SecurityAnswerTwo" formControlName="ans2"
+                      placeholder="answer" required>
+                    </div>
+
+                    <label class="col-lg-2 col-sm-5 col-form-label">Promo Code</label>
+                    <div class="col-md-7 col-lg-4 form-group">
+                      <input type="text" class="form-control" id="address" placeholder="Enter Promo Code">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group text-center">
+                <div class="col-12 ">
+                  <button type="submit" [disabled] ="!UserRegistrationForm.valid" (click)="RegisterUser()"
+                  class="btn btn-info shadow ">Register Now</button>
+                </div>
+              </div>
+            </form>
+          </div>
+           <div class="card-footer text-center" style="background-color:  #d6d6d652 ">
+                <span>Already have an account? | <a href="login.html">Sign in</a></span>
+              </div>
+        </div>
+      </div>
+    </div>
+    <!--/ form default repeater -->
+  </section>
+  <!-- Dashboard Analytics end -->
+
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
+<div class="sidenav-overlay"></div>
+<div class="drag-target"></div>
+<app-footer></app-footer>

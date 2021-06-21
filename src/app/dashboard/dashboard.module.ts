@@ -18,6 +18,7 @@ import { OrderHistoryComponent } from '../customer/order-history/order-history.c
 import { CustomerProfileComponent } from '../customer/customer-profile/customer-profile.component';
 import { ContactusComponent } from '../customer/contactus/contactus.component';
 import { FooterModule } from '../Shared/footer/footer.module';
+import { FaqsComponent } from '../customer/faqs/faqs.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
       {
         path: 'contactUs',
         component: ContactusComponent,
+      },
+      {
+        path: 'faqs',
+        component: FaqsComponent,
       }
     ]
   },
