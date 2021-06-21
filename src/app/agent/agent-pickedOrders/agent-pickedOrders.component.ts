@@ -48,15 +48,15 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
   CostructGridColumnHeaders() {
     this.columnHeader = [
       {
-        name: this.translateService.instant('Ironing.OrderId'), navigation: '',
+        name: 'Order no', navigation: '',
         fieldName: 'OrderNumber', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('Ironing.PickupAddress'), navigation: '',
+        name: 'Pickup address', navigation: '',
         fieldName: 'PickUpAddress', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('CommonText.TotalCost'), navigation: '',
+        name: 'Total Cost', navigation: '',
         fieldName: 'TotalCost', headercss: 'text-left', dataType: '', icon: ''
       },
     ];
