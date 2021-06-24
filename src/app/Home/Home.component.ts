@@ -23,15 +23,15 @@ export class HomeComponent implements OnInit {
   }
 
   GetCustomerMenuList() {
-    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: '/cleanit/home/customerProfile', iconUrl: '../../../assets/img/order.png' },
-    { Id: 2, Name: 'Recent Orders', routeUrl: '/cleanit/home/recentOrders', iconUrl: '../../../assets/img/recent-order.png' },
-    { Id: 3, Name: 'Order History', routeUrl: '/cleanit/home/orderHistory', iconUrl: '../../../assets/img/history.png' },
-    { Id: 4, Name: 'Logout', routeUrl: '/login', iconUrl: '../../../assets/img/logout.png' }];
+    this.menuList = [{ Id: 1, Name: 'Account', routeUrl: '/cleanit/home/customerProfile', iconUrl: '../../../assets/img/order.png', selected: false },
+    { Id: 2, Name: 'Recent Orders', routeUrl: '/cleanit/home/recentOrders', iconUrl: '../../../assets/img/recent-order.png', selected: false },
+    { Id: 3, Name: 'Order History', routeUrl: '/cleanit/home/orderHistory', iconUrl: '../../../assets/img/history.png', selected: false },
+    { Id: 4, Name: 'Logout', routeUrl: '/login', iconUrl: '../../../assets/img/logout.png', selected: false }];
   }
 
   GetAdminMenuList() {
-    this.menuList = [{ Id: 1, Name: 'Orders', routeUrl: '/cleanit/home/admin/adminorders/adminironingorder' },
-    { Id: 2, Name: 'Create Users', routeUrl: '/cleanit/home/admin/adminagentUser' }
+    this.menuList = [{ Id: 1, Name: 'Orders', routeUrl: '/cleanit/home/admin/adminorders/adminironingorder', selected: false },
+    { Id: 2, Name: 'Create Users', routeUrl: '/cleanit/home/admin/adminagentUser', selected: false }
     ];
   }
 }

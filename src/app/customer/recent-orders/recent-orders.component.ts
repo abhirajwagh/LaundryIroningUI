@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { UserConstant } from 'src/app/Constants/Application.Constant';
@@ -21,7 +22,10 @@ export class RecentOrdersComponent implements OnInit {
   orderlist: any[];
   constructor(private translateService: TranslateService,
               private notificationService: NotificationsService,
-              private customerService: CustomerService) { }
+              private customerService: CustomerService,
+              private titleService: Title) {
+      this.titleService.setTitle('Cleanit | Recent Orders');
+               }
 
   ngOnInit() {
     this.userId = sessionStorage.getItem(UserConstant.UserId);

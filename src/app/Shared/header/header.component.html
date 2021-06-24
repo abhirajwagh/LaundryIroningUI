@@ -41,10 +41,10 @@
               <i class="ficon bx bx-menu" style="color: #000"></i>
             </a>
           </li>
-          <li class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label text-dark user-op" data-toggle="dropdown">Welcome <b>{{loginUsername}}</b></a>
+          <li *ngIf="loginUsername"  class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label text-dark user-op" data-toggle="dropdown">Welcome <b>{{loginUsername}}</b></a>
           </li>
-          <!-- <li class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label user-op text-dark" data-toggle="dropdown">logout</a>
-          </li>  -->
+          <li  *ngIf="loginUsername" class="dropdown dropdown-notification nav-item hide1"><a class="nav-link nav-link-label user-op text-dark" data-toggle="dropdown" (click)="nevigateToLogin()" >Logout</a>
+          </li> 
         </ul>
       </div>
     </div>

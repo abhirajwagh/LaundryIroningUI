@@ -4,8 +4,8 @@
   <div class="shadow-bottom"></div>
   <div class="main-menu-content mt-3 ps">
     <ul class="navigation navigation-main " id="main-menu-navigation" data-menu="menu-navigation" >
-      <li *ngFor="let menu of tempMenuList"  class=" nav-item active">
-            <a class="d-flex align-items-center" href="#" [routerLink]="[menu.routeUrl]">
+      <li *ngFor="let menu of tempMenuList" style="cursor: pointer;" [class.active]="menu.selected==true" class="nav-item">
+            <a class="d-flex align-items-center" (click)="nevigateToUrl(menu)">
               <div class="box">
                 <img class="bx bx-right-arrow-alt mr-1" [src]="menu.iconUrl">
               </div>
