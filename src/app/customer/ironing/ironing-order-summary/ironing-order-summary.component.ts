@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
@@ -25,8 +26,9 @@ export class IroningOrderSummaryComponent implements OnInit {
   constructor(private translateService: TranslateService,
               private notificationService: NotificationsService,
               private ironingService: IroningService,
-              private router: Router, private commonService: CommonService) {
+              private router: Router, private commonService: CommonService, private titleService: Title) {
     this.setUserLanguage(environment.DefaultLanguage);
+    this.titleService.setTitle('Cleanit | OrderSummary');
    }
 
   ngOnInit() {

@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
@@ -26,8 +27,10 @@ export class IroningComponent implements OnInit {
   @ViewChild('CODcheckbox', { static: false }) CODcheckbox;
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService, private ironingService: IroningService,
-              private router: Router, private commonService: CommonService) {
+              private router: Router, private commonService: CommonService,
+              private titleService: Title) {
     this.setUserLanguage(environment.DefaultLanguage);
+    this.titleService.setTitle('Cleanit | Ironing');
   }
 
   ngOnInit() {

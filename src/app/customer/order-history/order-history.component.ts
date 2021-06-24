@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -22,7 +23,11 @@ export class OrderHistoryComponent implements OnInit {
   orderSummary: any;
   id: any;
   constructor(private modalService: BsModalService , private translateService: TranslateService,
-              private notificationService: NotificationsService, private customerService: CustomerService) { }
+              private notificationService: NotificationsService,
+              private customerService: CustomerService,
+              private titleService: Title) {
+      this.titleService.setTitle('Cleanit | Order History');
+               }
 
   ngOnInit() {
     this.userId = sessionStorage.getItem(UserConstant.UserId);

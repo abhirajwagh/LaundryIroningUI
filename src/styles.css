@@ -13,22 +13,6 @@
 @import '../src/assets/css/widgets.min.css';
 @import '../src/assets/css/dashboard-analytics.min.css';
 @import '../src/assets/css/style.css';
-/* 
-
-@import '../src/assets/css/contact.css';
-@import '../src/assets/css/css.css';
-@import '../src/assets/css/faq.css';
-@import '../src/assets/css/laundryform.css';
-@import '../src/assets/css/laundrypage.css';
-@import '../src/assets/css/order-summary.css';
-@import '../src/assets/css/progress-wizard.min.css';
-@import '../src/assets/css/register.css';
-
- */
-
-
-
-
 
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 .nav-link img{width:90px;}
@@ -235,7 +219,21 @@ background-color:#00b0f0!important;
   .agentContent {
     margin-left: 0;
   }
-
+  .simple-notification {
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-bottom: 10px;
+    color: #fff !important;
+    cursor: pointer;
+    transition: .5s;
+    min-height: 70px;
+}
+  .simple-notification-wrapper.top {
+    top: 80px !important;
+}
   .flexer,.progress-indicator{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex}.no-flexer,.progress-indicator.stacked{display:block}.no-flexer-element{-ms-flex:0;-webkit-flex:0;-moz-flex:0;flex:0}.flexer-element,.progress-indicator>li{-ms-flex:1;-webkit-flex:1;-moz-flex:1;flex:1}.progress-indicator{margin:0 0 1em;padding:0;font-size:80%;text-transform:uppercase}.progress-indicator>li{list-style:none;text-align:center;width:auto;padding:0;margin:0;position:relative;text-overflow:ellipsis;color:#bbb;display:block}.progress-indicator>li:hover{color:#6f6f6f}
 .progress-indicator>li.completed,.progress-indicator>li.completed .bubble{color:#00b0f0;}
 .progress-indicator>li .bubble{border-radius:1000px;width:20px;height:20px;background-color:#bbb;display:block;margin:0 auto .5em;border-bottom:1px solid #888}
