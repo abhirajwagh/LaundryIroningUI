@@ -14,11 +14,19 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private commonService: CommonService) { }
 
   ngOnInit() {
-    this.userType = this.commonService.GetUserType();
     this.loginUsername = sessionStorage.getItem(UserConstant.UserName);
+    if (this.loginUsername !== null && this.loginUsername !== undefined && this.loginUsername !== '') {
+      this.userType = this.commonService.GetUserType();
+    } else {
+      //this.nevigateToLogin();
+    }
   }
   nevigateToDashboad() {
-    this.router.navigate(['cleanit/home/dashboard']);
+    if (this.loginUsername !== null && this.loginUsername !== undefined && this.loginUsername !== '') {
+      this.router.navigate(['cleanit/home/dashboard']);
+    } else {
+      this.nevigateToLogin();
+    }
   }
 
   nevigateToLogin() {

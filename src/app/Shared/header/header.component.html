@@ -27,7 +27,8 @@
         
         <div class="mr-auto float-left bookmark-wrapper d-flex text-align-center">
           <ul class="nav navbar-nav bookmark-icons">
-            <li class="nav-item float-left"><a class="nav-link" (click)="nevigateToDashboad()"><img src="../../assets/img/logo.png" width="110"></a></li>
+            <li *ngIf="loginUsername" class="nav-item float-left"><a class="nav-link" (click)="nevigateToDashboad()"><img src="../../assets/img/logo.png" width="110"></a></li>
+            <li *ngIf="!loginUsername"class="nav-item float-left"><img src="../../assets/img/logo.png" width="110"></li>
             
           </ul>
          <!--  <ul class="nav navbar-nav">
