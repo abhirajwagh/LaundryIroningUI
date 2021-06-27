@@ -4,8 +4,10 @@
       <div class="row">
         <div class="col-lg-5 col-md-4">
           <ul class="link pt-1">
-             <li><a [routerLink]="['/cleanit/home/faqs']">FAQ</a></li>
-            <li><a [routerLink]="['/cleanit/home/contactUs']">Contact US</a></li>
+             <li><a *ngIf="loginUsername"  [routerLink]="['/cleanit/home/faqs']">FAQ</a></li>
+             <li><a *ngIf="loginUsername" [routerLink]="['/cleanit/home/contactUs']">Contact US</a></li>
+            <li><a *ngIf="!loginUsername" target="_blank" [routerLink]="['/cleanit/faqsV2']">FAQ</a></li>
+            <li><a *ngIf="!loginUsername" target="_blank" [routerLink]="['/cleanit/contactUsV2']">Contact US</a></li>
           </ul>   
         </div>
         <div class="col-lg-3 col-md-4">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserConstant } from 'src/app/Constants/Application.Constant';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  loginUsername: any;
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.loginUsername = sessionStorage.getItem(UserConstant.UserName);
   }
 
 }

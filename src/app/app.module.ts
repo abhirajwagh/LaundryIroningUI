@@ -12,6 +12,8 @@ import { SpinnerComponentModule } from './Shared/spinner/spinner.module';
 import { UserRegistrationModule } from './UserRegistration/UserRegistration.module';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ResetPasswordModule } from './reset-password/reset-password.module';
+import { ContactUsV2Module } from './customer/contactusv2/contactusV2.module';
+import { FaqsV2Module } from './customer/faqsv2/faqsv2.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ResetPasswordModule } from './reset-password/reset-password.module';
     }),
     SpinnerComponentModule,
     UserRegistrationModule,
-    ResetPasswordModule
+    ResetPasswordModule,
+    ContactUsV2Module,
+    FaqsV2Module
   ],
   providers: [TranslateService],
   bootstrap: [AppComponent]
