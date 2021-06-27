@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { CommonService } from 'src/app/Services/Common.service';
 import { environment } from 'src/environments/environment';
 import { SearchDataService } from 'src/app/Services/Search-data-service.service';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -119,7 +120,7 @@ export class GridTableComponent implements OnInit, OnChanges {
     @Output() PointListIcon = new EventEmitter<object>();
     @Output() isEditBtnClicked = new EventEmitter<boolean>();
     constructor(private translateService: TranslateService, private searchService: SearchDataService
-        ,       private commonService: CommonService) {
+        ,       private commonService: CommonService, public datePipe: DatePipe) {
         translateService.setDefaultLang(environment.DefaultLanguage);
         this.math = Math;
     }
@@ -418,6 +419,9 @@ export class GridTableComponent implements OnInit, OnChanges {
                 let columnName = '';
                 for (let index = 0; index < this.columns.length; index++) {
                     columnName = this.columns[index].fieldName;
+                    if (this.columns[index].dataType === 'date') {
+                        it[columnName] = this.datePipe.transform(new Date(it[columnName]), 'MMM d, y, h:mm:ss a');
+                      }
                     if (it[columnName] !== '' && it[columnName] !== undefined && it[columnName] !== null) {
                         if (it[columnName].toString().toLowerCase().indexOf(this.searchText.toLowerCase()) >= 0) {
                             return it;

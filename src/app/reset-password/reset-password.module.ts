@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
 import { SpinnerComponentModule } from '../Shared/spinner/spinner.module';
+import { HeaderModule } from '../Shared/header/header.module';
+import { FooterModule } from '../Shared/footer/footer.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { SpinnerComponentModule } from '../Shared/spinner/spinner.module';
     TranslateModule,
     SpinnerComponentModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    HeaderModule,
+    FooterModule
   ],
   declarations: [ResetPasswordComponent]
 })

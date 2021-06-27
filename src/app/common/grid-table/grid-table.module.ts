@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { GridTableComponent } from './grid-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -13,6 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     PaginationModule.forRoot()
   ],
-  exports: [GridTableComponent]
+  exports: [GridTableComponent],
+  providers: [DatePipe]
 })
 export class GridTableModule { }

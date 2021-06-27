@@ -1,5 +1,6 @@
 import {Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import * as moment from 'moment';
@@ -17,8 +18,11 @@ export class UserRegistrationComponent implements OnInit {
   isLoader: boolean;
   UserRegistrationForm: FormGroup;
   constructor(private translateService: TranslateService, private fb: FormBuilder,
-              private notificationService: NotificationsService, private userRegisterService: UserRegistrationService) {
+              private notificationService: NotificationsService,
+              private userRegisterService: UserRegistrationService,
+              private titleService: Title) {
     this.setUserLanguage(environment.DefaultLanguage);
+    this.titleService.setTitle('Cleanit | Registration');
    }
 
   ngOnInit() {
@@ -65,8 +69,10 @@ export class UserRegistrationComponent implements OnInit {
        && this.UserRegistrationModel.Email !== null && this.UserRegistrationModel.Address !== null
        && this.UserRegistrationModel.SecurityAnswerOne !== null
        && this.UserRegistrationModel.SecurityAnswerTwo !== null) {
-      this.isLoader = true;
-      this.userRegisterService.RegisterUser(this.UserRegistrationModel).subscribe(result => {
+       this.isLoader = true;
+       this.UserRegistrationModel.SecurityAnswerOne = this.UserRegistrationModel.SecurityAnswerOne.toString().toLowerCase();
+       this.UserRegistrationModel.SecurityAnswerTwo = this.UserRegistrationModel.SecurityAnswerTwo.toString().toLowerCase();
+       this.userRegisterService.RegisterUser(this.UserRegistrationModel).subscribe(result => {
         if (result !== null && result !== undefined) {
           if (result === 'Record already exists') {
             this.notificationService.warn(result);

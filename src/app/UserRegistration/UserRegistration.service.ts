@@ -21,11 +21,17 @@ constructor(private httpService: HttpService) { }
     const url = RegisterUrlConstant.CheckUsernameExists + '?userName=' + username;
     return this.httpService.getData(url);
    }
-  
+
    // check security answer
    CheckSecurityAnswer(answerModel): Observable<any> {
      const url = RegisterUrlConstant.CheckSecurityAnswer;
      return this.httpService.postData(url, answerModel);
+   }
+
+   // Update user password
+  UpdateUserPassword(newPass, conPass, mob): Observable<any> {
+    const url = RegisterUrlConstant.UpdateUserPassword + '?newPass=' + newPass + '&conPass=' + conPass + '&mob=' + mob;
+    return this.httpService.postDataText(url, null);
   }
 }
 
