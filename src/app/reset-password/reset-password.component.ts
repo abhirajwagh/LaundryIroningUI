@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { UserRegistrationService } from '../UserRegistration/UserRegistration.service';
@@ -22,7 +23,8 @@ export class ResetPasswordComponent implements OnInit {
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService,
               private userRegisterService: UserRegistrationService,
-              private titleService: Title) {
+              private titleService: Title,
+              private router: Router) {
       this.titleService.setTitle('Cleanit | Forgot Password');
               }
 
@@ -89,6 +91,7 @@ export class ResetPasswordComponent implements OnInit {
           this.notificationService.success('Password changed successfully!!');
           this.isLoader = false;
           this.ClearNewPassword();
+          this.router.navigate(['/']);
         }, error => {
           this.IsAnswerMatch = false;
           this.notificationService.error('Failed to change the password');

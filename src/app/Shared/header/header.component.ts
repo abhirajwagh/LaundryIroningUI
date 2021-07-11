@@ -31,6 +31,6 @@ export class HeaderComponent implements OnInit {
 
   nevigateToLogin() {
     sessionStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 }
