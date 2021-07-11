@@ -1,156 +1,159 @@
 <div class="row">
-  <div class="col-sm-12 col-md-12">
-    <div class="equal-height">
-      <div class="equ-cell">
-        <header>
-          <h2>{{'Admin.CreateUserHeader' | translate }}</h2>
-        </header>
-        <div class="body" [formGroup]='adminAgentUserForm' [apploading]="isLoader">
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Login.UserName' | translate }}
-                    <span class="required">*</span>
-                  </label>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+      </div>
+      <div class="card-body" [formGroup]='adminAgentUserForm' [apploading]="isLoader">
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label  class="col-form-label">Username<span class="text-danger">*</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input [attr.disabled]="isUpdateDelete == true ? true: null" type="text" class="form-control" maxlength="20" (change)="CheckUserNameExists()"
-                    (keypress)="keyPressAlphaNumeric($event)" [(ngModel)]="adminAgentUserModel.UserName"
-                    formControlName="Username" placeholder="{{'Login.EnterUsername' | translate }}">
+                  (keypress)="keyPressAlphaNumeric($event)" [(ngModel)]="adminAgentUserModel.UserName"
+                  formControlName="Username" placeholder="{{'Login.EnterUsername' | translate }}">
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Login.Password' | translate }}
-                    <span class="required">*</span>
-                  </label>
+            </div>
+          </div>
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label  class="col-form-label">Password<span class="text-danger"> *</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="password" class="form-control" maxlength="20"
-                    [(ngModel)]="adminAgentUserModel.Password" formControlName="Password" 
-                    placeholder="{{'Register.EnterPassword' | translate }}">
+                  [(ngModel)]="adminAgentUserModel.Password" formControlName="Password" 
+                  placeholder="{{'Register.EnterPassword' | translate }}">
                 </div>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.Name' | translate }}
-                    <span class="required">*</span>
-                  </label>
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">Name<span class="text-danger">*</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="text" class="form-control" maxlength="50" 
-                    [(ngModel)]="adminAgentUserModel.Name"
-                    formControlName="Name" placeholder="{{'Register.EnterName' | translate }}">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.Address' | translate }}
-                    <span class="required">*</span>
-                  </label>
-                </div>
-                <div class="col-sm-8 col-md-8">
-                  <input type="text" class="form-control" maxlength="200"
-                    [(ngModel)]="adminAgentUserModel.Address" formControlName="Address" 
-                    placeholder="{{'Register.EnterValidAddress' | translate }}">
+                  [(ngModel)]="adminAgentUserModel.Name"
+                  formControlName="Name" placeholder="{{'Register.EnterName' | translate }}">
                 </div>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.MobileNo' | translate }}
-                    <span class="required">*</span>
-                  </label>
+
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">Address<span class="text-danger"> *</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
+                  <textarea [(ngModel)]="adminAgentUserModel.Address" maxlength="200" formControlName="Address" class="form-control"  placeholder="Enter Address" required></textarea> 
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">Mobile No<span class="text-danger">*</span></label>
+                </div>
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="number" class="form-control" maxlength="10" 
                     [(ngModel)]="adminAgentUserModel.MobileNo"
                     formControlName="MobileNo" placeholder="{{'Register.EnterValidMobileNo' | translate }}">
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.EmailId' | translate }}
-                    <span class="required">*</span>
-                  </label>
+            </div>
+          </div>
+
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">Email Id<span class="text-danger">*</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="email" class="form-control" maxlength="50"
-                    [(ngModel)]="adminAgentUserModel.Email" formControlName="EmailId" 
-                    placeholder="{{'Register.EnterValidEmail' | translate }}">
+                  [(ngModel)]="adminAgentUserModel.Email" formControlName="EmailId" 
+                  placeholder="{{'Register.EnterValidEmail' | translate }}">
                 </div>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.AadharNo' | translate }}
-                    <span class="required">*</span>
-                  </label>
+
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">AadharNo<span class="text-danger">*</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input [attr.disabled]="isUpdateDelete == true ? true: null" type="text" class="form-control" maxlength="30" 
                     [(ngModel)]="adminAgentUserModel.AadharNo"
                     formControlName="AadharNo" 
                     placeholder="{{'Register.EnterValidAadharNo' | translate }}">
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.DrivingLicenceNo' | translate }}
-                    <span class="required">*</span>
-                  </label>
+            </div>
+          </div>
+
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">DrivingLicenceNo<span class="text-danger">*</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input [attr.disabled]="isUpdateDelete == true ? true: null"
-                   type="text" class="form-control" maxlength="50"
-                    [(ngModel)]="adminAgentUserModel.DrivingLicenceNo" formControlName="DrivingLicenceNo" 
-                    placeholder="{{'Register.EnterValidDrivingLicenceNo' | translate }}">
+                  type="text" class="form-control" maxlength="50"
+                   [(ngModel)]="adminAgentUserModel.DrivingLicenceNo" formControlName="DrivingLicenceNo" 
+                   placeholder="{{'Register.EnterValidDrivingLicenceNo' | translate }}">
                 </div>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.BirthDate' | translate }}
-                    <span class="required">*</span>
-                  </label>
+
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">BirthDate<span class="text-danger">*</span></label>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-lg-9 col-md-9 col-xs-12">
                   <input  [attr.disabled]="isUpdateDelete == true ? true: null" type="date" class="form-control"  
                     [(ngModel)]="adminAgentUserModel.DateOfBirth"
                     formControlName="Birthdate" [max]="MaxDate()">
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="col-sm-3 col-md-3">
-                  <label class="bold-font">{{'Register.UserType' | translate }}
-                    <span class="required">*</span>
-                  </label>
+            </div>
+          </div>
+
+          <div class="row">  
+            <div class="col-12">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                  <label class="col-form-label">UserType<span class="text-danger">*</span></label>
                 </div>
-                <div class="col-sm-3 col-md-3">
+                <div class="col-lg-3 col-md-3 col-xs-12">
                   <label class="bold-font">{{'Register.Admin' | translate }}
                     <input type="radio" (click)="SetUserType('Admin')" value="true" formControlName="IsAdmin" [(ngModel)]="adminAgentUserModel.IsAdmin">
                   </label>
                 </div>
-                <div class="col-sm-3 col-md-3">
+                <div class="col-lg-3 col-md-3 col-xs-12">
                   <label class="bold-font">{{'Register.Agent' | translate }}
                     <input type="radio" (click)="SetUserType('Agent')" value="true" formControlName="IsAgent" [(ngModel)]="adminAgentUserModel.IsAgent">
                   </label>
                 </div>
-                <div class="col-sm-3 col-md-3">
+                <div class="col-lg-3 col-md-3 col-xs-12">
                   <label class="bold-font">{{'Register.Operator' | translate }}
                     <input type="radio" (click)="SetUserType('Operator')" value="true" formControlName="IsOperator" [(ngModel)]="adminAgentUserModel.IsOperator">
                   </label>
@@ -173,16 +176,17 @@
                 {{'CommonText.Clear' | translate }}</button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-12 col-md-12">
-              <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
-                (clickedIcon)="selectedGridData($event)" [pagination]="true" [showselection]='false' [enableSearch]="true"
-                [GridName]="'UsersGrid'">
-              </app-grid-table>
-            </div>
-          </div>
-        </div>
+          
       </div>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
+      (clickedIcon)="selectedGridData($event)" [pagination]="true" [showselection]='false' [enableSearch]="true"
+      [GridName]="'UsersGrid'">
+    </app-grid-table>
   </div>
 </div>
