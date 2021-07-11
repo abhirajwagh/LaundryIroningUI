@@ -1,6 +1,7 @@
 import {Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import * as moment from 'moment';
@@ -20,7 +21,7 @@ export class UserRegistrationComponent implements OnInit {
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService,
               private userRegisterService: UserRegistrationService,
-              private titleService: Title) {
+              private titleService: Title, private router: Router) {
     this.setUserLanguage(environment.DefaultLanguage);
     this.titleService.setTitle('Cleanit | Registration');
    }
@@ -78,6 +79,7 @@ export class UserRegistrationComponent implements OnInit {
             this.notificationService.warn(result);
           } else {
             this.notificationService.success(this.translateService.instant('Register.RegistrationSuccessMsg'));
+            this.router.navigate(['/']);
           }
           this.isLoader = false;
         }
@@ -102,5 +104,9 @@ export class UserRegistrationComponent implements OnInit {
        this.isLoader = false;
      });
    }
- }
+  }
+  nevigateToLogin() {
+    sessionStorage.clear();
+    this.router.navigate(['/']);
+  }
 }

@@ -230,7 +230,12 @@ background-color:#00b0f0!important;
     cursor: pointer;
     transition: .5s;
     min-height: 70px;
+    
 }
+.simple-notification.success {
+  background: #00b0f0 !important;
+}
+
   .simple-notification-wrapper.top {
     top: 80px !important;
 }
