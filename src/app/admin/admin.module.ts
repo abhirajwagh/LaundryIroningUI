@@ -14,6 +14,7 @@ import { AdminIroningOrderComponent } from './admin-orders/admin-ironingOrder/ad
 import { AdminLaundryOrderComponent } from './admin-orders/admin-laundryOrder/admin-laundryOrder.component';
 import { AdminIroninglaundryOrderComponent } from './admin-orders/admin-ironinglaundryOrder/admin-ironinglaundryOrder.component';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { HeaderModule } from '../Shared/header/header.module';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
     SpinnerComponentModule,
     HttpClientModule,
     GridTableModule,
+    HeaderModule,
     RouterModule.forChild(routes),
     ModalModule.forRoot(),
   ],
