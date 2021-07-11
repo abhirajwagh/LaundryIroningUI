@@ -86,12 +86,12 @@ export class ResetPasswordComponent implements OnInit {
       this.isLoader = true;
       this.userRegisterService.UpdateUserPassword(this.newPassword, this.confirmPassword,
         this.SecurityAnswerModel.MobileNo).subscribe(result => {
-          this.notificationService.success('Password has been changed successfully.Login to continue');
+          this.notificationService.success('Password changed successfully!!');
           this.isLoader = false;
           this.ClearNewPassword();
         }, error => {
           this.IsAnswerMatch = false;
-          this.notificationService.error('Failed to change the password.');
+          this.notificationService.error('Failed to change the password');
           this.isLoader = false;
         });
     }
