@@ -21,6 +21,18 @@ constructor(private httpService: HttpService) { }
     const url = CustomerUrlConstant.GetAllOrdersForCustomer + '?customerId=' + customerId + '&noOfDays=' + noOfDays;
     return this.httpService.getData(url);
   }
+
+  // Get customer profile
+  GetCustomerProfile(customerId): Observable<any> {
+    const url = CustomerUrlConstant.GetCustomerProfile + '?customerId=' + customerId;
+    return this.httpService.getData(url);
+  }
+
+  // update customer profile
+  UpdateCustomerProfile(users): Observable<any> {
+    const url = CustomerUrlConstant.UpdateCustomerProfile;
+    return this.httpService.postDataText(url, users);
+  }
 }
 
 

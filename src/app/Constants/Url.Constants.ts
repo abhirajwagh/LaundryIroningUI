@@ -40,9 +40,10 @@ export class AdminAgentUrlConstant {
   public static GetAllProcessedOrdersForAgent: string = environment.LaundryIroningAPIUrl + 'Ironing/GetAllProcessedOrdersForAgent';
   public static UpdateOrderStatus: string = environment.LaundryIroningAPIUrl + 'Ironing/UpdateOrderStatus';
   public static GetAllPickedOrdersForoperator: string = environment.LaundryIroningAPIUrl + 'Ironing/GetAllPickedOrdersForOperator';
-  
 }
 
 export class CustomerUrlConstant {
   public static GetAllOrdersForCustomer: string = environment.LaundryIroningAPIUrl + 'User/GetAllOrdersForCustomer';
+  public static GetCustomerProfile: string = environment.LaundryIroningAPIUrl + 'User/GetUserDetailsById';
+  public static UpdateCustomerProfile: string = environment.LaundryIroningAPIUrl + 'User/UpdateCustomerProfile';
 }
