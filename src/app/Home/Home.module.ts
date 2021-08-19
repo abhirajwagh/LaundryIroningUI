@@ -24,6 +24,7 @@ import { MenuModule } from '../Shared/menu/menu.module';
 import { FooterModule } from '../Shared/footer/footer.module';
 import { ContactusComponent } from '../customer/contactus/contactus.component';
 import { FaqsComponent } from '../customer/faqs/faqs.component';
+import { CustomerProfileComponent } from '../customer/customer-profile/customer-profile.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,7 @@ import { FaqsComponent } from '../customer/faqs/faqs.component';
   ],
   declarations: [HomeComponent, IroningComponent, IroningOrderSummaryComponent, LaundryComponent, LaundryOrderSummaryComponent,
     LaundryIroningComponent, IroningLaundryOrderSummaryComponent, OrderHistoryComponent, RecentOrdersComponent,
-    ContactusComponent, FaqsComponent],
+    CustomerProfileComponent, ContactusComponent, FaqsComponent],
   exports: [RouterModule, HomeComponent],
   providers: [HttpService]
 })
