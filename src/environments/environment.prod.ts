@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
   DefaultLanguage: 'en-US',
-  LaundryIroningAPIUrl: 'http://20.204.48.50/api/',
+  LaundryIroningAPIUrl: 'http://40.80.95.154/api/',
   IroningRate: 7,
-  LaundryRate: 42,
-  IroningLaundryRate: 91
+  LaundryRate: 10,
+  IroningLaundryRate: 15
 
 };
