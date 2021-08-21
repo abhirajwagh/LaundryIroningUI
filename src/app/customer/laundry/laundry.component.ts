@@ -53,7 +53,7 @@ export class LaundryComponent implements OnInit {
   // create laundry form
 CreateLaundryForm() {
   this.laundryForm = this.fb.group({
-    NoOfKgs: ['', [Validators.required]],
+    NoOfCloths: ['', [Validators.required]],
     PickupDate: ['', [Validators.required]],
     TimeSlot: ['', [Validators.required]],
     Address: ['', [Validators.required]],
@@ -74,8 +74,8 @@ CreateLaundryForm() {
     this.pickupTimeSlot = this.commonService.BindThePickUpTime();
   }
   SetTotalCost(event) {
-    if (this.laundryModel.NoOfKgs !== null) {
-      this.laundryModel.TotalCost = this.laundryModel.NoOfKgs * environment.LaundryRate;
+    if (this.laundryModel.NoOfCloths !== null) {
+      this.laundryModel.TotalCost = this.laundryModel.NoOfCloths * environment.LaundryRate;
     } else {
       this.laundryModel.TotalCost = 0;
     }
@@ -83,7 +83,7 @@ CreateLaundryForm() {
 
 // Add new laundry orders
 AddLaundryOrders() {
-  if (this.laundryModel.NoOfKgs !== null && this.laundryModel.PickUpDate !== null
+  if (this.laundryModel.NoOfCloths !== null && this.laundryModel.PickUpDate !== null
     && this.laundryModel.PickUpTimeSlot !== null && this.laundryModel.PickUpAddress !== null
     && this.laundryModel.TotalCost !== null ) {
     this.isLoader = true;
@@ -107,7 +107,7 @@ AddLaundryOrders() {
 }
 
   ResetForm() {
-    this.laundryModel.NoOfKgs = null;
+    this.laundryModel.NoOfCloths = null;
     this.laundryModel.PickUpDate = null;
     this.laundryModel.PickUpTimeSlot = null;
     this.laundryModel.TotalCost = 0;

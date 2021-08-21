@@ -22,16 +22,14 @@
                  
                     <div class="row mt-2">
                       <div class="col-6">
-                        <h6 *ngIf="order.OrderType === 'Ironing'">No of Cloths</h6>
-                        <h6 *ngIf="order.OrderType !== 'Ironing'">No of Kgs</h6>
+                        <h6>No of Cloths</h6>
                         <h6>Pickup Address</h6>
                         <h6>Pickup Date</h6>
                         <h6>Pickup TimeSlot</h6>
                         <h6>Total Cost</h6>
                       </div>
                       <div class="col-6">
-                        <h6 *ngIf="order.OrderType === 'Ironing'">{{order.NoOfCloths}}</h6>
-                        <h6 *ngIf="order.OrderType !== 'Ironing'">{{order.NoOfKgs}}</h6>
+                        <h6>{{order.NoOfCloths}}</h6>
                         <h6 class="">{{ order.PickUpAddress}}</h6>
                         <h6>{{ order.PickUpDate | date:'dd-MMMM-yyyy'}}</h6>
                         <h6 class="mrb">{{ order.PickUpTimeSlot}}</h6>

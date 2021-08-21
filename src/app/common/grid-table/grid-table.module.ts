@@ -4,6 +4,7 @@ import { GridTableComponent } from './grid-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TranslateModule } from '@ngx-translate/core';
+import { TooltipModule } from 'ng2-tooltip-directive';
 @NgModule({
   declarations: [GridTableComponent],
   imports: [
@@ -11,7 +12,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
-    PaginationModule.forRoot()
+    TooltipModule,
+    PaginationModule.forRoot(),
   ],
   exports: [GridTableComponent],
   providers: [DatePipe]

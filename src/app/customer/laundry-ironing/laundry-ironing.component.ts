@@ -53,7 +53,7 @@ export class LaundryIroningComponent implements OnInit {
     // create laundry form
 CreateLaundryForm() {
   this.ironingLaundryForm = this.fb.group({
-    NoOfKgs: ['', [Validators.required]],
+    NoOfCloths: ['', [Validators.required]],
     PickupDate: ['', [Validators.required]],
     TimeSlot: ['', [Validators.required]],
     Address: ['', [Validators.required]],
@@ -74,8 +74,8 @@ CreateLaundryForm() {
     this.pickupTimeSlot = this.commonService.BindThePickUpTime();
   }
   SetTotalCost(event) {
-    if (this.ironingLaundryModel.NoOfKgs !== null) {
-      this.ironingLaundryModel.TotalCost = this.ironingLaundryModel.NoOfKgs * environment.IroningLaundryRate;
+    if (this.ironingLaundryModel.NoOfCloths !== null) {
+      this.ironingLaundryModel.TotalCost = this.ironingLaundryModel.NoOfCloths * environment.IroningLaundryRate;
     } else {
       this.ironingLaundryModel.TotalCost = 0;
     }
@@ -83,7 +83,7 @@ CreateLaundryForm() {
 
   // Add new laundry ironing orders
   AddIroningLaundryOrders() {
-    if (this.ironingLaundryModel.NoOfKgs !== null && this.ironingLaundryModel.PickUpDate !== null
+    if (this.ironingLaundryModel.NoOfCloths !== null && this.ironingLaundryModel.PickUpDate !== null
       && this.ironingLaundryModel.PickUpTimeSlot !== null && this.ironingLaundryModel.PickUpAddress !== null
       && this.ironingLaundryModel.TotalCost !== null ) {
       this.isLoader = true;
@@ -107,7 +107,7 @@ CreateLaundryForm() {
   }
 
   ResetForm() {
-    this.ironingLaundryModel.NoOfKgs = null;
+    this.ironingLaundryModel.NoOfCloths = null;
     this.ironingLaundryModel.PickUpDate = null;
     this.ironingLaundryModel.PickUpTimeSlot = null;
     this.ironingLaundryModel.TotalCost = 0;

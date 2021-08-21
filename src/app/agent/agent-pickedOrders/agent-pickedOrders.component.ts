@@ -83,7 +83,6 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
           CustomerName: i.CustomerName,
           DeliveredAt: i.DeliveredAt,
           NoOfCloths: i.NoOfCloths,
-          NoOfKgs: i.NoOfKgs,
           OrderNumber: i.OrderNumber,
           OrderStatus: i.OrderStatus,
           PickUpAddress: i.PickUpAddress,

@@ -1,5 +1,5 @@
 export class LaundryModel {
-  NoOfKgs: number;
+  NoOfCloths: number;
   PickUpDate: string;
   PickUpTimeSlot: string;
   PickUpAddress: string;

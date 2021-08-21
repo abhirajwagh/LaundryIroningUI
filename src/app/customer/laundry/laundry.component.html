@@ -20,15 +20,12 @@
                     <div class="col-12">
                       <div class="form-group row align-items-center">
                         <div class="col-lg-3 col-md-3 col-xs-12">
-                          <label  class="col-form-label">No. of Kgs<span class="text-danger"> *</span></label>
+                          <label  class="col-form-label">No. of Clothes<span class="text-danger"> *</span></label>
                         </div>
-                        <div class="col-lg-7 col-md-7 col-xs-12">
-                          <input type="number" formControlName="NoOfKgs" pattern="^[0-9]*$"
+                        <div class="col-lg-9 col-md-9 col-xs-12">
+                          <input type="number" formControlName="NoOfCloths" pattern="^[0-9]*$"
                            id="kg" class="form-control" 
-                           (keyup)=SetTotalCost($event); [(ngModel)]="laundryModel.NoOfKgs" max="999" placeholder="Enter Weight (kgs)" required>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-xs-6">
-                          <h6 class="mt-1"><strong>7 clothes / Kg</strong></h6>
+                           (keyup)=SetTotalCost($event); [(ngModel)]="laundryModel.NoOfCloths" max="999" placeholder="Enter no of clothes" required>
                         </div>
                       </div>
                     </div>
@@ -86,7 +83,7 @@
                           <input formControlName="TotalCost" type="text" [(ngModel)]="laundryModel.TotalCost" id="cost" class="form-control"  placeholder="Total cost" readonly required>
                         </div>
                         <div class="col-lg-4 col-md-4 col-xs-6">
-                          <h6 class="mt-1"><strong>42 &#8377; / Kg</strong></h6>
+                          <h6 class="mt-1"><strong>10 &#8377; / Clothes</strong></h6>
                         </div>
                         <div class="col-md-1 col-lg-1 col-xs-6">
                         </div>
