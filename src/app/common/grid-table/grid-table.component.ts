@@ -76,6 +76,8 @@ export class GridTableComponent implements OnInit, OnChanges {
     get interFalse(): boolean {
         return this.checkbox.nativeElement.indeterminate;
     }
+
+    @Input() ShowTooTip = false;
     @Input() checkedKey: string;
     @Input() showselection = false;
     @Input() enablerowselection = true;

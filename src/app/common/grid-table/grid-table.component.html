@@ -146,13 +146,18 @@
           <table class="table">
             <thead class="bg-info text-white text-center">
               <tr>
+                
                 <th *ngIf="showselection" scope="col">
                   <input #theCheckbox type="checkbox" class="form-check-input check1"
-                  [(ngModel)]="checkAll" [disabled]="tableData.length<=0" (change)="selectAllCheckbox();"></th>
+                  [(ngModel)]="checkAll" [disabled]="tableData.length<=0" (change)="selectAllCheckbox();">
+                </th>
                   <th scope="col" *ngFor="let col of columns" (click)="sort(col.fieldName, col.dataType)" class='{{col.headercss}} text-white text-center'>
                     {{col.name}}
                     <i [ngClass]="setCurrentClasses(col.fieldName)" aria-hidden="true"></i>
                   </th>
+                  <th *ngIf="ShowTooTip" scope="col" class='text-white text-center'>
+                    More Info
+                  </th> 
               </tr>
             </thead>
             <tbody [ngStyle]="{'max-height':tbodyHeight ,'height':tbodyHeight}" style="background-color: #fff" class="text-center">
@@ -162,7 +167,8 @@
                 <tr *ngFor="let data of tableData; let i=index;last as isLast"
                 [ngStyle]="{'color':data.selectedValue ? '#fff':'',
                 'background-color':data.selectedValue ? '#225d8f' : data.IsImported ? '#fbffc9' : 'white' }">
-                  <td class='text-center' *ngIf="showselection" style="width: 4%;">
+               
+                <td class='text-center' *ngIf="showselection" style="width: 4%;">
                     <input type="checkbox" class="form-check-input check" [(ngModel)]="data.isChecked" (change)="onChecked($event, data)">
                   </td>
                   <td class="{{col.headercss}}, " title="{{data[col.fieldName]}}" *ngFor=" let col of columns"
@@ -181,6 +187,14 @@
                       <span *ngIf="col.dataType === 'date' && col.navigation === ''" >
                         {{ data[col.fieldName] | date : format}}
                       </span>
+                  </td>
+                  <td  *ngIf="ShowTooTip" class='text-center' style="width: 4%;">
+                    <i class="fa fa-info-circle" placement="left"
+                    theme="light" trigger="click" showDelay=0
+                    hideDelayAfterClick=5000
+                    tooltip="<b>Number of cloths: </b>{{data.NoOfCloths}}<br>
+                             <b>TimeSlot: </b>{{data.PickUpTimeSlot}}<br>
+                             <b>Status: </b>{{data.OrderStatus}}<br>"></i>
                   </td>
                 </tr>
             </tbody>

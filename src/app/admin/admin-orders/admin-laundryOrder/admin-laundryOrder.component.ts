@@ -108,7 +108,7 @@ export class AdminLaundryOrderComponent implements OnInit, OnDestroy {
           CustomerUserName: i.CustomerUserName,
           DeliveredAt: i.DeliveredAt,
           Id: i.Id,
-          NoOfKgs: i.NoOfKgs,
+          NoOfCloths: i.NoOfCloths,
           OrderId: i.OrderId,
           OrderStatus: i.OrderStatus,
           PickUpDate: i.PickUpDate,

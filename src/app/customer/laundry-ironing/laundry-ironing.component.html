@@ -1,102 +1,3 @@
-<!-- <div class="row">
-  <div class="col-sm-12 col-md-12">
-    <div class="equal-height">
-      <div class="equ-cell">
-        <header>
-          <h2>{{'Ironing.IroningLaundryOrder' | translate }}</h2>
-        </header>
-        <div class="body" [formGroup]='ironingLaundryForm' [apploading]="isLoader">
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-2 col-md-2">
-                <label class="bold-font">{{'Ironing.NoOfKgs' | translate }}
-                  <span class="required">*</span>
-                </label>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <input formControlName="NoOfKgs" pattern="^[0-9]*$" (keyup)=SetTotalCost($event); [(ngModel)]="ironingLaundryModel.NoOfKgs" max="999" class="form-control form-control-border" type="number">
-              </div>
-              <div class="col-sm-2 col-md-2">
-                <div class="text-center" style="background-color: #e9ecef; height: 30px;width: 150px; border:2px solid #63738a; border-radius: 3px;">
-                <span style="font-weight: bold; font-size: large; color:black;">7 cloths </span>
-                <span style="font-weight: bold; font-size: large; color:black;">{{'CommonText.ratePerkg' | translate }}</span>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-2 col-md-2">
-                <label class="bold-font">{{'Ironing.PickupDate' | translate }}
-                  <span class="required">*</span>
-                </label>
-              </div>
-              <div class="col-sm-8 col-md-8">
-                <input formControlName="PickupDate" [(ngModel)]="ironingLaundryModel.PickUpDate" class="form-control form-control-border" [max]="SetMaxDateForDatePicker()" [min]="SetMinDateForDatePicker()" type="date">
-              </div>
-              </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-2 col-md-2">
-                <label class="bold-font">{{'Ironing.TimeSlot' | translate }}
-                  <span class="required">*</span>
-                </label>
-              </div>
-              <div class="col-sm-8 col-md-8">
-                <select formControlName="TimeSlot" [(ngModel)]="ironingLaundryModel.PickUpTimeSlot" class="form-control form-control-border">
-                <option value="null">{{'Ironing.Select_TimeSlot' | translate }}</option>
-                <option *ngFor="let t of pickupTimeSlot" [ngValue]='t.timeSlot'>{{t.timeSlot}}</option>
-              </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-2 col-md-2">
-                <label class="bold-font">{{'CommonText.Address' | translate }}
-                  <span class="required">*</span>
-                </label>
-              </div>
-              <div class="col-sm-8 col-md-8">
-                <input formControlName="Address" disabled [(ngModel)]="ironingLaundryModel.PickUpAddress" class="form-control form-control-border" type="text">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-2 col-md-2">
-                <label class="bold-font">{{'CommonText.TotalCost' | translate }}
-                  <span class="required">*</span>
-                </label>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <input formControlName="TotalCost" style="font-weight: bold; font-size: x-large;" disabled [(ngModel)]="ironingLaundryModel.TotalCost" class="form-control form-control-border" type="text">
-              </div>
-              <div class="col-sm-2 col-md-2">
-                <div class="text-center" style="background-color: #e9ecef; height: 30px;width: 150px; border:2px solid #63738a; border-radius: 3px;">
-                <span style="font-weight: bold; font-size: large; color:black;">{{defaultValue}}</span>
-                <span style="font-weight: bold; font-size: large; color:black;">&#8377;</span>
-                <span style="font-weight: bold; font-size: large; color:black;">{{'CommonText.ratePerkg' | translate }}</span>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 col-md-12 text-center">
-              <button class="btn btn-primary" style="margin-right: 10px;" [disabled] ="!ironingLaundryForm.valid" (click)="AddIroningLaundryOrders()">
-                {{'CommonText.Submit' | translate }}</button>
-                <button class="btn btn-primary" (click)="ResetForm()">
-                  {{'CommonText.Clear' | translate }}</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
 <!-- BEGIN: Content-->
 <div class="app-content content " style="background: url(../../assets/img/banner1.png) no-repeat;background-size: cover;height: 90vh;overflow: auto;">
   <div class="content-overlay"></div>
@@ -119,15 +20,12 @@
                     <div class="col-12">
                       <div class="form-group row align-items-center">
                         <div class="col-lg-3 col-md-3 col-xs-12">
-                          <label  class="col-form-label">No. of Kgs<span class="text-danger"> *</span></label>
+                          <label  class="col-form-label">No. of Clothes<span class="text-danger"> *</span></label>
                         </div>
-                        <div class="col-lg-7 col-md-7 col-xs-12">
-                          <input type="number" formControlName="NoOfKgs" pattern="^[0-9]*$"
+                        <div class="col-lg-9 col-md-9 col-xs-12">
+                          <input type="number" formControlName="NoOfCloths" pattern="^[0-9]*$"
                            id="kg" class="form-control" 
-                           (keyup)=SetTotalCost($event); [(ngModel)]="ironingLaundryModel.NoOfKgs" max="999" placeholder="Enter Weight (kgs)" required>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-xs-6">
-                          <h6 class="mt-1"><strong>7 clothes / Kg</strong></h6>
+                           (keyup)=SetTotalCost($event); [(ngModel)]="ironingLaundryModel.NoOfCloths" max="999" placeholder="Enter no of clothes" required>
                         </div>
                       </div>
                     </div>
@@ -185,7 +83,7 @@
                           <input formControlName="TotalCost" type="text" [(ngModel)]="ironingLaundryModel.TotalCost" id="cost" class="form-control"  placeholder="Total cost" readonly required>
                         </div>
                         <div class="col-lg-4 col-md-4 col-xs-6">
-                          <h6 class="mt-1"><strong>91 &#8377; / Kg</strong></h6>
+                          <h6 class="mt-1"><strong>15 &#8377; / Clothes</strong></h6>
                         </div>
                         <div class="col-md-1 col-lg-1 col-xs-6">
                         </div>
