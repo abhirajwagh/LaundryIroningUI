@@ -1,0 +1,64 @@
+<div class="row" [apploading]="isLoader">
+  <div class="col-xl-7 offset-xl-2 col-md-12">
+    <div class="card">
+      <div class="card-header bg-info" style="padding: 7px 0 5px">
+        <div class="text-center">
+          <h3 class="text-white">Confirm Order</h3>
+        </div>
+      </div>
+      <div class="card-body"> 
+        <table class="zero-configuration dataTable vspacetable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+  
+  <tbody> 
+    
+    <tr class="ml">
+      <td style="padding: 7px 0;">Order No.</td>
+      <td class="pl-3"><h5><strong>{{orderDetails.OrderNumber}}</strong></h5></td>
+    </tr>
+    <tr>
+      <td style="padding: 7px 0;">No of Clothes</td>
+      <td class="pl-3">{{orderDetails.NoOfCloths}}</td>
+    </tr>
+    <tr>
+      <td style="padding: 7px 0;">Pickup Date</td>
+      <td class="pl-3">{{orderDetails.PickUpDate | date:"dd-MMM-yyyy"}}</td>
+    </tr>
+    <tr>
+      <td style="padding: 7px 0;">Time shot</td>
+      <td class="pl-3">{{orderDetails.PickUpTimeSlot}}</td>
+    </tr>
+    <tr>
+      <td style="padding: 7px 0;">Agent Comment</td>
+      <td class="pl-3 "><div class="breakword">{{orderDetails.AgentComment}}</div></td>
+    </tr>
+    <tr>
+      <td style="padding: 7px 0;">Total Cost</td>
+      <td class="pl-3"><h5 class="text-primary"><strong>{{orderDetails.TotalCost}} &#8377;</strong></h5></td>
+    </tr>
+  </tbody>
+  
+</table>
+        
+      <div class="card-footer text-center">
+        <div class="row">
+          <div class="col-md-2 col-sm-2">
+            <label class="bold-font">Comments
+            </label>
+          </div>
+          <div class="col-md-10 col-sm-10 ">
+            <textarea class="form-control" rows="2" [(ngModel)]="operatorComment"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 text-center form-group padding-top-10">
+            <label class="bold-font" style="margin-right: 5%;">I read the agent details,and order is processed
+              <input value="true" (click)="ValidProcessedOrder($event)"  type="checkbox">
+            </label>
+            <button [disabled]="!isOrderProcessed || operatorComment==null || operatorComment==''" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+</div>

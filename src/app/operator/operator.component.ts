@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -27,7 +28,8 @@ export class OperatorComponent implements OnInit, OnDestroy {
   operatorComment: any;
   constructor(private modalService: BsModalService , private translateService: TranslateService,
               private agentOrdersService: AgentOrdersService,
-              private notificationService: NotificationsService) { }
+              private notificationService: NotificationsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.isOrderProcessed = false;
@@ -106,7 +108,9 @@ export class OperatorComponent implements OnInit, OnDestroy {
   selectedGridData(rowData, OrderSummeryPopup: TemplateRef<any>) {
     if (rowData.column === undefined) {
       this.orderSummary = rowData;
-      this.modalRef = this.modalService.show(OrderSummeryPopup, { class: '', backdrop: 'static' });
+      sessionStorage.setItem('operatorconfirmOrderDetails', JSON.stringify(this.orderSummary));
+      this.router.navigate(['/cleanit/operator/confirmOrders']);
+      // this.modalRef = this.modalService.show(OrderSummeryPopup, { class: '', backdrop: 'static' });
     }
   }
   closeSummeryPopup() {

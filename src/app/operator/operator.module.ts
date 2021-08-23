@@ -9,12 +9,19 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { GridTableModule } from '../common/grid-table/grid-table.module';
 import { HeaderModule } from '../Shared/header/header.module';
 import { SpinnerComponentModule } from '../Shared/spinner/spinner.module';
+import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 
 
 const routes: Routes = [
   {
     path: 'cleanit/operator',
     component: OperatorComponent,
+    children: [
+      {
+        path: 'confirmOrders',
+        component: ConfirmOrderComponent,
+      }
+    ]
   },
 ];
 @NgModule({
@@ -31,6 +38,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ModalModule.forRoot(),
   ],
-  declarations: [OperatorComponent]
+  declarations: [OperatorComponent, ConfirmOrderComponent]
 })
 export class OperatorModule { }

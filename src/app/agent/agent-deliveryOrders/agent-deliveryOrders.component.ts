@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -29,7 +30,7 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
   constructor(private modalService: BsModalService , private translateService: TranslateService,
               private agentOrdersService: AgentOrdersService,
               private notificationService: NotificationsService,
-              private titleService: Title) {
+              private titleService: Title, private router: Router) {
       this.titleService.setTitle('Cleanit | Delivery Orders');
               }
 
@@ -107,7 +108,9 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
   selectedGridData(rowData, OrderSummeryPopup: TemplateRef<any>) {
     if (rowData.column === undefined) {
       this.orderSummary = rowData;
-      this.modalRef = this.modalService.show(OrderSummeryPopup, { class: '', backdrop: 'static' });
+      sessionStorage.setItem('agentdeliveryconfirmOrderDetails', JSON.stringify(this.orderSummary));
+      this.router.navigate(['/cleanit/agent/confirmDeliveryOrders']);
+     // this.modalRef = this.modalService.show(OrderSummeryPopup, { class: '', backdrop: 'static' });
     }
   }
   closeSummeryPopup() {

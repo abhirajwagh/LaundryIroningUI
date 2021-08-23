@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -31,7 +32,8 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
     private modalService: BsModalService , private translateService: TranslateService,
     private agentOrdersService: AgentOrdersService,
     private notificationService: NotificationsService,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {
     this.titleService.setTitle('Cleanit | Picked Orders');
    }
@@ -94,7 +96,6 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
           OrderType: i.OrderType,
           AgentComment: i.AgentComment,
           OperatorComment: i.OperatorComment
-
         };
         this.tempTableData.push(dataForTable);
       });
@@ -113,7 +114,9 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
   selectedGridData(rowData, OrderSummeryPopup: TemplateRef<any>) {
     if (rowData.column === undefined) {
       this.orderSummary = rowData;
-      this.modalRef = this.modalService.show(OrderSummeryPopup, { class: '', backdrop: 'static' });
+      sessionStorage.setItem('agentconfirmOrderDetails', JSON.stringify(this.orderSummary));
+      this.router.navigate(['/cleanit/agent/confirmOrders']);
+      // this.modalRef = this.modalService.show(OrderSummeryPopup, { class: '', backdrop: 'static' });
     }
   }
   closeSummeryPopup() {
