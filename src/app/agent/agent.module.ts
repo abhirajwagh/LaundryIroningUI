@@ -12,6 +12,8 @@ import { HomeComponent } from '../Home/Home.component';
 import { AgentPickedOrdersComponent } from './agent-pickedOrders/agent-pickedOrders.component';
 import { HeaderModule } from '../Shared/header/header.module';
 import { AgentDeliveryOrdersComponent } from './agent-deliveryOrders/agent-deliveryOrders.component';
+import { ConfirmOrdersComponent } from './agent-pickedOrders/confirm-orders/confirm-orders.component';
+import { ConfirmDeliveryOrdersComponent } from './agent-deliveryOrders/confrm-delivery-orders/confirm-delivery-orders.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,14 @@ const routes: Routes = [
       {
         path: 'deliveryOrders',
         component: AgentDeliveryOrdersComponent,
+      },
+      {
+        path: 'confirmOrders',
+        component: ConfirmOrdersComponent,
+      },
+      {
+        path: 'confirmDeliveryOrders',
+        component: ConfirmDeliveryOrdersComponent,
       },
     ]
   },
@@ -43,6 +53,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ModalModule.forRoot(),
   ],
-  declarations: [AgentComponent, AgentPickedOrdersComponent, AgentDeliveryOrdersComponent]
+  declarations: [AgentComponent, AgentPickedOrdersComponent, AgentDeliveryOrdersComponent,
+    ConfirmOrdersComponent, ConfirmDeliveryOrdersComponent]
 })
 export class AgentModule { }
