@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,12 +17,13 @@ export class MenuComponent implements OnInit {
             this.tempMenuList = [];
           }
   }
-  constructor(private router: Router) { }
+  constructor(private router: Router, private renderer: Renderer2) { }
 
   ngOnInit() {
   }
 
   nevigateToUrl(menu: any) {
+    this.renderer.removeClass(document.body, 'menu-open');
     if (menu.Name === 'Logout') {
       this.nevigateToLogin();
     } else {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router, private titleService: Title) {
+  constructor(private router: Router, private titleService: Title, private renderer: Renderer2) {
     this.titleService.setTitle('Cleanit | Dashboard');
    }
 
   ngOnInit() {
+    this.renderer.removeClass(document.body, 'menu-open');
   }
 
   NevigateToModule(url) {

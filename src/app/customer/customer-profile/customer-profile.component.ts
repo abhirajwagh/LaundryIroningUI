@@ -1,5 +1,5 @@
 import { SecurityAnswerModel } from './../../reset-password/reset-password.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -23,11 +23,12 @@ export class CustomerProfileComponent implements OnInit {
               private customerService: CustomerService,
               private translateService: TranslateService,
               private notificationService: NotificationsService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder, private renderer: Renderer2) {
     this.titleService.setTitle('Cleanit | Account');
    }
 
   ngOnInit() {
+    this.renderer.removeClass(document.body, 'menu-open');
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.customerProfileModel = new CustomerProfileModel();
     this.CreateCustomerProfileForm();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
@@ -13,10 +13,13 @@ import { environment } from 'src/environments/environment';
 export class AdminOrdersComponent implements OnInit {
   tabs: any;
   currentURL = '';
-  constructor(private translateService: TranslateService, private router: Router) {
+  constructor(private translateService: TranslateService,
+              private router: Router,
+              private renderer: Renderer2) {
    }
 
   ngOnInit() {
+    this.renderer.removeClass(document.body, 'menu-open');
     this.setUserLanguage(environment.DefaultLanguage);
     this.GetTabs();
   }
