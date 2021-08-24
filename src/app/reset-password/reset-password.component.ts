@@ -116,4 +116,9 @@ export class ResetPasswordComponent implements OnInit {
     this.confirmPassword = null;
     this.IsAnswerMatch = false;
   }
+
+  nevigateToLogin() {
+    sessionStorage.clear();
+    this.router.navigate(['/']);
+  }
 }

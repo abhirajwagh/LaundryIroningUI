@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserConstant } from 'src/app/Constants/Application.Constant';
+import { UserConstant, UserTypeConstants } from 'src/app/Constants/Application.Constant';
 import { CommonService } from 'src/app/Services/Common.service';
 
 @Component({
@@ -22,7 +22,8 @@ export class HeaderComponent implements OnInit {
     }
   }
   nevigateToDashboad() {
-    if (this.loginUsername !== null && this.loginUsername !== undefined && this.loginUsername !== '') {
+    if (this.userType !== null && this.userType !== undefined
+      && this.userType === UserTypeConstants.Customer) {
       this.router.navigate(['cleanit/home/dashboard']);
     } else {
       this.nevigateToLogin();
