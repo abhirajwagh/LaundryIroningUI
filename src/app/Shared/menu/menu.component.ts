@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/Services/Common.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,13 +18,22 @@ export class MenuComponent implements OnInit {
             this.tempMenuList = [];
           }
   }
-  constructor(private router: Router, private renderer: Renderer2) { }
+  constructor(private router: Router,
+              private renderer: Renderer2,
+              private commonService: CommonService ) { }
 
   ngOnInit() {
   }
 
   nevigateToUrl(menu: any) {
-    this.renderer.removeClass(document.body, 'menu-open');
+
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+    } else {
+      this.renderer.addClass(document.body, 'menu-open');
+    }
+
     if (menu.Name === 'Logout') {
       this.nevigateToLogin();
     } else {
@@ -37,7 +47,7 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   SetActiveClass(selectedMenu) {
-    for(let index = 0; index < this.tempMenuList.length; index++) {
+    for (let index = 0; index < this.tempMenuList.length; index++) {
       if (this.tempMenuList[index].Id === selectedMenu.Id) {
         this.tempMenuList[index].selected = true;
       } else {

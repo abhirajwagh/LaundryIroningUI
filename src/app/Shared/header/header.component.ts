@@ -11,10 +11,17 @@ import { CommonService } from 'src/app/Services/Common.service';
 export class HeaderComponent implements OnInit {
   userType: string;
   loginUsername: string;
-  constructor(private router: Router, private commonService: CommonService, private renderer: Renderer2) { }
+  constructor(private router: Router,
+              private commonService: CommonService,
+              private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.renderer.removeClass(document.body, 'menu-open');
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+    } else {
+      // this.renderer.addClass(document.body, 'menu-open');
+    }
     this.loginUsername = sessionStorage.getItem(UserConstant.UserName);
     if (this.loginUsername !== null && this.loginUsername !== undefined && this.loginUsername !== '') {
       this.userType = this.commonService.GetUserType();
@@ -23,7 +30,12 @@ export class HeaderComponent implements OnInit {
     }
   }
   nevigateToDashboad() {
-    this.renderer.removeClass(document.body, 'menu-open');
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+    } else {
+      this.renderer.addClass(document.body, 'menu-open');
+    }
     if (this.userType !== null && this.userType !== undefined
       && this.userType === UserTypeConstants.Customer) {
       this.router.navigate(['cleanit/home/dashboard']);

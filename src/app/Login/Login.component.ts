@@ -30,7 +30,14 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.renderer.removeClass(document.body, 'menu-open');
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+      this.renderer.setStyle(document.body, 'overflow', 'auto');
+    } else {
+      this.renderer.removeClass(document.body, 'menu-expanded');
+      this.renderer.removeClass(document.body, 'menu-open');
+    }
     this.CreateLoginForm();
     this.LoginModel = new LoginModel();
   }

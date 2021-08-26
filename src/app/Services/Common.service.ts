@@ -77,4 +77,12 @@ export class CommonService {
     const dateFormat = moment().format('YYYY-MM-DD_HH_mm_ss');
     return fileName + '_' + dateFormat + type;
   }
+
+  IsApplicationViewOnMobile(): boolean {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

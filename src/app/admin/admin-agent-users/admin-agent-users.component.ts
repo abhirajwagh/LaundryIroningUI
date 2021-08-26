@@ -32,7 +32,13 @@ export class AdminAgentUsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.renderer.removeClass(document.body, 'menu-open');
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+    } else {
+      this.renderer.addClass(document.body, 'menu-expanded');
+      this.renderer.removeClass(document.body, 'menu-open');
+    }
     this.setUserLanguage(environment.DefaultLanguage);
     this.CreateAdminAgentUserForm();
     this.CostructGridColumnHeaders();
