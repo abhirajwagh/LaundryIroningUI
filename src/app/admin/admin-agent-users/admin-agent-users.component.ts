@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
@@ -27,10 +27,18 @@ export class AdminAgentUsersComponent implements OnInit {
               private notificationService: NotificationsService,
               private userRegisterService: UserRegistrationService,
               private commonService: CommonService,
-              private adminAgentService: AdminAgentService) {
+              private adminAgentService: AdminAgentService,
+              private renderer: Renderer2) {
   }
 
   ngOnInit() {
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+    } else {
+      this.renderer.addClass(document.body, 'menu-expanded');
+      this.renderer.removeClass(document.body, 'menu-open');
+    }
     this.setUserLanguage(environment.DefaultLanguage);
     this.CreateAdminAgentUserForm();
     this.CostructGridColumnHeaders();

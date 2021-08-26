@@ -1,5 +1,5 @@
 import { SecurityAnswerModel } from './../../reset-password/reset-password.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,6 +7,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { UserConstant } from 'src/app/Constants/Application.Constant';
 import { CustomerService } from '../customer.service';
 import { CustomerProfileModel } from './customer-profile.model';
+import { CommonService } from 'src/app/Services/Common.service';
 
 @Component({
   selector: 'app-customer-profile',
@@ -23,11 +24,19 @@ export class CustomerProfileComponent implements OnInit {
               private customerService: CustomerService,
               private translateService: TranslateService,
               private notificationService: NotificationsService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private renderer: Renderer2,
+              private commonService: CommonService) {
     this.titleService.setTitle('Cleanit | Account');
    }
 
   ngOnInit() {
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+    } else {
+      this.renderer.addClass(document.body, 'menu-open');
+    }
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.customerProfileModel = new CustomerProfileModel();
     this.CreateCustomerProfileForm();

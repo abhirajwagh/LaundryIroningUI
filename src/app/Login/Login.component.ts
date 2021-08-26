@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -23,12 +23,21 @@ export class LoginComponent implements OnInit {
   constructor(private translateService: TranslateService, private loginService: LoginService, private fb: FormBuilder,
               private notificationService: NotificationsService, private router: Router,
               private commonService: CommonService,
-              private titleService: Title) {
+              private titleService: Title,
+              private renderer: Renderer2) {
     this.setUserLanguage(environment.DefaultLanguage);
     this.titleService.setTitle('Cleanit | Login');
    }
 
   ngOnInit() {
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+      this.renderer.setStyle(document.body, 'overflow', 'auto');
+    } else {
+      this.renderer.removeClass(document.body, 'menu-expanded');
+      this.renderer.removeClass(document.body, 'menu-open');
+    }
     this.CreateLoginForm();
     this.LoginModel = new LoginModel();
   }

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { ColumnHeaderService } from 'src/app/Services/column-header-service.service';
+import { CommonService } from 'src/app/Services/Common.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,10 +15,20 @@ import { environment } from 'src/environments/environment';
 export class AdminOrdersComponent implements OnInit {
   tabs: any;
   currentURL = '';
-  constructor(private translateService: TranslateService, private router: Router) {
+  constructor(private translateService: TranslateService,
+              private router: Router,
+              private renderer: Renderer2,
+              private commonService: CommonService) {
    }
 
   ngOnInit() {
+    const isMobile = this.commonService.IsApplicationViewOnMobile();
+    if (isMobile) {
+      this.renderer.removeClass(document.body, 'menu-open');
+    } else {
+      this.renderer.addClass(document.body, 'menu-expanded');
+      this.renderer.removeClass(document.body, 'menu-open');
+    }
     this.setUserLanguage(environment.DefaultLanguage);
     this.GetTabs();
   }
