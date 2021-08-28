@@ -8,4 +8,5 @@ export class UserRegistrationModel{
   IsAdmin = false;
   SecurityAnswerOne: string;
   SecurityAnswerTwo: string;
+  PromoCode: string;
 }

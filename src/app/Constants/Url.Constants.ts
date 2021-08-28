@@ -5,6 +5,7 @@ export class RegisterUrlConstant {
   public static CheckUsernameExists: string = environment.LaundryIroningAPIUrl + 'User/CheckUserName';
   public static CheckSecurityAnswer: string = environment.LaundryIroningAPIUrl + 'User/CheckSecurityAnswers';
   public static UpdateUserPassword: string = environment.LaundryIroningAPIUrl + 'User/UpdateUserPassword';
+  public static CheckValidPromoCode: string = environment.LaundryIroningAPIUrl + 'IroningLaundry/CheckPromoCodeValid';
 }
 
 export class LoginUrlConstant {
