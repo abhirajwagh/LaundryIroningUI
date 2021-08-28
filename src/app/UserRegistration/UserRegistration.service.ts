@@ -33,6 +33,12 @@ constructor(private httpService: HttpService) { }
     const url = RegisterUrlConstant.UpdateUserPassword + '?newPass=' + newPass + '&conPass=' + conPass + '&mob=' + mob;
     return this.httpService.postDataText(url, null);
   }
+
+   // check promocode valid
+   IsPromoCodeValid(promoCode): Observable<any> {
+    const url = RegisterUrlConstant.CheckValidPromoCode + '?promoCode=' + promoCode;
+    return this.httpService.getData(url);
+   }
 }
 
 

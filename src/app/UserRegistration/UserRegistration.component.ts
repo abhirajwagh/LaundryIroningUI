@@ -21,7 +21,9 @@ export class UserRegistrationComponent implements OnInit {
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService,
               private userRegisterService: UserRegistrationService,
-              private titleService: Title, private router: Router) {
+              private titleService: Title,
+              private router: Router
+  ) {
     this.setUserLanguage(environment.DefaultLanguage);
     this.titleService.setTitle('Cleanit | Registration');
    }
@@ -42,6 +44,7 @@ export class UserRegistrationComponent implements OnInit {
       address: ['', [Validators.required]],
       ans1: ['', [Validators.required]],
       ans2: ['', [Validators.required]],
+      promoCode: ['', []],
     });
     return 'form created';
   }
@@ -64,29 +67,52 @@ export class UserRegistrationComponent implements OnInit {
   }
 
    // Register the new user
-   RegisterUser() {
-     if (this.UserRegistrationModel.UserName !== null && this.UserRegistrationModel.Password !== null
-       && this.UserRegistrationModel.Name !== null && this.UserRegistrationModel.MobileNo !== null
-       && this.UserRegistrationModel.Email !== null && this.UserRegistrationModel.Address !== null
-       && this.UserRegistrationModel.SecurityAnswerOne !== null
-       && this.UserRegistrationModel.SecurityAnswerTwo !== null) {
-       this.isLoader = true;
-       this.UserRegistrationModel.SecurityAnswerOne = this.UserRegistrationModel.SecurityAnswerOne.toString().toLowerCase();
-       this.UserRegistrationModel.SecurityAnswerTwo = this.UserRegistrationModel.SecurityAnswerTwo.toString().toLowerCase();
-       this.userRegisterService.RegisterUser(this.UserRegistrationModel).subscribe(result => {
-        if (result !== null && result !== undefined) {
-          if (result === 'Record already exists') {
-            this.notificationService.warn(result);
-          } else {
-            this.notificationService.success(this.translateService.instant('Register.RegistrationSuccessMsg'));
-            this.router.navigate(['/']);
+  RegisterUser() {
+      if (this.UserRegistrationModel.UserName !== null && this.UserRegistrationModel.Password !== null
+        && this.UserRegistrationModel.Name !== null && this.UserRegistrationModel.MobileNo !== null
+        && this.UserRegistrationModel.Email !== null && this.UserRegistrationModel.Address !== null
+        && this.UserRegistrationModel.SecurityAnswerOne !== null
+        && this.UserRegistrationModel.SecurityAnswerTwo !== null) {
+        this.isLoader = true;
+        this.UserRegistrationModel.SecurityAnswerOne = this.UserRegistrationModel.SecurityAnswerOne.toString().toLowerCase();
+        this.UserRegistrationModel.SecurityAnswerTwo = this.UserRegistrationModel.SecurityAnswerTwo.toString().toLowerCase();
+        this.userRegisterService.RegisterUser(this.UserRegistrationModel).subscribe(result => {
+          if (result !== null && result !== undefined) {
+            if (result === 'Record already exists') {
+              this.notificationService.warn(result);
+            } else {
+              this.notificationService.success(this.translateService.instant('Register.RegistrationSuccessMsg'));
+              this.router.navigate(['/']);
+            }
+            this.isLoader = false;
           }
+        }, error => {
+          this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
           this.isLoader = false;
+        });
+      }
+  }
+
+
+  IsPromoCodeValid() {
+    this.isLoader = true;
+    if (this.UserRegistrationModel.PromoCode !== undefined &&
+      this.UserRegistrationModel.PromoCode !== null &&
+      this.UserRegistrationModel.PromoCode !== '') {
+      this.userRegisterService.IsPromoCodeValid(this.UserRegistrationModel.PromoCode).subscribe(result => {
+        if (result) {
+          this.RegisterUser();
+        } else {
+          this.isLoader = false;
+          this.notificationService.error('Promo code is invalid.');
         }
       }, error => {
         this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
         this.isLoader = false;
+        this.RegisterUser();
       });
+    } else {
+      this.RegisterUser();
     }
   }
 

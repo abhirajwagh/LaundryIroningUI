@@ -1,7 +1,7 @@
 export const environment = {
-  production: true,
+  production: false,
   DefaultLanguage: 'en-US',
-  LaundryIroningAPIUrl: 'https://52.140.121.164/api/',
+  LaundryIroningAPIUrl: 'https://localhost:44389/api/',
   IroningRate: 7,
   LaundryRate: 10,
   IroningLaundryRate: 15
