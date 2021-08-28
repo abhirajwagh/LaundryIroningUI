@@ -95,7 +95,9 @@ export class AgentPickedOrdersComponent implements OnInit, OnDestroy {
           TotalCost: i.TotalCost,
           OrderType: i.OrderType,
           AgentComment: i.AgentComment,
-          OperatorComment: i.OperatorComment
+          OperatorComment: i.OperatorComment,
+          CustomerPromoCodePoints: Number(i.CustomerPromoCodePoints),
+          OrderBy: i.OrderBy
         };
         this.tempTableData.push(dataForTable);
       });

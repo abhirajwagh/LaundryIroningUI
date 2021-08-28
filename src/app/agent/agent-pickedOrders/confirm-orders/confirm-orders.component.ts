@@ -16,6 +16,8 @@ export class ConfirmOrdersComponent implements OnInit, OnDestroy {
   operatorComment: any;
   isLoader: boolean;
   userId: any;
+  finalCost: number;
+  promocodePoints: number;
   constructor(private translateService: TranslateService,
               private agentOrdersService: AgentOrdersService,
               private notificationService: NotificationsService) { }
@@ -25,6 +27,19 @@ export class ConfirmOrdersComponent implements OnInit, OnDestroy {
     this.userId = sessionStorage.getItem(UserConstant.UserId);
     this.agentComment = null;
     this.operatorComment = null;
+    this.SetPromoCodeValues();
+  }
+
+  SetPromoCodeValues() {
+    this.finalCost = Number(this.orderDetails.TotalCost) - Number(this.orderDetails.CustomerPromoCodePoints);
+    if (this.finalCost < 0) {
+      this.finalCost = 0;
+    }
+    if (Number(this.orderDetails.TotalCost) <= Number(this.orderDetails.CustomerPromoCodePoints)) {
+      this.promocodePoints = Number(this.orderDetails.CustomerPromoCodePoints) - Number(this.orderDetails.TotalCost);
+    } else {
+      this.promocodePoints = 0;
+    }
   }
 
   UpdateOrderStatus() {
@@ -35,17 +50,20 @@ export class ConfirmOrdersComponent implements OnInit, OnDestroy {
       OrderStatus: OrderStausConstants.Picked,
       ConfirmBy: this.userId,
       Agentcomment: this.agentComment,
-      OperatorComment: this.operatorComment
+      OperatorComment: this.operatorComment,
+      PromoCodePoints: String(this.promocodePoints),
+      OrderBy: this.orderDetails.OrderBy,
+      updatedCost: this.finalCost
     };
     this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
-        if (result !== null && result !== undefined) {
-          this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
-          this.isLoader = false;
-        }
-      }, error => {
-        this.notificationService.error(this.translateService.instant('CommonText.FailedToUpdate'));
+      if (result !== null && result !== undefined) {
+        this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
         this.isLoader = false;
-      });
+      }
+    }, error => {
+      this.notificationService.error(this.translateService.instant('CommonText.FailedToUpdate'));
+      this.isLoader = false;
+    });
   }
 
   ValidPickedOrder(event) {

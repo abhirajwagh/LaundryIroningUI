@@ -39,7 +39,10 @@ export class ConfirmOrderComponent implements OnInit, OnDestroy {
       OrderStatus: OrderStausConstants.Processed,
       ConfirmBy: this.userId,
       Agentcomment: this.agentComment,
-      OperatorComment: this.operatorComment
+      OperatorComment: this.operatorComment,
+      PromoCodePoints: String(this.orderDetails.CustomerPromoCodePoints),
+      OrderBy: this.orderDetails.OrderBy,
+      updatedCost: this.orderDetails.TotalCost
     };
     this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
       if (result !== null && result !== undefined) {

@@ -31,9 +31,17 @@
       <td style="padding: 7px 0;">Pickup Address</td>
       <td class="pl-3 "><div class="breakword">{{orderDetails.PickUpAddress}}</div></td>
     </tr>
+    <tr *ngIf="orderDetails.CustomerPromoCodePoints > 0" >
+      <td style="padding: 7px 0;">Promo code points</td>
+      <td class="pl-3"><h5 class="text-primary"><strong>{{orderDetails.CustomerPromoCodePoints}} &#8377;</strong></h5></td>
+    </tr>
+    <tr>
+      <td style="padding: 7px 0;">Order Cost</td>
+      <td class="pl-3"><h5 class="text-primary"><strong>{{orderDetails.TotalCost}} &#8377;</strong></h5></td>
+    </tr>
     <tr>
       <td style="padding: 7px 0;">Total Cost</td>
-      <td class="pl-3"><h5 class="text-primary"><strong>{{orderDetails.TotalCost}} &#8377;</strong></h5></td>
+      <td class="pl-3"><h5 class="text-danger"><strong>{{finalCost}} &#8377;</strong></h5></td>
     </tr>
   </tbody>
   
