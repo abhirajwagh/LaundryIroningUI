@@ -88,7 +88,9 @@ export class OperatorComponent implements OnInit, OnDestroy {
           TotalCost: i.TotalCost,
           OrderType: i.OrderType,
           AgentComment: i.AgentComment,
-          OperatorComment: i.OperatorComment
+          OperatorComment: i.OperatorComment,
+          CustomerPromoCodePoints: i.CustomerPromoCodePoints,
+          OrderBy: i.OrderBy
 
         };
         this.tempTableData.push(dataForTable);
