@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.userType = this.commonService.GetUserType();
-    if (this.userType === UserTypeConstants.Customer) {
+    if (this.userType === UserTypeConstants.Customer || this.userType === UserTypeConstants.PhoneUser) {
       this.GetCustomerMenuList();
     } else if (this.userType === UserTypeConstants.Admin) {
       this.GetAdminMenuList();

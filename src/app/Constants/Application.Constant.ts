@@ -18,6 +18,7 @@ export const UserTypeConstants = {
   Operator: 'Operator',
   Admin: 'Admin',
   SuperAdmin: 'SuperAdmin',
+  PhoneUser: 'PhoneUser',
 
 };
 

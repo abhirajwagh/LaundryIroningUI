@@ -68,6 +68,9 @@ export class LoginComponent implements OnInit {
          const userType = this.commonService.GetUserType();
          if (userType === UserTypeConstants.Customer) {
            this.router.navigate(['/cleanit/home/dashboard']);
+         } else if (userType === UserTypeConstants.PhoneUser) {
+          sessionStorage.setItem(UserConstant.UserName, UserTypeConstants.PhoneUser);
+          this.router.navigate(['/cleanit/home/dashboard']);
          } else if (userType === UserTypeConstants.Admin) {
            this.router.navigate(['/cleanit/home/admin/adminorders/adminironingorder']);
          } else if (userType === UserTypeConstants.Agent) {

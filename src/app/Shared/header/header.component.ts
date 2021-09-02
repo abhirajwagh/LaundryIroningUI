@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
       this.renderer.addClass(document.body, 'menu-open');
     }
     if (this.userType !== null && this.userType !== undefined
-      && this.userType === UserTypeConstants.Customer) {
+      && this.userType === UserTypeConstants.Customer || this.userType === UserTypeConstants.PhoneUser) {
       this.router.navigate(['cleanit/home/dashboard']);
     } else {
       this.nevigateToLogin();
