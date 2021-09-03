@@ -42,15 +42,15 @@ export class AdminLaundryOrderComponent implements OnInit, OnDestroy {
   CostructGridColumnHeaders() {
     this.columnHeader = [
       {
-        name: this.translateService.instant('Ironing.OrderId'), navigation: '',
+        name: 'Order no', navigation: '',
         fieldName: 'OrderId', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('Ironing.OrderStatus'), navigation: '',
+        name: 'Order status', navigation: '',
         fieldName: 'OrderStatus', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('CommonText.TotalCost'), navigation: '',
+        name: 'Total cost', navigation: '',
         fieldName: 'TotalCost', headercss: 'text-left', dataType: '', icon: ''
       },
     ];
@@ -132,7 +132,7 @@ export class AdminLaundryOrderComponent implements OnInit, OnDestroy {
     }
     this.isLoader = false;
     }, error => {
-      this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
+      this.notificationService.error('Failed to fetch data');
       this.isLoader = false;
     });
   }
@@ -163,7 +163,7 @@ export class AdminLaundryOrderComponent implements OnInit, OnDestroy {
       this.agentList = result;
       this.loaderForPopup = false;
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToFetchData'));
+      this.notificationService.error('Failed to fetch data');
       this.loaderForPopup = false;
     });
   }
@@ -179,12 +179,12 @@ export class AdminLaundryOrderComponent implements OnInit, OnDestroy {
   AssignSelectedOrdersToAgent() {
     this.loaderForPopup = true;
     this.adminOrdersService.AssignSelectedOrdersToAgent(this.agentId, this.selectedOrderId).subscribe(result => {
-      this.notificationService.success(this.translateService.instant('Ironing.OrderAssignmentSuccess'));
+      this.notificationService.success('Orders are assigned successfully');
       this.GetLaundryOrdersForAdmin(true);
       this.closeAssignmentPopup();
       this.loaderForPopup = false;
     }, error => {
-      this.notificationService.error(this.translateService.instant('Ironing.OrderAssignmentFailed'));
+      this.notificationService.error('Failed to assign orders');
       this.loaderForPopup = false;
     });
   }

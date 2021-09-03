@@ -94,7 +94,7 @@ export class AdminAgentUsersComponent implements OnInit {
       }
       this.isLoader = false;
       }, error => {
-        this.notificationService.error(this.translateService.instant('CommonText.FailedToFetchData'));
+        this.notificationService.error('Failed to fetch data');
         this.isLoader = false;
       });
   }
@@ -109,7 +109,7 @@ export class AdminAgentUsersComponent implements OnInit {
         }
         this.isLoader = false;
       }, error => {
-        this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
+        this.notificationService.error('Failed to add rerord');
         this.isLoader = false;
       });
     }
@@ -138,14 +138,14 @@ export class AdminAgentUsersComponent implements OnInit {
          if (result === 'Record already exists') {
            this.notificationService.warn(result);
          } else {
-           this.notificationService.success(this.translateService.instant('CommonText.SuccessMsg'));
+           this.notificationService.success('Record added successfully');
            this.GetUsers();
            this.ResetForm();
          }
          this.isLoader = false;
        }
      }, error => {
-       this.notificationService.error(this.translateService.instant('CommonText.FailedToAdd'));
+       this.notificationService.error('Failed to add record');
        this.isLoader = false;
      });
    }
@@ -159,14 +159,14 @@ export class AdminAgentUsersComponent implements OnInit {
           if (result === 'Record already exists') {
             this.notificationService.warn(result);
           } else {
-            this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
+            this.notificationService.success('Record updated successfully');
             this.GetUsers();
             this.ResetForm();
           }
           this.isLoader = false;
         }
       }, error => {
-        this.notificationService.error(this.translateService.instant('CommonText.FailedToUpdate'));
+        this.notificationService.error('Failed to update record');
         this.isLoader = false;
       });
     }
@@ -176,13 +176,13 @@ export class AdminAgentUsersComponent implements OnInit {
     this.isLoader = true;
     this.adminAgentService.DeleteAdminAgentUser(this.adminAgentUserModel.UserId).subscribe(result => {
       if (result !== null && result !== undefined) {
-        this.notificationService.success(this.translateService.instant('CommonText.DeleteMsg'));
+        this.notificationService.success('Record deleted successfully');
         this.GetUsers();
         this.ResetForm();
         this.isLoader = false;
       }
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToDelete'));
+      this.notificationService.error('Failed to delete');
       this.isLoader = false;
     });
 
@@ -228,15 +228,15 @@ export class AdminAgentUsersComponent implements OnInit {
   CostructGridColumnHeaders() {
     this.columnHeader = [
       {
-        name: this.translateService.instant('Login.UserName'), navigation: '',
+        name: 'User name', navigation: '',
         fieldName: 'UserName', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('Register.Name'), navigation: '',
+        name: 'Name', navigation: '',
         fieldName: 'Name', headercss: 'text-left', dataType: '', icon: ''
       },
       {
-        name: this.translateService.instant('Register.UserType'), navigation: '',
+        name: 'User type', navigation: '',
         fieldName: 'UserType', headercss: 'text-left', dataType: '', icon: ''
       },
     ];

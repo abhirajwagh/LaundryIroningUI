@@ -53,15 +53,15 @@ export class CommonService {
   }
 
   BindThePickUpTime() {
-    const values = [{ timeSlot: '9am to 10am' },
-    { timeSlot: '10am to 11am' },
-    { timeSlot: '11am to 12pm' },
-    { timeSlot: '12pm to 1pm' },
-    { timeSlot: '1pm to 2pm' },
-    { timeSlot: '2pm to 3pm' },
-    { timeSlot: '3pm to 4pm' },
-    { timeSlot: '4pm to 5pm' },
-    { timeSlot: '5pm to 6pm' },
+    const values = [{ timeSlot: '9am to 10am', disableTime: '10:00 AM' },
+    { timeSlot: '10am to 11am', disableTime: '11:00 AM'},
+    { timeSlot: '11am to 12pm', disableTime: '12:00 AM' },
+    { timeSlot: '12pm to 1pm', disableTime: '1:00 PM' },
+    { timeSlot: '1pm to 2pm', disableTime: '2:00 PM' },
+    { timeSlot: '2pm to 3pm', disableTime: '3:00 PM' },
+    { timeSlot: '3pm to 4pm', disableTime: '4:00 PM' },
+    { timeSlot: '4pm to 5pm', disableTime: '5:00 PM' },
+    { timeSlot: '5pm to 6pm', disableTime: '6:00 PM' },
     ];
     return values;
   }

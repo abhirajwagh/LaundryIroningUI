@@ -44,12 +44,12 @@ export class ConfirmDeliveryOrdersComponent implements OnInit, OnDestroy {
     };
     this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
       if (result !== null && result !== undefined) {
-        this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
+        this.notificationService.success('Record updated successfully');
         this.isLoader = false;
         this.router.navigate(['/cleanit/agent/deliveryOrders']);
       }
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToUpdate'));
+      this.notificationService.error('Failed to update');
       this.isLoader = false;
     });
   }

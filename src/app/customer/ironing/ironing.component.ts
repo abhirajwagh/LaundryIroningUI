@@ -95,7 +95,7 @@ CreateIroningForm() {
       this.ironingModel.OrderStatus = OrderStausConstants.New;
       this.ironingService.AddIroningOrder(this.ironingModel).subscribe(result => {
         if (result !== null && result !== undefined) {
-          this.notificationService.success(this.translateService.instant('CommonText.OrderPlacedSuccess'));
+          this.notificationService.success('Order placed successfully');
           sessionStorage.setItem(UserConstant.IroningOrderId, result);
           this.ResetForm();
           setTimeout(() => {
@@ -104,7 +104,7 @@ CreateIroningForm() {
           }, 2000);
         }
       }, error => {
-        this.notificationService.error(this.translateService.instant('CommonText.FailedToPlaceOrder'));
+        this.notificationService.error('Failed to place order.Please try after some time');
         this.isLoader = false;
       });
     }
@@ -114,5 +114,33 @@ CreateIroningForm() {
     this.ironingModel.PickUpDate = null;
     this.ironingModel.PickUpTimeSlot = null;
     this.ironingModel.TotalCost = 0;
+  }
+
+  isDisableTime(selectedTime: any): boolean {
+    let isTimeOver = false;
+    let currentHour = new Date().getHours() + 2;
+    const currentMin = new Date().getHours();
+
+    const currentAmPm = currentHour > 12 ? 'PM' : 'AM';
+
+    if (currentHour > 12) {
+      currentHour = currentHour - 12;
+    }
+
+    const selectedHour = +selectedTime.disableTime.substr(0, 2);
+    const selectedMin = +selectedTime.disableTime.substr(3, 2);
+    const selectedAMPM = selectedTime.disableTime.substr(6, 2);
+    if(currentAmPm === selectedAMPM) {
+      if (selectedHour < currentHour) {
+        isTimeOver = true;
+      } else if (selectedHour === currentHour) {
+        if (selectedMin < currentMin) {
+          isTimeOver = true;
+        }
+      }
+    } else {
+      isTimeOver = currentAmPm > selectedAMPM;
+    }
+    return isTimeOver;
   }
 }

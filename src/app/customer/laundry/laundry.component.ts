@@ -91,7 +91,7 @@ AddLaundryOrders() {
     this.laundryModel.OrderStatus = OrderStausConstants.New;
     this.laundryService.AddLaundryOrder(this.laundryModel).subscribe(result => {
       if (result !== null && result !== undefined) {
-        this.notificationService.success(this.translateService.instant('CommonText.OrderPlacedSuccess'));
+        this.notificationService.success('Order placed successfully');
         sessionStorage.setItem(UserConstant.LaundryOrderId, result);
         this.ResetForm();
         setTimeout(() => {
@@ -100,7 +100,7 @@ AddLaundryOrders() {
         }, 2000);
       }
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToPlaceOrder'));
+      this.notificationService.error('Failed to place order.Please try after some time');
       this.isLoader = false;
     });
   }

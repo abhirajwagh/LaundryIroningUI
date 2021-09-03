@@ -76,7 +76,7 @@ export class CustomerProfileComponent implements OnInit {
       this.customerProfileModel.PromoCodePoints = result.PromoCodePoints;
       this.isLoader = false;
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToFetchData'));
+      this.notificationService.error('Failed to fetch data');
       this.isLoader = false;
     });
   }

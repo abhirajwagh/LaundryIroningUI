@@ -53,7 +53,7 @@ export class IroningLaundryOrderSummaryComponent implements OnInit {
           this.isLoader = false;
         }
       }, error => {
-        this.notificationService.error(this.translateService.instant('CommonText.FailedToFetchOrderDetails'));
+        this.notificationService.error('Failed to fetch data');
         this.isLoader = false;
       });
     }

@@ -103,7 +103,7 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
     }
     this.isLoader = false;
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToFetchData'));
+      this.notificationService.error('Failed to fetch data');
       this.isLoader = false;
     });
   }
@@ -132,13 +132,13 @@ export class AgentDeliveryOrdersComponent implements OnInit, OnDestroy {
     };
     this.agentOrdersService.UpdateOrderStatus(inputModel).subscribe(result => {
       if (result !== null && result !== undefined) {
-        this.notificationService.success(this.translateService.instant('CommonText.UpdateMsg'));
+        this.notificationService.success('Record updated successfully');
         this.GetDeliveryOrdersForAgent(true);
         this.closeSummeryPopup();
         this.isLoader = false;
       }
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToUpdate'));
+      this.notificationService.error('Failed to update');
       this.isLoader = false;
     });
   }

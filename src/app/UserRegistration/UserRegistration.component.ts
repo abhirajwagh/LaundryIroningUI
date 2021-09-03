@@ -81,13 +81,13 @@ export class UserRegistrationComponent implements OnInit {
             if (result === 'Record already exists') {
               this.notificationService.warn(result);
             } else {
-              this.notificationService.success(this.translateService.instant('Register.RegistrationSuccessMsg'));
+              this.notificationService.success('You have registered successfully.Please login to continue.');
               this.router.navigate(['/']);
             }
             this.isLoader = false;
           }
         }, error => {
-          this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
+          this.notificationService.error('Failed to register');
           this.isLoader = false;
         });
       }
@@ -107,7 +107,7 @@ export class UserRegistrationComponent implements OnInit {
           this.notificationService.error('Promo code is invalid.');
         }
       }, error => {
-        this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
+        this.notificationService.error('Failed to fetch data');
         this.isLoader = false;
         this.RegisterUser();
       });
@@ -126,7 +126,7 @@ export class UserRegistrationComponent implements OnInit {
        }
        this.isLoader = false;
      }, error => {
-       this.notificationService.error(this.translateService.instant('Notifications.Filter.FailedToADD'));
+       this.notificationService.error('Failed to fetch data');
        this.isLoader = false;
      });
    }
