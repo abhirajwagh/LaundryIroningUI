@@ -37,7 +37,7 @@ import { FaqsV2Module } from './customer/faqsv2/faqsv2.module';
       showProgressBar: true,
       clickIconToClose: true,
       // animate: 'rotate',
-      timeOut: 5000
+      timeOut: 10000
     }),
     SpinnerComponentModule,
     UserRegistrationModule,

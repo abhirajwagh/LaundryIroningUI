@@ -54,7 +54,7 @@
                         <div class="col-lg-9 col-md-9 col-xs-12">
                           <select formControlName="TimeSlot" [(ngModel)]="ironingModel.PickUpTimeSlot" class="form-control" required>
                             <option value="null">Select time slot</option>
-                            <option *ngFor="let t of pickupTimeSlot" [ngValue]='t.timeSlot'>{{t.timeSlot}}</option>
+                            <option *ngFor="let t of pickupTimeSlot"  [ngValue]='t.timeSlot'>{{t.timeSlot}}</option>
                           </select>
                         </div>
                       </div>
@@ -92,7 +92,7 @@
                   </div>
                   <div class="row text-center">
                     <div class="col-12">
-                      <button type="submit" [disabled] ="!ironingForm.valid" (click)="AddIroningOrders()" class="btn btn-info shadow mr-1 mb-1">Place Order</button>
+                      <button type="submit" style="cursor: pointer;" [disabled] ="!ironingForm.valid" (click)="AddIroningOrders()" class="btn btn-info shadow mr-1 mb-1">Place Order</button>
                       <button type="button" (click)="ResetForm()" class="btn btn-light shadow mr-1 mb-1">Clear</button>
                     </div>
                   </div>

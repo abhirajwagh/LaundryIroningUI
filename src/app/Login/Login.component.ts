@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/login']);
          }
        } else {
-         this.notificationService.error(this.translateService.instant('Login.ENTER_VALID_USERNAME_&_PASSWORD'));
+         this.notificationService.error('Please enter valid Username and Password');
          this.Logout();
        }
        this.isLoader = false;

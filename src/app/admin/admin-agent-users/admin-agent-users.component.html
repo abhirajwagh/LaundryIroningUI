@@ -13,7 +13,7 @@
                 <div class="col-lg-9 col-md-9 col-xs-12">
                   <input [attr.disabled]="isUpdateDelete == true ? true: null" type="text" class="form-control" maxlength="20" (change)="CheckUserNameExists()"
                   (keypress)="keyPressAlphaNumeric($event)" [(ngModel)]="adminAgentUserModel.UserName"
-                  formControlName="Username" placeholder="{{'Login.EnterUsername' | translate }}">
+                  formControlName="Username" placeholder="Enter username">
                 </div>
               </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="password" class="form-control" maxlength="20"
                   [(ngModel)]="adminAgentUserModel.Password" formControlName="Password" 
-                  placeholder="{{'Register.EnterPassword' | translate }}">
+                  placeholder="Enter password">
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="text" class="form-control" maxlength="50" 
                   [(ngModel)]="adminAgentUserModel.Name"
-                  formControlName="Name" placeholder="{{'Register.EnterName' | translate }}">
+                  formControlName="Name" placeholder="Enter name">
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@
                   <label class="col-form-label">Address<span class="text-danger"> *</span></label>
                 </div>
                 <div class="col-lg-9 col-md-9 col-xs-12">
-                  <textarea [(ngModel)]="adminAgentUserModel.Address" maxlength="200" formControlName="Address" class="form-control"  placeholder="Enter Address" required></textarea> 
+                  <textarea [(ngModel)]="adminAgentUserModel.Address" maxlength="200" formControlName="Address" class="form-control"  placeholder="Enter address" required></textarea> 
                   
                 </div>
               </div>
@@ -69,7 +69,7 @@
                 <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="number" class="form-control" maxlength="10" 
                     [(ngModel)]="adminAgentUserModel.MobileNo"
-                    formControlName="MobileNo" placeholder="{{'Register.EnterValidMobileNo' | translate }}">
+                    formControlName="MobileNo" placeholder="Enter valid mobile no">
                 </div>
               </div>
             </div>
@@ -84,7 +84,7 @@
                 <div class="col-lg-9 col-md-9 col-xs-12">
                   <input type="email" class="form-control" maxlength="50"
                   [(ngModel)]="adminAgentUserModel.Email" formControlName="EmailId" 
-                  placeholder="{{'Register.EnterValidEmail' | translate }}">
+                  placeholder="Enter email id">
                 </div>
               </div>
             </div>
@@ -100,7 +100,7 @@
                   <input [attr.disabled]="isUpdateDelete == true ? true: null" type="text" class="form-control" maxlength="30" 
                     [(ngModel)]="adminAgentUserModel.AadharNo"
                     formControlName="AadharNo" 
-                    placeholder="{{'Register.EnterValidAadharNo' | translate }}">
+                    placeholder="Enter valid aadhaar no">
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@
                   <input [attr.disabled]="isUpdateDelete == true ? true: null"
                   type="text" class="form-control" maxlength="50"
                    [(ngModel)]="adminAgentUserModel.DrivingLicenceNo" formControlName="DrivingLicenceNo" 
-                   placeholder="{{'Register.EnterValidDrivingLicenceNo' | translate }}">
+                   placeholder="Enter valid driving licence no">
                 </div>
               </div>
             </div>

@@ -62,7 +62,7 @@
             <label class="bold-font" style="margin-right: 5%;">I confirm,Order has been picked
               <input value="true" (click)="ValidPickedOrder($event)"  type="checkbox">
             </label>
-            <button [disabled]="!isValidOrder || agentComment==null || agentComment==''" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
+            <button style="cursor: pointer;" [disabled]="!isValidOrder || agentComment==null || agentComment==''" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
           </div>
         </div>
       </div> 

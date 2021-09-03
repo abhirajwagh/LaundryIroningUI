@@ -60,7 +60,7 @@ export class RecentOrdersComponent implements OnInit {
     }
     this.isLoader = false;
     }, error => {
-      this.notificationService.error(this.translateService.instant('CommonText.FailedToFetchData'));
+      this.notificationService.error('Failed to fetch data');
       this.isLoader = false;
     });
   }

@@ -49,7 +49,7 @@
             <label class="bold-font" style="margin-right: 5%;">Is Order Valid
               <input value="true" (click)="ValidDeliveryOrder($event)"  type="checkbox">
             </label>
-            <button [disabled]="!isValidOrder" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
+            <button style="cursor: pointer;" [disabled]="!isValidOrder" class="btn btn-primary" (click)="UpdateOrderStatus()" >Confirm</button>
           </div>
         </div>
       </div> 
