@@ -20,6 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
+              "src/Cleaint.png",
               "src/assets",
               "src/i18n"
             ],
@@ -102,6 +103,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
+              "src/Cleaint.png",
               "src/assets",
               "src/i18n"
             ],
