@@ -68,7 +68,7 @@
                           <label class="col-form-label">Address<span class="text-danger"> *</span></label>
                         </div>
                         <div class="col-lg-9 col-md-9 col-xs-12">
-                          <textarea formControlName="Address" [(ngModel)]="ironingModel.PickUpAddress" class="form-control"  placeholder="Enter Address" required readonly></textarea> 
+                          <textarea [readonly]="!isPhoneUser" formControlName="Address" [(ngModel)]="ironingModel.PickUpAddress" class="form-control"  placeholder="Enter Address" required></textarea> 
                         </div>
                       </div>
                     </div>

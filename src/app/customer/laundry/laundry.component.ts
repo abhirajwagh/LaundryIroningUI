@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationsService } from 'angular2-notifications';
 import * as moment from 'moment';
-import { OrderStausConstants, UserConstant } from 'src/app/Constants/Application.Constant';
+import { OrderStausConstants, UserConstant, UserTypeConstants } from 'src/app/Constants/Application.Constant';
 import { CommonService } from 'src/app/Services/Common.service';
 import { environment } from 'src/environments/environment';
 import { LaundryModel } from './laundry.Model';
@@ -25,6 +25,8 @@ export class LaundryComponent implements OnInit {
   defaultValue: any;
   @ViewChild('UPIcheckbox', { static: false }) UPIcheckbox;
   @ViewChild('CODcheckbox', { static: false }) CODcheckbox;
+  userType: string;
+  isPhoneUser = false;
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService, private laundryService: LaundryService,
               private router: Router, private commonService: CommonService,
@@ -34,6 +36,12 @@ export class LaundryComponent implements OnInit {
         }
 
   ngOnInit() {
+    this.userType = this.commonService.GetUserType();
+    if (this.userType === UserTypeConstants.PhoneUser) {
+      this.isPhoneUser = true;
+    } else {
+      this.isPhoneUser = false;
+    }
     this.defaultValue = environment.LaundryRate;
     this.laundryModel = new LaundryModel();
     this.laundryModel.PickUpTimeSlot = null;

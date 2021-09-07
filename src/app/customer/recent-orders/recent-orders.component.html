@@ -51,7 +51,7 @@
                     <h6 class="mrb">{{ order.PickUpTimeSlot}}</h6>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" *ngIf="order.PromoCodePoints != null && order.PromoCodePoints > 0">
                   <div class="col-6">
                    <h6>Available promo code points</h6>
                   </div>
