@@ -25,8 +25,8 @@ export class IroningComponent implements OnInit {
   defaultValue: any;
   @ViewChild('UPIcheckbox', { static: false }) UPIcheckbox;
   @ViewChild('CODcheckbox', { static: false }) CODcheckbox;
-  phoneUser = UserTypeConstants.PhoneUser;
-  sessionUser: string;
+  userType: string;
+  isPhoneUser = false;
   constructor(private translateService: TranslateService, private fb: FormBuilder,
               private notificationService: NotificationsService, private ironingService: IroningService,
               private router: Router, private commonService: CommonService,
@@ -36,7 +36,12 @@ export class IroningComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sessionUser = sessionStorage.getItem(UserConstant.UserName);
+    this.userType = this.commonService.GetUserType();
+    if (this.userType === UserTypeConstants.PhoneUser) {
+      this.isPhoneUser = true;
+    } else {
+      this.isPhoneUser = false;
+    }
     this.defaultValue = environment.IroningRate ;
     this.ironingModel = new IroningModel();
     this.ironingModel.PickUpTimeSlot = null;
