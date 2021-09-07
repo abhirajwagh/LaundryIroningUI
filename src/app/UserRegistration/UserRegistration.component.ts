@@ -47,7 +47,7 @@ export class UserRegistrationComponent implements OnInit {
       promoCode: ['', []],
     });
     return 'form created';
-  }
+ }
 
   setUserLanguage(userLanguage) {
     this.translateService.setDefaultLang(userLanguage);
