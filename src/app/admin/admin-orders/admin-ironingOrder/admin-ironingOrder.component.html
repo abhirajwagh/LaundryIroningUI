@@ -1,10 +1,15 @@
 
   <div class="row" [apploading]="isLoader">
     <div class="col-sm-12 col-md-12">
-      <app-grid-table [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
+      <!-- <app-grid-table [ShowTooTip]='true' [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
         (clickedIcon)="selectedGridData($event,OrderSummeryPopup)" [pagination]="true" [showselection]='true' [enableSearch]="true"
         [GridName]="'OrdersGrid'">
-      </app-grid-table>
+      </app-grid-table> -->
+
+      <app-grid-table [ShowTooTip]='true' [columns]="columnHeader" [pagesize]="50" [Data]="tableData" [TotalItem]="totalItems"
+      [pagination]="true" [showselection]='true' [enableSearch]="true"
+      [GridName]="'OrdersGrid'">
+    </app-grid-table>
       <button class="btn btn-primary" [disabled]="selectedOrderId.length <= 0" 
       (click)="OpenOrderAssignmentpoup(OrderAssignmentPopup)">
         Order Assignment</button>
